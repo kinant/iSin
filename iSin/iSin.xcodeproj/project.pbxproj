@@ -13,6 +13,9 @@
 		C992434F1CA09DD900E64D26 /* iSin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C992434D1CA09DD900E64D26 /* iSin.xcdatamodeld */; };
 		C99243511CA09DD900E64D26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99243501CA09DD900E64D26 /* Assets.xcassets */; };
 		C99243541CA09DD900E64D26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99243521CA09DD900E64D26 /* LaunchScreen.storyboard */; };
+		C992435C1CA09E7900E64D26 /* PagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992435B1CA09E7900E64D26 /* PagerController.swift */; };
+		C992435E1CA09F0D00E64D26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992435D1CA09F0D00E64D26 /* Extensions.swift */; };
+		C99243601CA0A07E00E64D26 /* SinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992435F1CA0A07E00E64D26 /* SinViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		C99243501CA09DD900E64D26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C99243531CA09DD900E64D26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C99243551CA09DD900E64D26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C992435B1CA09E7900E64D26 /* PagerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerController.swift; sourceTree = "<group>"; };
+		C992435D1CA09F0D00E64D26 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C992435F1CA0A07E00E64D26 /* SinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +63,15 @@
 			isa = PBXGroup;
 			children = (
 				C99243461CA09DD900E64D26 /* AppDelegate.swift */,
+				C992435D1CA09F0D00E64D26 /* Extensions.swift */,
 				C99243481CA09DD900E64D26 /* ViewController.swift */,
 				C992434A1CA09DD900E64D26 /* Main.storyboard */,
 				C99243501CA09DD900E64D26 /* Assets.xcassets */,
 				C99243521CA09DD900E64D26 /* LaunchScreen.storyboard */,
 				C99243551CA09DD900E64D26 /* Info.plist */,
 				C992434D1CA09DD900E64D26 /* iSin.xcdatamodeld */,
+				C992435B1CA09E7900E64D26 /* PagerController.swift */,
+				C992435F1CA0A07E00E64D26 /* SinViewController.swift */,
 			);
 			path = iSin;
 			sourceTree = "<group>";
@@ -138,9 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C992435E1CA09F0D00E64D26 /* Extensions.swift in Sources */,
 				C99243491CA09DD900E64D26 /* ViewController.swift in Sources */,
 				C99243471CA09DD900E64D26 /* AppDelegate.swift in Sources */,
+				C99243601CA0A07E00E64D26 /* SinViewController.swift in Sources */,
 				C992434F1CA09DD900E64D26 /* iSin.xcdatamodeld in Sources */,
+				C992435C1CA09E7900E64D26 /* PagerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
