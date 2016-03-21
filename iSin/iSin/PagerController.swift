@@ -247,7 +247,11 @@ public class PagerController: UIViewController, UIPageViewControllerDataSource, 
             rect.size.height = self.indicatorHeight
             
             self.underlineStroke = UIView(frame: rect)
+            
             self.underlineStroke.backgroundColor = self.indicatorColor
+            //self.underlineStroke.backgroundColor = UIColor.lightGrayColor()
+            self.underlineStroke.alpha = 0.50
+            
             self.tabsView!.addSubview(self.underlineStroke)
         }
         

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Sin View Controller-->
@@ -28,22 +29,37 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pod-8p-bH6">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <rect key="frame" x="277" y="550" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USP-wS-FfV">
+                                <rect key="frame" x="20" y="236" width="560" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="fKs-47-Bul"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="pod-8p-bH6" secondAttribute="bottom" constant="20" symbolic="YES" id="2PV-N7-xfo"/>
                             <constraint firstItem="ulE-45-wrl" firstAttribute="top" secondItem="UrH-aE-ZBc" secondAttribute="bottom" constant="45" id="3yO-VJ-dpF"/>
-                            <constraint firstItem="pod-8p-bH6" firstAttribute="centerX" secondItem="Awo-xC-GAf" secondAttribute="centerX" id="Fbq-lv-xjY"/>
-                            <constraint firstItem="pod-8p-bH6" firstAttribute="centerY" secondItem="Awo-xC-GAf" secondAttribute="centerY" id="GAj-mn-8IB"/>
-                            <constraint firstItem="pod-8p-bH6" firstAttribute="centerX" secondItem="ulE-45-wrl" secondAttribute="centerX" id="yOm-gI-oWT"/>
+                            <constraint firstItem="USP-wS-FfV" firstAttribute="trailing" secondItem="Awo-xC-GAf" secondAttribute="trailingMargin" id="PWk-3N-RWi"/>
+                            <constraint firstItem="USP-wS-FfV" firstAttribute="centerX" secondItem="ulE-45-wrl" secondAttribute="centerX" id="hy4-KR-FY8"/>
+                            <constraint firstItem="USP-wS-FfV" firstAttribute="centerY" secondItem="Awo-xC-GAf" secondAttribute="centerY" id="iGX-mI-kMy"/>
+                            <constraint firstItem="USP-wS-FfV" firstAttribute="leading" secondItem="Awo-xC-GAf" secondAttribute="leadingMargin" id="qe6-RV-IBk"/>
+                            <constraint firstItem="USP-wS-FfV" firstAttribute="centerX" secondItem="pod-8p-bH6" secondAttribute="centerX" id="rN4-aV-jrA"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="pod-8p-bH6" id="Qs3-8G-ZcB"/>
+                        <outlet property="descTextView" destination="USP-wS-FfV" id="lJP-VQ-819"/>
                         <outlet property="titleLabel" destination="ulE-45-wrl" id="Z0L-za-7Jh"/>
                     </connections>
                 </viewController>

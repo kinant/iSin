@@ -14,13 +14,16 @@ class SinViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var descTextView: UITextView!
+    
     var bckColor: UIColor!
     var sinTitle: String!
+    var sinDescription: String!
     
     override func viewWillAppear(animated: Bool) {
-        self.view.backgroundColor = bckColor;
-        self.titleLabel.text = sinTitle;
+        self.view.backgroundColor = bckColor
+        self.titleLabel.text = sinTitle
+        descTextView.text = sinDescription
     }
     
-
 }
