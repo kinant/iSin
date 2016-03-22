@@ -41,9 +41,9 @@ public enum PagerAnimation: Int {
 public class PagerController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
     
     // MARK: - public properties
-    public var contentViewBackgroundColor: UIColor = UIColor.whiteColor()
+    public var contentViewBackgroundColor: UIColor = UIColor.clearColor()
     public var indicatorColor: UIColor = UIColor.redColor()
-    public var tabsViewBackgroundColor: UIColor = UIColor.grayColor()
+    public var tabsViewBackgroundColor: UIColor = UIColor.clearColor()
     public var dataSource: PagerDataSource!
     public var delegate: PagerDelegate?
     public var tabHeight: CGFloat = 44.0
@@ -275,11 +275,16 @@ public class PagerController: UIViewController, UIPageViewControllerDataSource, 
         
         frame = self.contentView.frame
         frame.origin.x = 0.0
-        frame.origin.y = (self.tabLocation == .Top) ? topLayoutGuide + CGRectGetHeight(self.tabsView!.frame): topLayoutGuide
+        
+        // change origin.y of content view...
+        
+        //frame.origin.y = (self.tabLocation == .Top) ? topLayoutGuide + CGRectGetHeight(self.tabsView!.frame): topLayoutGuide
+        frame.origin.y = topLayoutGuide
         frame.size.width = CGRectGetWidth(self.view.frame)
         
-        frame.size.height = CGRectGetHeight(self.view.frame) - (topLayoutGuide + CGRectGetHeight(self.tabsView!.frame))
-        
+        //frame.size.height = CGRectGetHeight(self.view.frame) - (topLayoutGuide + CGRectGetHeight(self.tabsView!.frame))
+        frame.size.height = CGRectGetHeight(self.view.frame) - (topLayoutGuide)
+
         if (self.tabBarController != nil) {
             frame.size.height -= CGRectGetHeight(self.tabBarController!.tabBar.frame)
         }

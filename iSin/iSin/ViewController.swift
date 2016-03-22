@@ -95,7 +95,7 @@ class ViewController: PagerController, PagerDataSource {
     func customiseTab()
     {
         indicatorColor = UIColor.whiteColor()
-        tabsViewBackgroundColor = UIColor(rgb: 0x00AA00)
+        tabsViewBackgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.45)
         contentViewBackgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.32)
         
         startFromSecondTab = false
