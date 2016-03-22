@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="1829" y="-182"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Sin View Controller-->
         <scene sceneID="Y8T-AS-vbs">
             <objects>
-                <viewController id="2Ik-OR-RjI" sceneMemberID="viewController">
+                <viewController id="2Ik-OR-RjI" customClass="AddSinViewController" customModule="iSin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9bh-53-6Qb"/>
                         <viewControllerLayoutGuide type="bottom" id="DIO-hd-oPr"/>

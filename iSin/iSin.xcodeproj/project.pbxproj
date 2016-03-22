@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96E54091CA1ADE400939DBC /* SWRevealViewController.m */; };
+		C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540B1CA1E16500939DBC /* ISINClient.swift */; };
+		C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540D1CA1E94E00939DBC /* ISINConstants.swift */; };
+		C96E54101CA1EAC900939DBC /* AddSinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */; };
+		C96E54121CA1F8FA00939DBC /* ISINConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */; };
+		C96E54141CA1F9BC00939DBC /* ISINPassage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E54131CA1F9BC00939DBC /* ISINPassage.swift */; };
 		C99243471CA09DD900E64D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99243461CA09DD900E64D26 /* AppDelegate.swift */; };
 		C99243491CA09DD900E64D26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99243481CA09DD900E64D26 /* ViewController.swift */; };
 		C992434C1CA09DD900E64D26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C992434A1CA09DD900E64D26 /* Main.storyboard */; };
@@ -23,6 +28,11 @@
 		C96E54071CA1ADE300939DBC /* iSin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iSin-Bridging-Header.h"; sourceTree = "<group>"; };
 		C96E54081CA1ADE400939DBC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		C96E54091CA1ADE400939DBC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		C96E540B1CA1E16500939DBC /* ISINClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISINClient.swift; sourceTree = "<group>"; };
+		C96E540D1CA1E94E00939DBC /* ISINConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISINConstants.swift; sourceTree = "<group>"; };
+		C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSinViewController.swift; sourceTree = "<group>"; };
+		C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISINConvenience.swift; sourceTree = "<group>"; };
+		C96E54131CA1F9BC00939DBC /* ISINPassage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISINPassage.swift; sourceTree = "<group>"; };
 		C99243431CA09DD900E64D26 /* iSin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99243461CA09DD900E64D26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C99243481CA09DD900E64D26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +88,9 @@
 			children = (
 				C96E54061CA1ADC400939DBC /* SWRevealViewController */,
 				C99243461CA09DD900E64D26 /* AppDelegate.swift */,
+				C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */,
+				C96E540B1CA1E16500939DBC /* ISINClient.swift */,
+				C96E540D1CA1E94E00939DBC /* ISINConstants.swift */,
 				C992435D1CA09F0D00E64D26 /* Extensions.swift */,
 				C99243481CA09DD900E64D26 /* ViewController.swift */,
 				C992434A1CA09DD900E64D26 /* Main.storyboard */,
@@ -87,6 +100,8 @@
 				C992434D1CA09DD900E64D26 /* iSin.xcdatamodeld */,
 				C992435B1CA09E7900E64D26 /* PagerController.swift */,
 				C992435F1CA0A07E00E64D26 /* SinViewController.swift */,
+				C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */,
+				C96E54131CA1F9BC00939DBC /* ISINPassage.swift */,
 			);
 			path = iSin;
 			sourceTree = "<group>";
@@ -163,12 +178,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */,
+				C96E54121CA1F8FA00939DBC /* ISINConvenience.swift in Sources */,
 				C992435E1CA09F0D00E64D26 /* Extensions.swift in Sources */,
 				C99243491CA09DD900E64D26 /* ViewController.swift in Sources */,
 				C99243471CA09DD900E64D26 /* AppDelegate.swift in Sources */,
 				C99243601CA0A07E00E64D26 /* SinViewController.swift in Sources */,
 				C992434F1CA09DD900E64D26 /* iSin.xcdatamodeld in Sources */,
+				C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */,
+				C96E54101CA1EAC900939DBC /* AddSinViewController.swift in Sources */,
 				C992435C1CA09E7900E64D26 /* PagerController.swift in Sources */,
+				C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */,
+				C96E54141CA1F9BC00939DBC /* ISINPassage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
