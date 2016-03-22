@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: PagerController, PagerDataSource {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     var titles: [String] = []
     
     internal enum Sin: Int {
@@ -34,6 +36,13 @@ class ViewController: PagerController, PagerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
         self.dataSource = self
         
         // Instantiating Storyboard ViewControllers
@@ -108,6 +117,9 @@ class ViewController: PagerController, PagerDataSource {
     // Programatically selecting a tab. This function is getting called on AppDelegate
     func changeTab() {
         //self.selectTabAtIndex(4)
+        
+        
+        
     }
 }
 

@@ -16,23 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let viewController = ViewController()
+        //self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        //let viewController = ViewController()
         
         //NavigationController with title and button
-        let navController = UINavigationController(rootViewController: viewController)
-        navController.navigationBar.topItem?.title = "iSin"
-        navController.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "...", style: UIBarButtonItemStyle.Plain, target: viewController, action: Selector("changeTab"))
-        navController.navigationBar.hideBottomHairline()
+        //let navController = UINavigationController(rootViewController: viewController)
+        //navController.navigationBar.topItem?.title = "iSin"
+        //navController.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "...", style: UIBarButtonItemStyle.Plain, target: viewController, action: Selector("changeTab"))
+        //navController.navigationBar.hideBottomHairline()
         
-        self.window!.rootViewController = navController
-        self.window?.makeKeyAndVisible()
+        //self.window!.rootViewController = navController
+        //self.window?.makeKeyAndVisible()
         
         //NavigationBar customization
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()] // Title's text color
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().barTintColor = UIColor(rgb: 0x00AA00)
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()] // Title's text color
+        //UINavigationBar.appearance().shadowImage = UIImage()
+        //UINavigationBar.appearance().barTintColor = UIColor(rgb: 0x00AA00)
+        //UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         //Setting Status Bar to be white instead of black
         UIApplication.sharedApplication().statusBarStyle = .LightContent
