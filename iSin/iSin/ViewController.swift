@@ -50,37 +50,37 @@ class ViewController: PagerController, PagerDataSource {
         
         let controller1 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller1.sinTitle = "LUST"
-        controller1.bckColor = UIColor.blueColor();
+        controller1.bckColor = "#F08080".hexColor
         controller1.sinDescription = descriptions[0]
         
         let controller2 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller2.sinTitle = "GLUTTONY"
-        controller2.bckColor = UIColor.brownColor()
+        controller2.bckColor = "#FF69B4".hexColor
         controller2.sinDescription = descriptions[1]
         
         let controller3 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller3.sinTitle = "GREED"
-        controller3.bckColor = UIColor.orangeColor()
+        controller3.bckColor = "#FFFF00".hexColor
         controller3.sinDescription = descriptions[2]
         
         let controller4 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller4.sinTitle = "SLOTH"
-        controller4.bckColor = UIColor.yellowColor()
+        controller4.bckColor = "#87CEFA".hexColor
         controller4.sinDescription = descriptions[3]
         
         let controller5 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller5.sinTitle = "WRATH"
-        controller5.bckColor = UIColor.whiteColor()
+        controller5.bckColor = "#FFA500".hexColor
         controller5.sinDescription = descriptions[4]
         
         let controller6 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller6.sinTitle = "ENVY"
-        controller6.bckColor = UIColor.redColor()
+        controller6.bckColor = "#32CD32".hexColor
         controller6.sinDescription = descriptions[5]
         
         let controller7 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller7.sinTitle = "PRIDE"
-        controller7.bckColor = UIColor.greenColor()
+        controller7.bckColor = "#EE82EE".hexColor
         controller7.sinDescription = descriptions[6]
         
         // Setting up the PagerController with Name of the Tabs and their respective ViewControllers
