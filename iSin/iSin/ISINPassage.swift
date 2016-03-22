@@ -18,29 +18,15 @@ class ISINPassage : CustomStringConvertible {
     
     init(dictionaryArray: [[String:AnyObject]]){
         
-        print("making new passage")
-        print(dictionaryArray)
-        
-        print("first record...")
-        
-        //
-        //print(testInt)
-        
         if let temp_book = dictionaryArray[0]["bookname"] as? String {
-            print("getting book")
-            print(temp_book)
             self.book = temp_book
         }
         
         if let temp_chapter = dictionaryArray[0]["chapter"]as? String {
-            print("getting chapter")
-
             self.chapter = Int(temp_chapter)
         }
         
         if let temp_start = dictionaryArray[0]["verse"] as? String {
-            print("getting start")
-
             self.start = Int(temp_start)
         }
         
@@ -55,7 +41,6 @@ class ISINPassage : CustomStringConvertible {
         self.text = ""
         
         for(var i=0; i<dictionaryArray.count;i++){
-            
             if let temp_text = dictionaryArray[i]["text"] as? String {
                 self.text = self.text + temp_text
             }
@@ -63,7 +48,15 @@ class ISINPassage : CustomStringConvertible {
     }
     
     var description: String {
-        return "\(book) \(chapter):\(start)-\(end), \(text)"
+        return "\(title), \(text)"
     }
     
+    var title : String {
+        
+        if self.end != 0 {
+            return "\(book) \(chapter):\(start)-\(end)"
+        } else {
+            return "\(book) \(chapter):\(start)"
+        }
+    }
 }
