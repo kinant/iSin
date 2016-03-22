@@ -18,11 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pod-8p-bH6">
-                                <rect key="frame" x="277" y="550" width="46" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulE-45-wrl">
+                                <rect key="frame" x="270" y="130" width="61.5" height="21"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4Fg-su-w0M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USP-wS-FfV">
                                 <rect key="frame" x="20" y="236" width="560" height="128"/>
                                 <animations/>
@@ -34,16 +39,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulE-45-wrl">
-                                <rect key="frame" x="270" y="130" width="61.5" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pod-8p-bH6">
+                                <rect key="frame" x="270" y="550" width="60" height="30"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="4Fg-su-w0M"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="ADD SIN"/>
+                                <connections>
+                                    <segue destination="2Ik-OR-RjI" kind="presentation" id="iD4-k6-M31"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,6 +69,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6N5-ot-CX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1829" y="-182"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Y8T-AS-vbs">
+            <objects>
+                <viewController id="2Ik-OR-RjI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9bh-53-6Qb"/>
+                        <viewControllerLayoutGuide type="bottom" id="DIO-hd-oPr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r2Y-LY-Xmk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD SIN SCREEN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJw-7p-8rb">
+                                <rect key="frame" x="230" y="33" width="141" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uPY-hh-SVI">
+                                <rect key="frame" x="0.0" y="76" width="600" height="465"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="465" id="9Wb-UL-aXL"/>
+                                </constraints>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nt2-Gz-3Vj">
+                                <rect key="frame" x="19" y="562" width="48" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cancel"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffk-pT-8JX">
+                                <rect key="frame" x="522" y="562" width="71" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Add Other"/>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nt2-Gz-3Vj" firstAttribute="leading" secondItem="r2Y-LY-Xmk" secondAttribute="leadingMargin" constant="-1" id="IRH-wo-aaw"/>
+                            <constraint firstItem="uPY-hh-SVI" firstAttribute="top" secondItem="KJw-7p-8rb" secondAttribute="bottom" constant="22" id="K4w-S5-3oy"/>
+                            <constraint firstItem="uPY-hh-SVI" firstAttribute="centerX" secondItem="KJw-7p-8rb" secondAttribute="centerX" id="PWb-Bt-mB2"/>
+                            <constraint firstAttribute="trailing" secondItem="uPY-hh-SVI" secondAttribute="trailing" id="j62-cr-pKu"/>
+                            <constraint firstItem="Ffk-pT-8JX" firstAttribute="top" secondItem="uPY-hh-SVI" secondAttribute="bottom" constant="21" id="jtV-Ou-WJr"/>
+                            <constraint firstItem="Ffk-pT-8JX" firstAttribute="baseline" secondItem="Nt2-Gz-3Vj" secondAttribute="baseline" id="rc7-DJ-rzO"/>
+                            <constraint firstItem="uPY-hh-SVI" firstAttribute="leading" secondItem="r2Y-LY-Xmk" secondAttribute="leading" id="uS4-lE-xvH"/>
+                            <constraint firstItem="uPY-hh-SVI" firstAttribute="top" secondItem="r2Y-LY-Xmk" secondAttribute="top" constant="76" id="zOg-sF-xox"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ffk-pT-8JX" secondAttribute="trailing" constant="-13" id="zeF-op-CNC"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vUX-v2-EPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2569" y="-182"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="6d4-p2-wp9">
@@ -132,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="1157" y="-182"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Main Menu-->
         <scene sceneID="XYX-e9-se5">
             <objects>
-                <tableViewController id="y2U-tb-98n" sceneMemberID="viewController">
+                <tableViewController title="Main Menu" id="y2U-tb-98n" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lTI-Vv-TC4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
