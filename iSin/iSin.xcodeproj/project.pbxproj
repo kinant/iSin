@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C92108821CA2797B001ED09D /* SinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92108811CA2797B001ED09D /* SinTableViewController.swift */; };
 		C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96E54091CA1ADE400939DBC /* SWRevealViewController.m */; };
 		C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540B1CA1E16500939DBC /* ISINClient.swift */; };
 		C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540D1CA1E94E00939DBC /* ISINConstants.swift */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C92108811CA2797B001ED09D /* SinTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinTableViewController.swift; sourceTree = "<group>"; };
 		C96E54071CA1ADE300939DBC /* iSin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iSin-Bridging-Header.h"; sourceTree = "<group>"; };
 		C96E54081CA1ADE400939DBC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		C96E54091CA1ADE400939DBC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */,
 				C992435D1CA09F0D00E64D26 /* Extensions.swift */,
 				C99243481CA09DD900E64D26 /* ViewController.swift */,
-				C92108811CA2797B001ED09D /* SinTableViewController.swift */,
 				C992434A1CA09DD900E64D26 /* Main.storyboard */,
 				C99243501CA09DD900E64D26 /* Assets.xcassets */,
 				C99243521CA09DD900E64D26 /* LaunchScreen.storyboard */,
@@ -181,7 +178,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C92108821CA2797B001ED09D /* SinTableViewController.swift in Sources */,
 				C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */,
 				C96E54121CA1F8FA00939DBC /* ISINConvenience.swift in Sources */,
 				C992435E1CA09F0D00E64D26 /* Extensions.swift in Sources */,
