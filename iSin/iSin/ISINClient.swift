@@ -25,18 +25,13 @@ class ISINClient: NSObject {
     
     // MARK: GET
     // function for GET network data requests
-    func taskForGETMethod(method: String, var parameters: [String:AnyObject], completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForGETMethod(api: ISINClient.API, method: String, var parameters: [String:AnyObject], completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         /* 1. Set the parameters */
         //parameters[ParameterKeys.ApiKey] = Constants.ApiKey
         
-        var url = "http://labs.bible.org/api/?passage=1Jn3:16&type=json";
-        var myURL = NSURL(string: url)
-        
         /* 2/3. Build the URL, Configure the request */
-        let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtension: method))
-        
-        //let request = NSMutableURLRequest(URL: myURL!)
+        let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtension: method, api: api))
         
         /* 4. Make the request */
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
@@ -100,18 +95,28 @@ class ISINClient: NSObject {
     }
     
     // create a URL from parameters
-    private func urlFromParameters(parameters: [String:AnyObject], withPathExtension: String? = nil) -> NSURL {
+    private func urlFromParameters(parameters: [String:AnyObject], withPathExtension: String? = nil, api: ISINClient.API) -> NSURL {
         
         let components = NSURLComponents()
-        components.scheme = ISINClient.Constants.ApiScheme
-        components.host = ISINClient.Constants.ApiHost
-        components.path = ISINClient.Constants.ApiPath + (withPathExtension ?? "")
-        components.queryItems = [NSURLQueryItem]()
+        
+        if(api == ISINClient.API.BIBLEORG){
+            components.scheme = ISINClient.BIBLEORGConstants.ApiScheme
+            components.host = ISINClient.BIBLEORGConstants.ApiHost
+            components.path = ISINClient.BIBLEORGConstants.ApiPath + (withPathExtension ?? "")
+            components.queryItems = [NSURLQueryItem]()
+        } else {
+            components.scheme = ISINClient.ISINConstants.ApiScheme
+            components.host = ISINClient.ISINConstants.ApiHost
+            components.path = ISINClient.ISINConstants.ApiPath + (withPathExtension ?? "")
+            components.queryItems = [NSURLQueryItem]()
+        }
         
         for (key, value) in parameters {
             let queryItem = NSURLQueryItem(name: key, value: "\(value)")
             components.queryItems!.append(queryItem)
         }
+        
+        print("url should be: ", components.URL!)
         
         return components.URL!
     }

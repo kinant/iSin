@@ -91,6 +91,7 @@
 				C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */,
 				C96E540B1CA1E16500939DBC /* ISINClient.swift */,
 				C96E540D1CA1E94E00939DBC /* ISINConstants.swift */,
+				C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */,
 				C992435D1CA09F0D00E64D26 /* Extensions.swift */,
 				C99243481CA09DD900E64D26 /* ViewController.swift */,
 				C992434A1CA09DD900E64D26 /* Main.storyboard */,
@@ -100,7 +101,6 @@
 				C992434D1CA09DD900E64D26 /* iSin.xcdatamodeld */,
 				C992435B1CA09E7900E64D26 /* PagerController.swift */,
 				C992435F1CA0A07E00E64D26 /* SinViewController.swift */,
-				C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */,
 				C96E54131CA1F9BC00939DBC /* ISINPassage.swift */,
 			);
 			path = iSin;
@@ -138,6 +138,7 @@
 				TargetAttributes = {
 					C99243421CA09DD900E64D26 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 3J77CD7CN3;
 					};
 				};
 			};
@@ -300,10 +301,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iSin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kturman.iSin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iSin/iSin-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -314,10 +318,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iSin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kturman.iSin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iSin/iSin-Bridging-Header.h";
 			};
 			name = Release;

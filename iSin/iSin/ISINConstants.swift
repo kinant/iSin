@@ -8,8 +8,20 @@
 
 extension ISINClient {
     
+    enum API {
+        case ISIN, BIBLEORG
+    }
+    
     // MARK: Constants
-    struct Constants {
+    struct ISINConstants {
+        // MARK: URLs
+        static let ApiScheme = "http"
+        static let ApiHost = "kturman.com"
+        static let ApiPath = "/api/"
+    }
+    
+    // MARK: Constants
+    struct BIBLEORGConstants {
         // MARK: URLs
         static let ApiScheme = "http"
         static let ApiHost = "labs.bible.org"

@@ -11,36 +11,12 @@ import Foundation
 class AddSinViewController:UIViewController {
 
     override func viewDidLoad() {
-        
-        let parameters = [
-            "passage":"Numbers 15:39",
-            "type":"json"
-        ]
-        
-        ISINClient.sharedInstance().taskForGETMethod("", parameters: parameters) { (result, error) -> Void in
-            print("request result:");
+        ISINClient.sharedInstance().getSinsCommitedForSinType(1) { (results, errorString) in
+            // do smething...
             
-            if let res = result as? [[String:AnyObject]] {
-                var newPassage = ISINPassage(dictionaryArray: res)
-                print(newPassage)
+            for(var i=0; i<results.count; i++){
+                print(results[i])
             }
-            
-            /*
-            var resultVerse = ""
-            
-            if let resArray = result as? [[String:AnyObject]] {
-                
-                for(var i=0; i < resArray.count; i++){
-                    print("printing record: ", i)
-                    print(resArray[i])
-                    var tempRes = resArray[i]
-                    
-                    if let resText = tempRes["text"] as? String {
-                        print(resText)
-                    }
-                }
-            }
-            */
         }
     }
 }
