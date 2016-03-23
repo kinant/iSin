@@ -116,6 +116,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Ffk-pT-8JX" secondAttribute="trailing" constant="-13" id="zeF-op-CNC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="uPY-hh-SVI" id="vdM-8y-G4E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUX-v2-EPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
