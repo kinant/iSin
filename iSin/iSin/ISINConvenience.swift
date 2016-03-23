@@ -13,7 +13,7 @@ extension ISINClient {
     func getSinsCommitedForSinType(type:Int, completionHandlerForSinsCommited: (results: [String], errorString: String?) -> Void){
         
         let parameters = [
-            "sin_id": 1,
+            "sin_id": type,
         ]
         
         taskForGETMethod(API.ISIN, method: "get_sins", parameters: parameters) { (result, error) in

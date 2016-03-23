@@ -19,6 +19,7 @@ class SinViewController: UIViewController {
     var bckColor: UIColor!
     var sinTitle: String!
     var sinDescription: String!
+    var sinID:Int!
     
     override func viewWillAppear(animated: Bool) {
         self.view.backgroundColor = bckColor
@@ -34,4 +35,13 @@ class SinViewController: UIViewController {
         descTextView.text = sinDescription
     }
     
+    @IBAction func addSinPressed(sender: UIButton) {
+        let addSinVC = storyboard?.instantiateViewControllerWithIdentifier("AddSin") as! AddSinViewController
+        
+        addSinVC.sinID = self.sinID
+        
+        print("sin id will be: ", self.sinID)
+        
+        presentViewController(addSinVC, animated: true, completion: nil)
+    }
 }
