@@ -97,7 +97,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                 }
             }))
             
-            alert.addAction(UIAlertAction(title: "NO", style: .Cancel, handler: { (action) -> Void in
+            alert.addAction(UIAlertAction(title: "NO", style: .Default, handler: { (action) -> Void in
                 
             }))
             
@@ -115,7 +115,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             textField.text = ""
         })
         
-        alert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action) -> Void in
+        alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
             
             if(textField.text! != ""){
@@ -123,7 +123,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             }
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action) -> Void in
             
         }))
         
