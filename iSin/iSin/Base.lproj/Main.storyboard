@@ -255,8 +255,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Confessions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DM8-vL-Dfu">
-                                                    <rect key="frame" x="17" y="8" width="122" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DM8-vL-Dfu">
+                                                    <rect key="frame" x="18" y="8" width="64" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -276,6 +276,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8w-xP-NP4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="516"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="NOG-p7-Oxa">
+            <objects>
+                <viewController id="Cds-9Q-dOS" customClass="SettingsViewController" customModule="iSin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EUZ-C5-jEI"/>
+                        <viewControllerLayoutGuide type="bottom" id="kP3-R3-q1f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gDt-H6-4Zz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Default Sin To Show: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbk-ex-scg">
+                                <rect key="frame" x="20" y="82" width="215" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPG-65-WvI">
+                                <rect key="frame" x="542" y="77" width="38" height="30"/>
+                                <state key="normal" title="LUST"/>
+                                <connections>
+                                    <action selector="prefSinButtonPressed:" destination="Cds-9Q-dOS" eventType="touchUpInside" id="E2G-bs-jJg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gbk-ex-scg" firstAttribute="leading" secondItem="gDt-H6-4Zz" secondAttribute="leadingMargin" id="7Qd-38-Y5v"/>
+                            <constraint firstItem="mPG-65-WvI" firstAttribute="centerY" secondItem="gbk-ex-scg" secondAttribute="centerY" constant="-0.5" id="9cr-1h-Yhw"/>
+                            <constraint firstAttribute="trailing" secondItem="mPG-65-WvI" secondAttribute="trailing" constant="20" id="GoB-j5-xBg"/>
+                            <constraint firstItem="gbk-ex-scg" firstAttribute="top" secondItem="EUZ-C5-jEI" secondAttribute="bottom" constant="62" id="hEh-G3-316"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="prefSinButton" destination="mPG-65-WvI" id="mPr-7X-tCV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nd4-9v-GPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829" y="516"/>
         </scene>
         <!--Add Passage View Controller-->
         <scene sceneID="P0l-VD-tiE">

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9171C261CB11352002051C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171C251CB11352002051C4 /* SettingsViewController.swift */; };
 		C91E67071CB0600900D6C443 /* AddPassageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E67061CB0600900D6C443 /* AddPassageViewController.swift */; };
 		C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96E54091CA1ADE400939DBC /* SWRevealViewController.m */; };
 		C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540B1CA1E16500939DBC /* ISINClient.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C9171C251CB11352002051C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C91E67061CB0600900D6C443 /* AddPassageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPassageViewController.swift; sourceTree = "<group>"; };
 		C96E54071CA1ADE300939DBC /* iSin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iSin-Bridging-Header.h"; sourceTree = "<group>"; };
 		C96E54081CA1ADE400939DBC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				C992435F1CA0A07E00E64D26 /* SinViewController.swift */,
 				C96E54131CA1F9BC00939DBC /* ISINPassage.swift */,
 				C91E67061CB0600900D6C443 /* AddPassageViewController.swift */,
+				C9171C251CB11352002051C4 /* SettingsViewController.swift */,
 			);
 			path = iSin;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				C91E67071CB0600900D6C443 /* AddPassageViewController.swift in Sources */,
 				C992434F1CA09DD900E64D26 /* iSin.xcdatamodeld in Sources */,
 				C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */,
+				C9171C261CB11352002051C4 /* SettingsViewController.swift in Sources */,
 				C96E54101CA1EAC900939DBC /* AddSinViewController.swift in Sources */,
 				C992435C1CA09E7900E64D26 /* PagerController.swift in Sources */,
 				C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */,
