@@ -21,6 +21,16 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         
+        
+        if self.navigationController != nil {
+            print("does have navigation controller!")
+            self.title = "Select Passages"
+            
+            let newRightButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.cancelButtonPressed))
+             navigationItem.setRightBarButtonItem(newRightButton, animated: false)
+        }
+        
+        
         ISINClient.sharedInstance().getPassagesForSin(self.sinID) { (results, errorString) in
             
             if((errorString == nil)){
@@ -40,6 +50,11 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                 }
             }
         }
+    }
+    
+    func cancelButtonPressed(){
+        print("cancel button pressed!!")
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

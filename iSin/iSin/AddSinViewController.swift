@@ -38,10 +38,11 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         print("did select row...")
-        let passageSelectVC = storyboard?.instantiateViewControllerWithIdentifier("AddPassage") as! AddPassageViewController
-        passageSelectVC.sinID = self.sinID
+        // let passageSelectVC = storyboard?.instantiateViewControllerWithIdentifier("AddPassage") as! AddPassageViewController
+        // passageSelectVC.sinID = self.sinID
         
-        presentViewController(passageSelectVC, animated: true, completion: nil)
+        // presentViewController(passageSelectVC, animated: true, completion: nil)
+        performSegueWithIdentifier("AddPassage", sender: self)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,5 +86,17 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         alert.view.setNeedsLayout()
         
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddPassage" {
+            let addPassageVC = segue.destinationViewController as! AddPassageViewController
+            addPassageVC.sinID = self.sinID
+        }
+    }
+    
+    
+    @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

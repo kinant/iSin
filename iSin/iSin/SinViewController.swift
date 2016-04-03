@@ -34,10 +34,10 @@ class SinViewController: UIViewController {
     }
     
     @IBAction func addSinPressed(sender: UIButton) {
-        let addSinVC = storyboard?.instantiateViewControllerWithIdentifier("AddSin") as! AddSinViewController
+        let addSinNavC = storyboard?.instantiateViewControllerWithIdentifier("AddSinNavController") as! AddSinNavigationController
         
-        addSinVC.sinID = self.sinID
+        addSinNavC.sinID = self.sinID
         
-        self.view.window!.rootViewController!.presentViewController(addSinVC, animated: true, completion: nil)
+        self.view.window!.rootViewController!.presentViewController(addSinNavC, animated: true, completion: nil)
     }
 }
