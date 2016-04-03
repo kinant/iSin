@@ -91,32 +91,23 @@
                                     <constraint firstAttribute="height" constant="465" id="9Wb-UL-aXL"/>
                                 </constraints>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nt2-Gz-3Vj">
-                                <rect key="frame" x="19" y="562" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelPressed:" destination="2Ik-OR-RjI" eventType="touchUpInside" id="dK8-X8-Uzl"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffk-pT-8JX">
-                                <rect key="frame" x="522" y="562" width="71" height="30"/>
+                                <rect key="frame" x="20" y="549" width="71" height="30"/>
                                 <state key="normal" title="Add Other"/>
                                 <connections>
-                                    <action selector="showAddOtherSinAlert:" destination="2Ik-OR-RjI" eventType="touchUpInside" id="fAm-tz-Ra3"/>
+                                    <action selector="showAddOtherSinAlert:" destination="2Ik-OR-RjI" eventType="touchUpInside" id="BOk-bR-KeW"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Nt2-Gz-3Vj" firstAttribute="leading" secondItem="r2Y-LY-Xmk" secondAttribute="leadingMargin" constant="-1" id="IRH-wo-aaw"/>
                             <constraint firstItem="uPY-hh-SVI" firstAttribute="top" secondItem="KJw-7p-8rb" secondAttribute="bottom" constant="22" id="K4w-S5-3oy"/>
                             <constraint firstItem="uPY-hh-SVI" firstAttribute="centerX" secondItem="KJw-7p-8rb" secondAttribute="centerX" id="PWb-Bt-mB2"/>
+                            <constraint firstItem="Ffk-pT-8JX" firstAttribute="leading" secondItem="r2Y-LY-Xmk" secondAttribute="leadingMargin" id="UNj-TU-hl8"/>
                             <constraint firstAttribute="trailing" secondItem="uPY-hh-SVI" secondAttribute="trailing" id="j62-cr-pKu"/>
-                            <constraint firstItem="Ffk-pT-8JX" firstAttribute="top" secondItem="uPY-hh-SVI" secondAttribute="bottom" constant="21" id="jtV-Ou-WJr"/>
-                            <constraint firstItem="Ffk-pT-8JX" firstAttribute="baseline" secondItem="Nt2-Gz-3Vj" secondAttribute="baseline" id="rc7-DJ-rzO"/>
                             <constraint firstItem="uPY-hh-SVI" firstAttribute="leading" secondItem="r2Y-LY-Xmk" secondAttribute="leading" id="uS4-lE-xvH"/>
+                            <constraint firstItem="Ffk-pT-8JX" firstAttribute="top" secondItem="uPY-hh-SVI" secondAttribute="bottom" constant="8" symbolic="YES" id="wkO-Uk-8n5"/>
                             <constraint firstItem="uPY-hh-SVI" firstAttribute="top" secondItem="r2Y-LY-Xmk" secondAttribute="top" constant="76" id="zOg-sF-xox"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ffk-pT-8JX" secondAttribute="trailing" constant="-13" id="zeF-op-CNC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Sin" id="jby-nP-uL4">
@@ -363,15 +354,11 @@
                                     <constraint firstAttribute="height" constant="448" id="iB4-kz-Fgj"/>
                                 </constraints>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEa-mc-me7">
-                                <rect key="frame" x="19" y="562" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxD-XN-Arv">
-                                <rect key="frame" x="522" y="562" width="71" height="30"/>
+                                <rect key="frame" x="20" y="550" width="71" height="30"/>
                                 <state key="normal" title="Add Other"/>
                                 <connections>
-                                    <action selector="addCustomPassageButtonPressed:" destination="f1l-w1-nBC" eventType="touchUpInside" id="imx-xC-JTx"/>
+                                    <action selector="addCustomPassageButtonPressed:" destination="f1l-w1-nBC" eventType="touchUpInside" id="Mow-zU-YwW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD PASSAGE SCREEN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KK-Ep-f26">
@@ -380,16 +367,20 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEa-mc-me7">
+                                <rect key="frame" x="484" y="550" width="96" height="30"/>
+                                <state key="normal" title="ADD RECORD"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IxD-XN-Arv" firstAttribute="top" secondItem="gVg-9f-9JV" secondAttribute="bottom" constant="21" id="3ry-Q0-0x9"/>
-                            <constraint firstItem="IxD-XN-Arv" firstAttribute="baseline" secondItem="kEa-mc-me7" secondAttribute="baseline" id="6HJ-pP-bQM"/>
+                            <constraint firstAttribute="bottom" secondItem="IxD-XN-Arv" secondAttribute="bottom" constant="20" symbolic="YES" id="066-yC-c4S"/>
+                            <constraint firstItem="kEa-mc-me7" firstAttribute="baseline" secondItem="IxD-XN-Arv" secondAttribute="baseline" id="098-Vf-7co"/>
+                            <constraint firstItem="IxD-XN-Arv" firstAttribute="leading" secondItem="ej6-EP-TGn" secondAttribute="leadingMargin" id="0at-h1-k3c"/>
                             <constraint firstAttribute="trailing" secondItem="gVg-9f-9JV" secondAttribute="trailing" id="8Dd-Oe-mkH"/>
                             <constraint firstItem="gVg-9f-9JV" firstAttribute="top" secondItem="5KK-Ep-f26" secondAttribute="bottom" id="8XY-Ag-w14"/>
-                            <constraint firstItem="kEa-mc-me7" firstAttribute="leading" secondItem="ej6-EP-TGn" secondAttribute="leadingMargin" constant="-1" id="8ZJ-DV-i2U"/>
                             <constraint firstItem="gVg-9f-9JV" firstAttribute="leading" secondItem="ej6-EP-TGn" secondAttribute="leading" id="CoY-74-TJk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IxD-XN-Arv" secondAttribute="trailing" constant="-13" id="Quy-4s-eqv"/>
+                            <constraint firstItem="kEa-mc-me7" firstAttribute="trailing" secondItem="ej6-EP-TGn" secondAttribute="trailingMargin" id="Dfd-UC-Uvj"/>
                             <constraint firstItem="gVg-9f-9JV" firstAttribute="top" secondItem="ej6-EP-TGn" secondAttribute="top" constant="93" id="R7l-XS-zTq"/>
                             <constraint firstItem="gVg-9f-9JV" firstAttribute="centerX" secondItem="5KK-Ep-f26" secondAttribute="centerX" id="mLj-oV-LYF"/>
                         </constraints>
