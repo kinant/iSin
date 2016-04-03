@@ -40,9 +40,9 @@ extension ISINClient {
         }
     }
     
-    func getPassage(passage: ISINPassage, completionHandlerForGetPassage: (results:[[String:AnyObject]], errorString: String?)-> Void){
+    func getPassage(searchTerm: String, completionHandlerForGetPassage: (results:[[String:AnyObject]], errorString: String?)-> Void){
         let parameters = [
-            "passage": passage.title,
+            "passage": searchTerm,
             "type": "json"
         ]
         

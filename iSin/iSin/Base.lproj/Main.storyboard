@@ -309,6 +309,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxD-XN-Arv">
                                 <rect key="frame" x="522" y="562" width="71" height="30"/>
                                 <state key="normal" title="Add Other"/>
+                                <connections>
+                                    <action selector="addCustomPassageButtonPressed:" destination="f1l-w1-nBC" eventType="touchUpInside" id="imx-xC-JTx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
