@@ -11,7 +11,6 @@ import UIKit
 
 class SinViewController: UIViewController {
 
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var descTextView: UITextView!
@@ -25,7 +24,6 @@ class SinViewController: UIViewController {
         self.view.backgroundColor = bckColor
         self.titleLabel.text = sinTitle
         self.titleLabel.textColor = UIColor.whiteColor()
-        //self.titleLabel.font
         
         self.titleLabel.layer.shadowOpacity = 0.75
         self.titleLabel.layer.shadowRadius = 0.0
@@ -39,8 +37,6 @@ class SinViewController: UIViewController {
         let addSinVC = storyboard?.instantiateViewControllerWithIdentifier("AddSin") as! AddSinViewController
         
         addSinVC.sinID = self.sinID
-        
-        print("sin id will be: ", self.sinID)
         
         self.view.window!.rootViewController!.presentViewController(addSinVC, animated: true, completion: nil)
     }
