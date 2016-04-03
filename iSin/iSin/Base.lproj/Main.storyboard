@@ -101,6 +101,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffk-pT-8JX">
                                 <rect key="frame" x="522" y="562" width="71" height="30"/>
                                 <state key="normal" title="Add Other"/>
+                                <connections>
+                                    <action selector="showAddOtherSinAlert:" destination="2Ik-OR-RjI" eventType="touchUpInside" id="fAm-tz-Ra3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -302,9 +305,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEa-mc-me7">
                                 <rect key="frame" x="19" y="562" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelPressed:" destination="f1l-w1-nBC" eventType="touchUpInside" id="bmB-dB-O6I"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxD-XN-Arv">
                                 <rect key="frame" x="522" y="562" width="71" height="30"/>

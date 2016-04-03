@@ -57,4 +57,33 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func cancelPressed(sender: UIButton) {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
+    
+    @IBAction func showAddOtherSinAlert(sender: UIButton){
+        let alert = UIAlertController(title: "Add Custom Sin", message: "Enter a your sin", preferredStyle: .Alert)
+        
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = ""
+        })
+        
+        alert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as UITextField
+            
+            if(textField.text! != ""){
+                
+                self.sins.append(textField.text!)
+                
+                dispatch_async(dispatch_get_main_queue()){
+                    self.tableView.reloadData()
+                }
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
+
+        }))
+        
+        alert.view.setNeedsLayout()
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 }

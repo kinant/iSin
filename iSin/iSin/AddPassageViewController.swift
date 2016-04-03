@@ -63,7 +63,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         let refreshAlert = UIAlertController(title: passages[passageIndex].title, message: passages[passageIndex].text, preferredStyle: UIAlertControllerStyle.Alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            refreshAlert.dismissViewControllerAnimated(true, completion: nil)
+            //refreshAlert.dismissViewControllerAnimated(true, completion: nil)
         }))
         
         presentViewController(refreshAlert, animated: true, completion: nil)
