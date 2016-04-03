@@ -42,6 +42,6 @@ class SinViewController: UIViewController {
         
         print("sin id will be: ", self.sinID)
         
-        presentViewController(addSinVC, animated: true, completion: nil)
+        self.view.window!.rootViewController!.presentViewController(addSinVC, animated: true, completion: nil)
     }
 }

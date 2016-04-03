@@ -274,5 +274,63 @@
             </objects>
             <point key="canvasLocation" x="1152" y="516"/>
         </scene>
+        <!--Add Passage View Controller-->
+        <scene sceneID="P0l-VD-tiE">
+            <objects>
+                <viewController storyboardIdentifier="AddPassage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f1l-w1-nBC" customClass="AddPassageViewController" customModule="iSin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="baR-3Z-oGt"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lhm-K2-swY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ej6-EP-TGn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ADD PASSAGE SCREEN!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KK-Ep-f26">
+                                <rect key="frame" x="183" y="33" width="188" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gVg-9f-9JV">
+                                <rect key="frame" x="0.0" y="76" width="600" height="465"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="465" id="iB4-kz-Fgj"/>
+                                </constraints>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEa-mc-me7">
+                                <rect key="frame" x="19" y="562" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="f1l-w1-nBC" eventType="touchUpInside" id="bmB-dB-O6I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxD-XN-Arv">
+                                <rect key="frame" x="522" y="562" width="71" height="30"/>
+                                <state key="normal" title="Add Other"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IxD-XN-Arv" firstAttribute="top" secondItem="gVg-9f-9JV" secondAttribute="bottom" constant="21" id="3ry-Q0-0x9"/>
+                            <constraint firstItem="IxD-XN-Arv" firstAttribute="baseline" secondItem="kEa-mc-me7" secondAttribute="baseline" id="6HJ-pP-bQM"/>
+                            <constraint firstAttribute="trailing" secondItem="gVg-9f-9JV" secondAttribute="trailing" id="8Dd-Oe-mkH"/>
+                            <constraint firstItem="gVg-9f-9JV" firstAttribute="top" secondItem="5KK-Ep-f26" secondAttribute="bottom" constant="22" id="8XY-Ag-w14"/>
+                            <constraint firstItem="kEa-mc-me7" firstAttribute="leading" secondItem="ej6-EP-TGn" secondAttribute="leadingMargin" constant="-1" id="8ZJ-DV-i2U"/>
+                            <constraint firstItem="gVg-9f-9JV" firstAttribute="leading" secondItem="ej6-EP-TGn" secondAttribute="leading" id="CoY-74-TJk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IxD-XN-Arv" secondAttribute="trailing" constant="-13" id="Quy-4s-eqv"/>
+                            <constraint firstItem="gVg-9f-9JV" firstAttribute="top" secondItem="ej6-EP-TGn" secondAttribute="top" constant="76" id="R7l-XS-zTq"/>
+                            <constraint firstItem="gVg-9f-9JV" firstAttribute="centerX" secondItem="5KK-Ep-f26" secondAttribute="centerX" id="mLj-oV-LYF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="gVg-9f-9JV" id="02m-59-FeT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNm-ay-Cfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3281" y="-182"/>
+        </scene>
     </scenes>
 </document>

@@ -25,13 +25,13 @@ class ISINClient: NSObject {
     
     // MARK: GET
     // function for GET network data requests
-    func taskForGETMethod(api: ISINClient.API, method: String, var parameters: [String:AnyObject], completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForGETMethod(api: ISINClient.API, method: String, params: [String:AnyObject], completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         /* 1. Set the parameters */
         //parameters[ParameterKeys.ApiKey] = Constants.ApiKey
         
         /* 2/3. Build the URL, Configure the request */
-        let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtension: method, api: api))
+        let request = NSMutableURLRequest(URL: urlFromParameters(params, withPathExtension: method, api: api))
         
         /* 4. Make the request */
         let task = session.dataTaskWithRequest(request) { (data, response, error) in

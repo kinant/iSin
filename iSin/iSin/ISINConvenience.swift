@@ -16,7 +16,7 @@ extension ISINClient {
             "sin_id": type,
         ]
         
-        taskForGETMethod(API.ISIN, method: "get_sins", parameters: parameters) { (result, error) in
+        taskForGETMethod(API.ISIN, method: "get_sins", params: parameters) { (result, error) in
             //print(result)
             if let sinsCommitted = result["results"] as? [String] {
                 //print(sinsCommited)
@@ -25,37 +25,33 @@ extension ISINClient {
         }
     }
     
-    func getPassage(){
+    func getPassagesForSin(sinID: Int, completionHandlerForGetPassages: (results:[[String:AnyObject]], errorString: String?)-> Void){
         
         let parameters = [
-            "id": 1,
-            ]
+            "sin_id": sinID,
+        ]
         
-        taskForGETMethod(ISINClient.API.BIBLEORG, method: "", parameters: parameters) { (result, error) -> Void in
-            print("request result:");
+        taskForGETMethod(ISINClient.API.ISIN, method: "get_passages", params: parameters) { (result, error) in
             
-            if let res = result as? [[String:AnyObject]] {
-                var newPassage = ISINPassage(dictionaryArray: res)
-                //completionHandlerForSinsCommited();
-                //print(newPassage)
+            //print(result["results"])
+            if let resultsArray = result["results"] as? [[String:AnyObject]]{
+                completionHandlerForGetPassages(results: resultsArray, errorString: nil)
             }
-            
-            /*
-             var resultVerse = ""
-             
-             if let resArray = result as? [[String:AnyObject]] {
-             
-             for(var i=0; i < resArray.count; i++){
-             print("printing record: ", i)
-             print(resArray[i])
-             var tempRes = resArray[i]
-             
-             if let resText = tempRes["text"] as? String {
-             print(resText)
-             }
-             }
-             }
-             */
+        }
+    }
+    
+    func getPassage(passage: ISINPassage, completionHandlerForGetPassage: (results:[[String:AnyObject]], errorString: String?)-> Void){
+        let parameters = [
+            "passage": passage.title,
+            "type": "json"
+        ]
+        
+        taskForGETMethod(ISINClient.API.BIBLEORG, method: "", params: parameters) { (result, error) in
+            if(error == nil){
+                if let resultsArray = result as? [[String:AnyObject]]{
+                    completionHandlerForGetPassage(results: resultsArray, errorString: nil)
+                }
+            }
         }
     }
 }

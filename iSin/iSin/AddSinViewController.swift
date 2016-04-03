@@ -35,6 +35,15 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print("did select row...")
+        let passageSelectVC = storyboard?.instantiateViewControllerWithIdentifier("AddPassage") as! AddPassageViewController
+        passageSelectVC.sinID = self.sinID
+        
+        presentViewController(passageSelectVC, animated: true, completion: nil)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sins.count
     }
