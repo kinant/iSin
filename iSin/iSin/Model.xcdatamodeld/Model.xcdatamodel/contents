@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="Sin" representedClassName=".Sin" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 64" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Sin" positionX="-36" positionY="9" width="128" height="75"/>
+    </elements>
+</model>

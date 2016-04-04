@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
 class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var sinID:Int!
-    var sins = [String]()
+    var sins = [Sin]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,17 +22,50 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         
+        sins = fetchAllSins()
+        
+        if(sins.count == 0) {
+            downloadData()
+        }
+    }
+    
+    func downloadData(){
         ISINClient.sharedInstance().getSinsCommitedForSinType(self.sinID) { (results, errorString) in
             // do smething...
             
-            for(var i=0; i<results.count; i++){
-                print(results[i])
-                self.sins = results
+            for i in 0 ..< results.count {
+                let newSin = Sin(name: results[i], type: self.sinID, context: self.sharedContext)
+                self.sins.append(newSin)
+                
+                self.saveContext()
             }
             
             dispatch_async(dispatch_get_main_queue()){
                 self.tableView.reloadData()
             }
+        }
+    }
+    
+    func saveContext() {
+        CoreDataStackManager.sharedInstance().saveContext()
+    }
+    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+    
+    func fetchAllSins() -> [Sin] {
+        
+        let fetchRequest = NSFetchRequest(entityName: "Sin")
+        
+        fetchRequest.sortDescriptors = []
+        fetchRequest.predicate = NSPredicate(format: "type == \(sinID)");
+        
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Sin]
+        } catch let error as NSError {
+            print("Error in fetchAllActors(): \(error)")
+            return [Sin]()
         }
     }
     
@@ -51,8 +85,32 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SinCell")
-        cell?.textLabel?.text = sins[indexPath.row]
+        cell?.textLabel?.text = sins[indexPath.row].name
         return cell!
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+        
+            switch (editingStyle) {
+            case .Delete:
+                let sin = sins[indexPath.row]
+                
+                sins.removeAtIndex(indexPath.row)
+                // Remove the row from the table
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                
+                // Remove the movie from the context
+                sharedContext.deleteObject(sin)
+                CoreDataStackManager.sharedInstance().saveContext()
+            default:
+                break
+            }
+        }
     }
     
     @IBAction func cancelPressed(sender: UIButton) {
@@ -71,7 +129,11 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
             
             if(textField.text! != ""){
                 
-                self.sins.append(textField.text!)
+                let newSin = Sin(name: textField.text!, type: self.sinID, context: self.sharedContext)
+                self.sins.append(newSin)
+                
+                self.saveContext()
+                //self.sins.append(textField.text!)
                 
                 dispatch_async(dispatch_get_main_queue()){
                     self.tableView.reloadData()

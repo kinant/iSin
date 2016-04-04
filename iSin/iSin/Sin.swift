@@ -9,17 +9,20 @@
 import CoreData
 
 class Sin: NSManagedObject {
+    
     @NSManaged var name: String
+    @NSManaged var type: NSNumber
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(name: String, context: NSManagedObjectContext){
+    init(name: String, type: Int, context: NSManagedObjectContext){
         
         let entity = NSEntityDescription.entityForName("Sin", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
         self.name = name
+        self.type = type
     }
 }

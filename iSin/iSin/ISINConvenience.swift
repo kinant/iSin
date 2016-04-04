@@ -18,9 +18,12 @@ extension ISINClient {
         
         taskForGETMethod(API.ISIN, method: "get_sins", params: parameters) { (result, error) in
             //print(result)
-            if let sinsCommitted = result["results"] as? [String] {
-                //print(sinsCommited)
-                completionHandlerForSinsCommited(results: sinsCommitted, errorString: nil);
+            
+            if(error == nil){
+                if let sinsCommitted = result["results"] as? [String] {
+                    //print(sinsCommited)
+                    completionHandlerForSinsCommited(results: sinsCommitted, errorString: nil);
+                }
             }
         }
     }

@@ -10,6 +10,8 @@
 		C9171C261CB11352002051C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171C251CB11352002051C4 /* SettingsViewController.swift */; };
 		C9171C281CB11AEE002051C4 /* AddSinNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */; };
 		C91A814C1CB237B20079B964 /* Sin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A814B1CB237B20079B964 /* Sin.swift */; };
+		C91A814E1CB238690079B964 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A814D1CB238690079B964 /* CoreDataStackManager.swift */; };
+		C91A81511CB23B200079B964 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91A814F1CB23B200079B964 /* Model.xcdatamodeld */; };
 		C91E67071CB0600900D6C443 /* AddPassageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E67061CB0600900D6C443 /* AddPassageViewController.swift */; };
 		C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96E54091CA1ADE400939DBC /* SWRevealViewController.m */; };
 		C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540B1CA1E16500939DBC /* ISINClient.swift */; };
@@ -20,7 +22,6 @@
 		C99243471CA09DD900E64D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99243461CA09DD900E64D26 /* AppDelegate.swift */; };
 		C99243491CA09DD900E64D26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99243481CA09DD900E64D26 /* ViewController.swift */; };
 		C992434C1CA09DD900E64D26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C992434A1CA09DD900E64D26 /* Main.storyboard */; };
-		C992434F1CA09DD900E64D26 /* iSin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C992434D1CA09DD900E64D26 /* iSin.xcdatamodeld */; };
 		C99243511CA09DD900E64D26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99243501CA09DD900E64D26 /* Assets.xcassets */; };
 		C99243541CA09DD900E64D26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99243521CA09DD900E64D26 /* LaunchScreen.storyboard */; };
 		C992435C1CA09E7900E64D26 /* PagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992435B1CA09E7900E64D26 /* PagerController.swift */; };
@@ -32,6 +33,8 @@
 		C9171C251CB11352002051C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSinNavigationController.swift; sourceTree = "<group>"; };
 		C91A814B1CB237B20079B964 /* Sin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sin.swift; sourceTree = "<group>"; };
+		C91A814D1CB238690079B964 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		C91A81501CB23B200079B964 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C91E67061CB0600900D6C443 /* AddPassageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPassageViewController.swift; sourceTree = "<group>"; };
 		C96E54071CA1ADE300939DBC /* iSin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iSin-Bridging-Header.h"; sourceTree = "<group>"; };
 		C96E54081CA1ADE400939DBC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -45,7 +48,6 @@
 		C99243461CA09DD900E64D26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C99243481CA09DD900E64D26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C992434B1CA09DD900E64D26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C992434E1CA09DD900E64D26 /* iSin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iSin.xcdatamodel; sourceTree = "<group>"; };
 		C99243501CA09DD900E64D26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C99243531CA09DD900E64D26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C99243551CA09DD900E64D26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		C99243451CA09DD900E64D26 /* iSin */ = {
 			isa = PBXGroup;
 			children = (
+				C91A814D1CB238690079B964 /* CoreDataStackManager.swift */,
 				C91A814A1CB237A20079B964 /* Model */,
 				C96E54061CA1ADC400939DBC /* SWRevealViewController */,
 				C99243461CA09DD900E64D26 /* AppDelegate.swift */,
@@ -115,13 +118,13 @@
 				C99243501CA09DD900E64D26 /* Assets.xcassets */,
 				C99243521CA09DD900E64D26 /* LaunchScreen.storyboard */,
 				C99243551CA09DD900E64D26 /* Info.plist */,
-				C992434D1CA09DD900E64D26 /* iSin.xcdatamodeld */,
 				C992435B1CA09E7900E64D26 /* PagerController.swift */,
 				C992435F1CA0A07E00E64D26 /* SinViewController.swift */,
 				C96E54131CA1F9BC00939DBC /* ISINPassage.swift */,
 				C91E67061CB0600900D6C443 /* AddPassageViewController.swift */,
 				C9171C251CB11352002051C4 /* SettingsViewController.swift */,
 				C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */,
+				C91A814F1CB23B200079B964 /* Model.xcdatamodeld */,
 			);
 			path = iSin;
 			sourceTree = "<group>";
@@ -201,12 +204,13 @@
 				C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */,
 				C96E54121CA1F8FA00939DBC /* ISINConvenience.swift in Sources */,
 				C992435E1CA09F0D00E64D26 /* Extensions.swift in Sources */,
+				C91A814E1CB238690079B964 /* CoreDataStackManager.swift in Sources */,
 				C99243491CA09DD900E64D26 /* ViewController.swift in Sources */,
 				C99243471CA09DD900E64D26 /* AppDelegate.swift in Sources */,
 				C9171C281CB11AEE002051C4 /* AddSinNavigationController.swift in Sources */,
 				C99243601CA0A07E00E64D26 /* SinViewController.swift in Sources */,
+				C91A81511CB23B200079B964 /* Model.xcdatamodeld in Sources */,
 				C91E67071CB0600900D6C443 /* AddPassageViewController.swift in Sources */,
-				C992434F1CA09DD900E64D26 /* iSin.xcdatamodeld in Sources */,
 				C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */,
 				C9171C261CB11352002051C4 /* SettingsViewController.swift in Sources */,
 				C96E54101CA1EAC900939DBC /* AddSinViewController.swift in Sources */,
@@ -377,13 +381,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C992434D1CA09DD900E64D26 /* iSin.xcdatamodeld */ = {
+		C91A814F1CB23B200079B964 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C992434E1CA09DD900E64D26 /* iSin.xcdatamodel */,
+				C91A81501CB23B200079B964 /* Model.xcdatamodel */,
 			);
-			currentVersion = C992434E1CA09DD900E64D26 /* iSin.xcdatamodel */;
-			path = iSin.xcdatamodeld;
+			currentVersion = C91A81501CB23B200079B964 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
