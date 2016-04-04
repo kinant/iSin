@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //self.window?.makeKeyAndVisible()
         
         //NavigationBar customization
-        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()] // Title's text color
-        //UINavigationBar.appearance().shadowImage = UIImage()
-        //UINavigationBar.appearance().barTintColor = UIColor(rgb: 0x00AA00)
-        //UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()] // Title's text color
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().barTintColor = UIColor(rgb: 0xFF0000)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         //Setting Status Bar to be white instead of black
         UIApplication.sharedApplication().statusBarStyle = .LightContent
