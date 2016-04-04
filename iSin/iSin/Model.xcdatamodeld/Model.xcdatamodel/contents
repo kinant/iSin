@@ -7,21 +7,35 @@
         <attribute name="sin_type" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="start" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="record" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SinRecord" inverseName="passages" inverseEntity="SinRecord" syncable="YES"/>
     </entity>
-    <entity name="Sin" representedClassName=".Sin" syncable="YES">
+    <entity name="Record" representedClassName=".Record" syncable="YES">
+        <attribute name="date_added" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="passages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecordPassage" inverseName="record" inverseEntity="RecordPassage" syncable="YES"/>
+        <relationship name="sin" maxCount="1" deletionRule="Nullify" destinationEntity="RecordSin" inverseName="record" inverseEntity="RecordSin" syncable="YES"/>
+    </entity>
+    <entity name="RecordPassage" representedClassName=".RecordPassage" syncable="YES">
+        <attribute name="book" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chapter" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="end" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="sin_type" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="start" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="record" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Record" inverseName="passages" inverseEntity="Record" syncable="YES"/>
+    </entity>
+    <entity name="RecordSin" representedClassName=".RecordSin" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="type" attributeType="Integer 64" syncable="YES"/>
-        <relationship name="record" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SinRecord" inverseName="sin" inverseEntity="SinRecord" syncable="YES"/>
+        <relationship name="record" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Record" inverseName="sin" inverseEntity="Record" syncable="YES"/>
     </entity>
-    <entity name="SinRecord" representedClassName=".SinRecord" syncable="YES">
-        <attribute name="date_added" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="passages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Passage" inverseName="record" inverseEntity="Passage" syncable="YES"/>
-        <relationship name="sin" maxCount="1" deletionRule="Nullify" destinationEntity="Sin" inverseName="record" inverseEntity="Sin" syncable="YES"/>
+    <entity name="Sin" representedClassName=".Sin" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Passage" positionX="0" positionY="63" width="128" height="150"/>
-        <element name="Sin" positionX="-36" positionY="9" width="128" height="90"/>
-        <element name="SinRecord" positionX="27" positionY="126" width="128" height="90"/>
+        <element name="RecordPassage" positionX="0" positionY="63" width="128" height="150"/>
+        <element name="RecordSin" positionX="-36" positionY="9" width="128" height="90"/>
+        <element name="Record" positionX="27" positionY="126" width="128" height="90"/>
+        <element name="Sin" positionX="0" positionY="99" width="128" height="75"/>
+        <element name="Passage" positionX="9" positionY="108" width="128" height="135"/>
     </elements>
 </model>

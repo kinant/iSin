@@ -45,10 +45,10 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             
             if((errorString == nil)){
                 for i in 0 ..< results.count {
-                    let tempISINPassage = Passage(dictionary: nil, dataArray: results[i], sinID: self.sinID, context: self.scratchContext)
+                    let tempISINPassage = Passage(dictionary: nil, dataArray: results[i], sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.scratchContext)
                     
                     ISINClient.sharedInstance().getPassage(tempISINPassage.title, completionHandlerForGetPassage: { (results, errorString) in
-                        let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, context: self.sharedContext)
+                        let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
                         print(bibleorgPassage.text)
                         self.passages.append(bibleorgPassage)
                         
@@ -170,7 +170,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             
             print("THREE!")
             
-            let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, context: self.sharedContext)
+            let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
             
             let message = "Is this your passage: " + bibleorgPassage.title + "?"
             
@@ -226,9 +226,9 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     
     @IBAction func addRecordPressed(sender: UIButton) {
         
-        let newSin = Sin(name: self.sin.name, type: self.sin.type.integerValue, context: sharedContext)
+        let newSin = RecordSin(name: self.sin.name, type: self.sin.type.integerValue, entityName: ISINClient.EntityNames.RecordSin, context: sharedContext)
         
-        let newRecord = SinRecord(context: sharedContext)
+        let newRecord = Record(context: sharedContext)
         
         for i in 0 ..< selectedIndexes.count {
             let tempPassage = passages[i]
@@ -239,7 +239,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                 "verse_end" : tempPassage.end
             ]
             
-            let newPassage = Passage(dictionary: nil, dataArray: dataArray, sinID: self.sinID, context: sharedContext)
+            let newPassage = RecordPassage(dictionary: nil, dataArray: dataArray, sinID: self.sinID, entityName: ISINClient.EntityNames.RecordPassage, context: sharedContext)
             newPassage.text = tempPassage.text
             newPassage.record = newRecord
         }

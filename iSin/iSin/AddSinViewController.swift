@@ -35,7 +35,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
             // do smething...
             
             for i in 0 ..< results.count {
-                let newSin = Sin(name: results[i], type: self.sinID, context: self.sharedContext)
+                let newSin = Sin(name: results[i], type: self.sinID, entityName: ISINClient.EntityNames.ListSin, context: self.sharedContext)
                 self.sins.append(newSin)
                 
                 self.saveContext()
@@ -126,7 +126,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
             
             if(textField.text! != ""){
                 
-                let newSin = Sin(name: textField.text!, type: self.sinID, context: self.sharedContext)
+                let newSin = Sin(name: textField.text!, type: self.sinID, entityName: ISINClient.EntityNames.ListSin, context: self.sharedContext)
                 self.sins.append(newSin)
                 
                 self.saveContext()

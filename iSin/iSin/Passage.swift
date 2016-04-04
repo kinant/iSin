@@ -17,15 +17,14 @@ class Passage : NSManagedObject {
     @NSManaged var end: NSNumber
     @NSManaged var text:String
     @NSManaged var sin_type: NSNumber
-    @NSManaged var record: SinRecord?
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(dictionary: [[String:AnyObject]]?, dataArray:[String: AnyObject]?, sinID: Int, context: NSManagedObjectContext){
+    init(dictionary: [[String:AnyObject]]?, dataArray:[String: AnyObject]?, sinID: Int, entityName:String, context: NSManagedObjectContext){
         
-        let entity =  NSEntityDescription.entityForName("Passage", inManagedObjectContext: context)!
+        let entity =  NSEntityDescription.entityForName(entityName, inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
         if dictionary != nil {

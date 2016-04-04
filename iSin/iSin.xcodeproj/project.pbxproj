@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C913DF291CB2733D003339E5 /* RecordSin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913DF281CB2733D003339E5 /* RecordSin.swift */; };
+		C913DF2B1CB2738F003339E5 /* RecordPassage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913DF2A1CB2738F003339E5 /* RecordPassage.swift */; };
 		C9171C261CB11352002051C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171C251CB11352002051C4 /* SettingsViewController.swift */; };
 		C9171C281CB11AEE002051C4 /* AddSinNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */; };
 		C91A814C1CB237B20079B964 /* Sin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A814B1CB237B20079B964 /* Sin.swift */; };
 		C91A814E1CB238690079B964 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A814D1CB238690079B964 /* CoreDataStackManager.swift */; };
 		C91A81511CB23B200079B964 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91A814F1CB23B200079B964 /* Model.xcdatamodeld */; };
-		C91A81531CB24A6E0079B964 /* SinRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A81521CB24A6E0079B964 /* SinRecord.swift */; };
+		C91A81531CB24A6E0079B964 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A81521CB24A6E0079B964 /* Record.swift */; };
 		C91A81551CB24DF00079B964 /* SinRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A81541CB24DF00079B964 /* SinRecordsViewController.swift */; };
 		C91A81571CB25AC00079B964 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A81561CB25AC00079B964 /* RecordDetailViewController.swift */; };
 		C91E67071CB0600900D6C443 /* AddPassageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E67061CB0600900D6C443 /* AddPassageViewController.swift */; };
@@ -33,12 +35,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C913DF281CB2733D003339E5 /* RecordSin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordSin.swift; sourceTree = "<group>"; };
+		C913DF2A1CB2738F003339E5 /* RecordPassage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPassage.swift; sourceTree = "<group>"; };
 		C9171C251CB11352002051C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSinNavigationController.swift; sourceTree = "<group>"; };
 		C91A814B1CB237B20079B964 /* Sin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sin.swift; sourceTree = "<group>"; };
 		C91A814D1CB238690079B964 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		C91A81501CB23B200079B964 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		C91A81521CB24A6E0079B964 /* SinRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinRecord.swift; sourceTree = "<group>"; };
+		C91A81521CB24A6E0079B964 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		C91A81541CB24DF00079B964 /* SinRecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinRecordsViewController.swift; sourceTree = "<group>"; };
 		C91A81561CB25AC00079B964 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
 		C91E67061CB0600900D6C443 /* AddPassageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPassageViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +82,9 @@
 			children = (
 				C91A814B1CB237B20079B964 /* Sin.swift */,
 				C96E54131CA1F9BC00939DBC /* Passage.swift */,
-				C91A81521CB24A6E0079B964 /* SinRecord.swift */,
+				C91A81521CB24A6E0079B964 /* Record.swift */,
+				C913DF281CB2733D003339E5 /* RecordSin.swift */,
+				C913DF2A1CB2738F003339E5 /* RecordPassage.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -219,15 +225,17 @@
 				C99243471CA09DD900E64D26 /* AppDelegate.swift in Sources */,
 				C9171C281CB11AEE002051C4 /* AddSinNavigationController.swift in Sources */,
 				C91A81551CB24DF00079B964 /* SinRecordsViewController.swift in Sources */,
+				C913DF291CB2733D003339E5 /* RecordSin.swift in Sources */,
 				C99243601CA0A07E00E64D26 /* SinViewController.swift in Sources */,
 				C91A81511CB23B200079B964 /* Model.xcdatamodeld in Sources */,
 				C91E67071CB0600900D6C443 /* AddPassageViewController.swift in Sources */,
+				C913DF2B1CB2738F003339E5 /* RecordPassage.swift in Sources */,
 				C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */,
 				C9171C261CB11352002051C4 /* SettingsViewController.swift in Sources */,
 				C96E54101CA1EAC900939DBC /* AddSinViewController.swift in Sources */,
 				C992435C1CA09E7900E64D26 /* PagerController.swift in Sources */,
 				C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */,
-				C91A81531CB24A6E0079B964 /* SinRecord.swift in Sources */,
+				C91A81531CB24A6E0079B964 /* Record.swift in Sources */,
 				C91A814C1CB237B20079B964 /* Sin.swift in Sources */,
 				C96E54141CA1F9BC00939DBC /* Passage.swift in Sources */,
 			);

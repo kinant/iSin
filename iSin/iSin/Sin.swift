@@ -12,15 +12,14 @@ class Sin: NSManagedObject {
     
     @NSManaged var name: String
     @NSManaged var type: NSNumber
-    @NSManaged var record: SinRecord?
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(name: String, type: Int, context: NSManagedObjectContext){
+    init(name: String, type: Int, entityName:String, context: NSManagedObjectContext){
         
-        let entity = NSEntityDescription.entityForName("Sin", inManagedObjectContext: context)!
+        let entity = NSEntityDescription.entityForName(entityName, inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
         self.name = name

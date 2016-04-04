@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-class SinRecord: NSManagedObject {
+class Record: NSManagedObject {
 
     @NSManaged var date_added: NSDate
-    @NSManaged var sin: Sin
+    @NSManaged var sin: RecordSin
     @NSManaged var passages: NSSet?
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
@@ -21,7 +21,7 @@ class SinRecord: NSManagedObject {
     
     init(context: NSManagedObjectContext) {
         
-        let entity = NSEntityDescription.entityForName("SinRecord", inManagedObjectContext: context)!
+        let entity = NSEntityDescription.entityForName("Record", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
         self.date_added = NSDate()

@@ -14,10 +14,10 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
-    var records = [SinRecord]()
+    var records = [Record]()
     var sinNames = ["LUST", "GLUTTONY", "GREED", "SLOTH", "WRATH", "ENVY", "PRIDE"]
     
-    var selectedRecord: SinRecord!
+    var selectedRecord: Record!
     
     override func viewDidLoad() {
         if self.revealViewController() != nil {
@@ -46,14 +46,14 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }
     
-    func fetchAllRecords() -> [SinRecord] {
+    func fetchAllRecords() -> [Record] {
         
-        let fetchRequest = NSFetchRequest(entityName: "SinRecord")
+        let fetchRequest = NSFetchRequest(entityName: "Record")
         
         do {
-            return try sharedContext.executeFetchRequest(fetchRequest) as! [SinRecord]
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Record]
         } catch let error as NSError {
-            return [SinRecord]()
+            return [Record]()
         }
     }
     

@@ -27,4 +27,11 @@ extension ISINClient {
         static let ApiHost = "labs.bible.org"
         static let ApiPath = "/api/"
     }
+    
+    struct EntityNames {
+        static let ListSin = "Sin"
+        static let ListPassage = "Passage"
+        static let RecordSin = "RecordSin"
+        static let RecordPassage = "RecordPassage"
+    }
 }

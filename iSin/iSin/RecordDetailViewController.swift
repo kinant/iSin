@@ -15,7 +15,7 @@ class RecordDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var record: SinRecord!
+    var record: Record!
     var passages = [Passage]()
     
     var sinNames = ["LUST", "GLUTTONY", "GREED", "SLOTH", "WRATH", "ENVY", "PRIDE"]
