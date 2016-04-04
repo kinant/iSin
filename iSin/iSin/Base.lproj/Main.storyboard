@@ -293,7 +293,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kL-hK-YOB">
                                 <rect key="frame" x="279" y="474" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -516,7 +516,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Authenticate Every Time App is Active: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kx7-O7-uIa">
                                 <rect key="frame" x="20" y="130" width="300" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSy-fE-ami">
@@ -587,7 +587,7 @@
                                 <rect key="frame" x="484" y="550" width="96" height="30"/>
                                 <state key="normal" title="ADD RECORD"/>
                                 <connections>
-                                    <action selector="addRecordPressed:" destination="f1l-w1-nBC" eventType="touchUpInside" id="JwR-yh-ZAZ"/>
+                                    <action selector="addRecordPressed:" destination="f1l-w1-nBC" eventType="touchUpInside" id="759-eX-41b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -617,6 +617,6 @@
         <image name="touchid" width="800" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="idc-2m-t9d"/>
+        <segue reference="aeE-PQ-Z1V"/>
     </inferredMetricsTieBreakers>
 </document>

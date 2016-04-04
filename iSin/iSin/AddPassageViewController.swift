@@ -14,7 +14,10 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     var sinID:Int!
     var passages = [Passage]()
     var sin: Sin!
-    var selectedIndexes = [Int]()
+    var selectedIndexes = [NSIndexPath]()
+    
+    var apiPassages = [Passage]()
+    var customPassages = [Passage]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,7 +33,10 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             self.title = "Select Passages"
             
             let newRightButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.cancelButtonPressed))
-             navigationItem.setRightBarButtonItem(newRightButton, animated: false)
+            
+            let newRefreshButton = UIBarButtonItem(title: "R", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.refreshPressed))
+            
+            navigationItem.setRightBarButtonItem(newRightButton, animated: false)
         }
         
         self.passages = fetchAllPassages()
@@ -38,6 +44,10 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         if(passages.count == 0) {
             downloadData()
         }
+        
+        populatePassageArrays()
+        tableView.reloadData()
+        
     }
     
     func downloadData(){
@@ -54,12 +64,26 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                         
                         dispatch_async(dispatch_get_main_queue()){
                             print("will update table... ", self.passages.count)
+                            self.populatePassageArrays()
                             self.tableView.reloadData()
                         }
                         
                         self.saveContext()
                     })
                 }
+            }
+        }
+    }
+    
+    func populatePassageArrays(){
+        apiPassages.removeAll()
+        customPassages.removeAll()
+
+        for i in 0 ..< passages.count {
+            if passages[i].isCustom {
+                self.customPassages.append(passages[i])
+            } else {
+                self.apiPassages.append(passages[i])
             }
         }
     }
@@ -101,24 +125,44 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // find if the index is in selected indexes array
-        selectedIndexes.append(indexPath.row)
+        selectedIndexes.append(indexPath)
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        if let index = selectedIndexes.indexOf(indexPath.row) {
+        if let index = selectedIndexes.indexOf(indexPath) {
             // remove it from the array
             selectedIndexes.removeAtIndex(index)
         }
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "API Sins"
+        } else {
+            return "Custom Sins"
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return passages.count
+        if section == 0 {
+            return apiPassages.count
+        } else {
+            return customPassages.count
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PassageCell")
         
-        cell?.textLabel?.text = passages[indexPath.row].title
+        if indexPath.section == 0 {
+            cell?.textLabel?.text = apiPassages[indexPath.row].title
+        } else {
+            cell?.textLabel?.text = customPassages[indexPath.row].title
+        }
         
         return cell!
     }
@@ -130,20 +174,29 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             
+            let passage:Passage!
+            
             switch (editingStyle) {
             case .Delete:
-                let passage = passages[indexPath.row]
+                if(indexPath.section == 0) {
+                    passage = apiPassages[indexPath.row]
+                    apiPassages.removeAtIndex(indexPath.row)
+                } else {
+                    passage = customPassages[indexPath.row]
+                    customPassages.removeAtIndex(indexPath.row)
+                }
                 
-                passages.removeAtIndex(indexPath.row)
                 // Remove the row from the table
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
                 
                 // Remove the movie from the context
                 sharedContext.deleteObject(passage)
                 CoreDataStackManager.sharedInstance().saveContext()
+            
             default:
                 break
             }
+
         }
     }
     
@@ -159,16 +212,11 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     
     func addCustomPassageConfirmAlert(searchTerm: String, sendingAlert: UIAlertController){
         
-        print("ONE!")
-        
         sendingAlert.view.removeFromSuperview()
         sendingAlert.removeFromParentViewController()
         sendingAlert.dismissViewControllerAnimated(false, completion: nil)
-        print("TWO!")
         
         ISINClient.sharedInstance().getPassage(searchTerm, completionHandlerForGetPassage: { (results, errorString) in
-            
-            print("THREE!")
             
             let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
             
@@ -177,10 +225,12 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             let alert = UIAlertController(title: "Confirm Passage", message: message , preferredStyle: .Alert)
             
             alert.addAction(UIAlertAction(title: "YES", style: .Default, handler: { (action) -> Void in
+                bibleorgPassage.isCustom = true
                 self.passages.append(bibleorgPassage)
                 
                 dispatch_async(dispatch_get_main_queue()){
                     print("will update table... ", self.passages.count)
+                    self.populatePassageArrays()
                     self.tableView.reloadData()
                 }
                 
@@ -217,21 +267,72 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             
         }))
         
-        print("A!")
         alert.view.setNeedsLayout()
-        print("B!")
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func getIndexOfAPISin(passage: Passage) -> Int? {
+        for i in 0 ..< apiPassages.count {
+            if passage.title == apiPassages[i].title {
+                return i
+            }
+        }
+        return nil
+    }
+    
+    
+    func refreshPressed() {
+        // refresh pressed...
+        apiPassages.removeAll()
+        //customSins.removeAll()
+        
+        for i in 0 ..< passages.count {
+            if !passages[i].isCustom {
+                
+                if let delIndex = getIndexOfAPISin(passages[i]){
+                    let indexPath = NSIndexPath(forRow: delIndex, inSection: 0)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                }
+                
+                sharedContext.deleteObject(passages[i])
+            }
+        }
+        
+        tableView.reloadData()
+        
+        passages = fetchAllPassages()
+        
+        downloadData()
     }
     
     
     @IBAction func addRecordPressed(sender: UIButton) {
         
+        print("1111111")
+        
         let newSin = RecordSin(name: self.sin.name, type: self.sin.type.integerValue, entityName: ISINClient.EntityNames.RecordSin, context: sharedContext)
+        
+        print("222222222")
+
         
         let newRecord = Record(context: sharedContext)
         
+        
+        print("333333333")
+        
         for i in 0 ..< selectedIndexes.count {
-            let tempPassage = passages[i]
+            
+            print("4444444")
+            let tempPassage: Passage!
+            
+            if selectedIndexes[i].section == 0 {
+                tempPassage = apiPassages[selectedIndexes[i].row]
+            } else {
+                tempPassage = customPassages[selectedIndexes[i].row]
+            }
+            
+            print("55555555")
+            
             let dataArray : [String: AnyObject] = [
                 "book" : tempPassage.book,
                 "chapter" : tempPassage.chapter,
@@ -239,14 +340,22 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                 "verse_end" : tempPassage.end
             ]
             
+            print("AAAAAAA")
+            
             let newPassage = RecordPassage(dictionary: nil, dataArray: dataArray, sinID: self.sinID, entityName: ISINClient.EntityNames.RecordPassage, context: sharedContext)
             newPassage.text = tempPassage.text
             newPassage.record = newRecord
         }
         
+        print("BBBBBBB")
+        
         newSin.record = newRecord
         
+        print("CCCCCCC")
+        
         saveContext()
+        
+        print("DDDDDDD")
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

@@ -17,6 +17,7 @@ class Passage : NSManagedObject {
     @NSManaged var end: NSNumber
     @NSManaged var text:String
     @NSManaged var sin_type: NSNumber
+    @NSManaged var isCustom: Bool
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
@@ -77,7 +78,7 @@ class Passage : NSManagedObject {
         }
         
         self.sin_type = sinID
-        
+        self.isCustom = false
     }
     
     override var description: String {
