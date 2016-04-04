@@ -13,6 +13,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
 
     var sinID:Int!
     var sins = [Sin]()
+    var selectedSin: Sin!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -71,11 +72,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        print("did select row...")
-        // let passageSelectVC = storyboard?.instantiateViewControllerWithIdentifier("AddPassage") as! AddPassageViewController
-        // passageSelectVC.sinID = self.sinID
-        
-        // presentViewController(passageSelectVC, animated: true, completion: nil)
+        selectedSin = sins[indexPath.row]
         performSegueWithIdentifier("AddPassage", sender: self)
     }
     
@@ -154,6 +151,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         if segue.identifier == "AddPassage" {
             let addPassageVC = segue.destinationViewController as! AddPassageViewController
             addPassageVC.sinID = self.sinID
+            addPassageVC.sin = self.selectedSin
         }
     }
     

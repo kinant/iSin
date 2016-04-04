@@ -13,7 +13,7 @@ class SinRecord: NSManagedObject {
 
     @NSManaged var date_added: NSDate
     @NSManaged var sin: Sin
-    @NSManaged var passages: [Passage]?
+    @NSManaged var passages: NSSet
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
@@ -26,7 +26,7 @@ class SinRecord: NSManagedObject {
         
         self.date_added = NSDate()
         self.sin = sin
-        self.passages = passages
+        self.passages = NSSet(array: passages!)
     }
     
     var dateString: String {

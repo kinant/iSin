@@ -13,6 +13,8 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     
     var sinID:Int!
     var passages = [Passage]()
+    var sin: Sin!
+    var selectedIndexes = [Int]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,7 +23,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "PassageCell")
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.allowsMultipleSelection = true
         
         if self.navigationController != nil {
             print("does have navigation controller!")
@@ -98,8 +100,15 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("did select row...");
-        showPassageTextAlert(indexPath.row)
+        // find if the index is in selected indexes array
+        selectedIndexes.append(indexPath.row)
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        if let index = selectedIndexes.indexOf(indexPath.row) {
+            // remove it from the array
+            selectedIndexes.removeAtIndex(index)
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -212,5 +221,29 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         alert.view.setNeedsLayout()
         print("B!")
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func addRecordPressed(sender: UIButton) {
+        print("test0")
+        //print(selectedIndexes)
+        var selectedPassages = [Passage]()
+        
+        for i in 0 ..< selectedIndexes.count {
+            selectedPassages.append(passages[i])
+        }
+        
+        print("test1")
+        
+        // add record
+        SinRecord(sin: self.sin, passages: selectedPassages, context: sharedContext)
+
+        print("test2")
+        
+        saveContext()
+        
+        print("test3")
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

@@ -127,6 +127,58 @@
             </objects>
             <point key="canvasLocation" x="3257" y="-182"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Z5N-Fm-M3m">
+            <objects>
+                <navigationController storyboardIdentifier="SinRecordsNavController" id="kTF-1O-Yf1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GhH-s8-be4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fnb-mw-Kix" kind="relationship" relationship="rootViewController" id="uIp-d6-0ef"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gfv-hE-xcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829" y="516"/>
+        </scene>
+        <!--My Sin Records-->
+        <scene sceneID="yDN-du-xzJ">
+            <objects>
+                <viewController storyboardIdentifier="SinRecordsViewController" id="fnb-mw-Kix" customClass="SinRecordsViewController" customModule="iSin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0t4-7M-jO5"/>
+                        <viewControllerLayoutGuide type="bottom" id="fRW-HB-wQ3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KMW-Mz-MVD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SinRecordsViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQG-pL-mSd">
+                                <rect key="frame" x="201" y="72" width="199" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bQG-pL-mSd" firstAttribute="top" secondItem="0t4-7M-jO5" secondAttribute="bottom" constant="8" symbolic="YES" id="Az6-rk-hFn"/>
+                            <constraint firstItem="bQG-pL-mSd" firstAttribute="centerX" secondItem="KMW-Mz-MVD" secondAttribute="centerX" id="oxd-qf-zbc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Sin Records" id="pfm-Zm-1Hb">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Mpf-ok-WSN"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="Mpf-ok-WSN" id="c91-PM-BbV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="waD-yg-ztC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2590" y="516"/>
+        </scene>
         <!--AddSinNavController-->
         <scene sceneID="lra-fK-ySi">
             <objects>
@@ -247,6 +299,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="1mw-Bh-ajm" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="idc-2m-t9d"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jGs-23-L4u">
                                         <rect key="frame" x="0.0" y="88" width="600" height="44"/>
@@ -263,6 +318,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="kTF-1O-Yf1" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="SrW-Sr-rCf"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sRS-0v-4hj">
                                         <rect key="frame" x="0.0" y="132" width="600" height="44"/>
@@ -333,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd4-9v-GPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1829" y="516"/>
+            <point key="canvasLocation" x="3257" y="516"/>
         </scene>
         <!--Add Passage View Controller-->
         <scene sceneID="P0l-VD-tiE">
@@ -370,6 +428,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEa-mc-me7">
                                 <rect key="frame" x="484" y="550" width="96" height="30"/>
                                 <state key="normal" title="ADD RECORD"/>
+                                <connections>
+                                    <action selector="addRecordPressed:" destination="f1l-w1-nBC" eventType="touchUpInside" id="JwR-yh-ZAZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -394,4 +455,7 @@
             <point key="canvasLocation" x="3953" y="-182"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="idc-2m-t9d"/>
+    </inferredMetricsTieBreakers>
 </document>
