@@ -12,6 +12,7 @@ class Sin: NSManagedObject {
     
     @NSManaged var name: String
     @NSManaged var type: NSNumber
+    @NSManaged var isCustom: Bool
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
@@ -24,5 +25,6 @@ class Sin: NSManagedObject {
         
         self.name = name
         self.type = type
+        self.isCustom = false
     }
 }

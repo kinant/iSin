@@ -15,6 +15,9 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     var sins = [Sin]()
     var selectedSin: Sin!
     
+    var apiSins = [Sin]()
+    var customSins = [Sin]()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -27,6 +30,22 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         
         if(sins.count == 0) {
             downloadData()
+        }
+        
+        populateSinArrays()
+        tableView.reloadData()
+    }
+    
+    func populateSinArrays(){
+        apiSins.removeAll()
+        customSins.removeAll()
+        
+        for i in 0 ..< sins.count {
+            if sins[i].isCustom {
+                self.customSins.append(sins[i])
+            } else {
+                self.apiSins.append(sins[i])
+            }
         }
     }
     
@@ -42,6 +61,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             dispatch_async(dispatch_get_main_queue()){
+                self.populateSinArrays()
                 self.tableView.reloadData()
             }
         }
@@ -70,19 +90,40 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2;
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "API Sins"
+        } else {
+            return "Custom Sins"
+        }
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         selectedSin = sins[indexPath.row]
         performSegueWithIdentifier("AddPassage", sender: self)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sins.count
+        if section == 0 {
+            return apiSins.count
+        } else {
+            return customSins.count
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SinCell")
-        cell?.textLabel?.text = sins[indexPath.row].name
+        
+        if indexPath.section == 0 {
+            cell?.textLabel?.text = apiSins[indexPath.row].name
+        } else {
+            cell?.textLabel?.text = customSins[indexPath.row].name
+        }
+        
         return cell!
     }
     
@@ -93,11 +134,18 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
         
+            let sin:Sin!
+            
             switch (editingStyle) {
             case .Delete:
-                let sin = sins[indexPath.row]
-                
-                sins.removeAtIndex(indexPath.row)
+                if(indexPath.section == 0) {
+                    sin = apiSins[indexPath.row]
+                    apiSins.removeAtIndex(indexPath.row)
+                } else {
+                    sin = customSins[indexPath.row]
+                    customSins.removeAtIndex(indexPath.row)
+                }
+            
                 // Remove the row from the table
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
                 
@@ -127,12 +175,14 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
             if(textField.text! != ""){
                 
                 let newSin = Sin(name: textField.text!, type: self.sinID, entityName: ISINClient.EntityNames.ListSin, context: self.sharedContext)
+                newSin.isCustom = true
+                
                 self.sins.append(newSin)
                 
                 self.saveContext()
-                //self.sins.append(textField.text!)
                 
                 dispatch_async(dispatch_get_main_queue()){
+                    self.populateSinArrays()
                     self.tableView.reloadData()
                 }
             }
@@ -159,4 +209,39 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func getIndexOfAPISin(sin: Sin) -> Int? {
+        for i in 0 ..< apiSins.count {
+            if sin.name == apiSins[i].name {
+                return i
+            }
+        }
+        return nil
+    }
+    
+    
+    @IBAction func refreshPressed(sender: UIBarButtonItem) {
+        // refresh pressed...
+        apiSins.removeAll()
+        //customSins.removeAll()
+        
+        for i in 0 ..< sins.count {
+            if !sins[i].isCustom {
+                
+                if let delIndex = getIndexOfAPISin(sins[i]){
+                    let indexPath = NSIndexPath(forRow: delIndex, inSection: 0)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                }
+                
+                sharedContext.deleteObject(sins[i])
+            }
+        }
+        
+        tableView.reloadData()
+        
+        sins = fetchAllSins()
+        
+        downloadData()
+    }
+    
 }
