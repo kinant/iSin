@@ -13,10 +13,16 @@ class SettingsViewController:UIViewController {
     
     @IBOutlet weak var prefSinButton: UIButton!
     @IBOutlet weak var authSwitch: UISwitch!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var sinNames = ["LUST", "GLUTTONY", "GREED", "SLOTH", "WRATH", "ENVY", "PRIDE"]
     
     override func viewDidLoad() {
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+        }
         
         authSwitch.setOn(NSUserDefaults.standardUserDefaults().boolForKey("authAll"), animated: false)
         
@@ -42,4 +48,5 @@ class SettingsViewController:UIViewController {
         NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "authAll")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
+
 }

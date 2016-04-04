@@ -451,7 +451,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Cds-9Q-dOS" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="eof-MF-jX5"/>
+                                            <segue destination="l7P-xA-PLz" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="vS0-SD-f2Q"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -465,9 +465,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8w-xP-NP4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="524"/>
+            <point key="canvasLocation" x="468" y="516"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="f6Y-Dy-dBd">
+            <objects>
+                <navigationController id="l7P-xA-PLz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GYo-QM-M4r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Cds-9Q-dOS" kind="relationship" relationship="rootViewController" id="GRm-k6-CFa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Jg-dH-iYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="1247"/>
+        </scene>
+        <!--Settings-->
         <scene sceneID="NOG-p7-Oxa">
             <objects>
                 <viewController id="Cds-9Q-dOS" customClass="SettingsViewController" customModule="iSin" customModuleProvider="target" sceneMemberID="viewController">
@@ -479,26 +495,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Default Sin To Show: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbk-ex-scg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select Default Sin To Show: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbk-ex-scg">
                                 <rect key="frame" x="20" y="82" width="215" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPG-65-WvI">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPG-65-WvI">
                                 <rect key="frame" x="542" y="77" width="38" height="30"/>
                                 <state key="normal" title="LUST"/>
                                 <connections>
                                     <action selector="prefSinButtonPressed:" destination="Cds-9Q-dOS" eventType="touchUpInside" id="E2G-bs-jJg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authenticate Every Time App is Active: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kx7-O7-uIa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Authenticate Every Time App is Active: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kx7-O7-uIa">
                                 <rect key="frame" x="20" y="130" width="300" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSy-fE-ami">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSy-fE-ami">
                                 <rect key="frame" x="537" y="130" width="51" height="31"/>
                                 <connections>
                                     <action selector="switchPressed:" destination="Cds-9Q-dOS" eventType="valueChanged" id="MIi-2r-Zvm"/>
@@ -517,14 +533,18 @@
                             <constraint firstItem="kx7-O7-uIa" firstAttribute="leading" secondItem="gbk-ex-scg" secondAttribute="leading" id="mzY-zN-hrn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="CBN-yx-x4K">
+                        <barButtonItem key="leftBarButtonItem" title="MENU" id="A2U-jB-5Nv"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="authSwitch" destination="mSy-fE-ami" id="kh7-GJ-ngd"/>
+                        <outlet property="menuButton" destination="A2U-jB-5Nv" id="pVJ-m9-ceF"/>
                         <outlet property="prefSinButton" destination="mPG-65-WvI" id="mPr-7X-tCV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd4-9v-GPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="1252"/>
+            <point key="canvasLocation" x="1194" y="1247"/>
         </scene>
         <!--Add Passage View Controller-->
         <scene sceneID="P0l-VD-tiE">
