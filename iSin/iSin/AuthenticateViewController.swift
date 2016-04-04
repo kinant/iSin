@@ -232,13 +232,17 @@ class AuthenticateViewController: UIViewController {
     }
     
     func authenticateSuccess(){
+        
+        ISINClient.sharedInstance().userLoggedIn = true
+        
         let delay = 1.5 * Double(NSEC_PER_SEC)
         
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         dispatch_after(time, dispatch_get_main_queue()) {
-            let mainVC = self.storyboard?.instantiateViewControllerWithIdentifier("MainView") as! SWRevealViewController
-            self.presentViewController(mainVC, animated: true, completion: nil)
+            //let revealController = self.revealViewController()
+            //self.presentViewController(revealController, animated: true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
 }

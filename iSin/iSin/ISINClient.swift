@@ -17,6 +17,8 @@ class ISINClient: NSObject {
     var sessionID: String? = nil // for storing user's Udacity session ID
     var FBaccessToken: String? = nil // for storing FB access token
     
+    var userLoggedIn = false
+    
     // MARK: init
     override init() {
         session = NSURLSession.sharedSession()
