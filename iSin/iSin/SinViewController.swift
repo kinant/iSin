@@ -13,7 +13,7 @@ class SinViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var descTextView: UITextView!
+    @IBOutlet weak var descLabel: UILabel!
     
     var bckColor: UIColor!
     var sinTitle: String!
@@ -30,7 +30,7 @@ class SinViewController: UIViewController {
         self.titleLabel.layer.shadowColor = UIColor.blackColor().CGColor
         self.titleLabel.layer.shadowOffset = CGSizeMake(-1.0, 1.0)
         
-        descTextView.text = sinDescription
+        descLabel.text = sinDescription
     }
     
     @IBAction func addSinPressed(sender: UIButton) {
