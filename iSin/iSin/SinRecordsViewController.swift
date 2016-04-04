@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-class SinRecordsViewController: UIViewController {
+class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
     
     var records = [SinRecord]()
+    var sinNames = ["LUST", "GLUTTONY", "GREED", "SLOTH", "WRATH", "ENVY", "PRIDE"]
     
     override func viewDidLoad() {
         if self.revealViewController() != nil {
@@ -21,7 +23,13 @@ class SinRecordsViewController: UIViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         }
         
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SinRecordCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         self.records = fetchAllRecords()
+        
+        tableView.reloadData()
         
         for i in 0 ..< records.count {
             print("Record \(i) added ", records[i].dateString, " with sin: ", records[i].sin.name)
@@ -45,6 +53,21 @@ class SinRecordsViewController: UIViewController {
         } catch let error as NSError {
             return [SinRecord]()
         }
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return records.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("SinRecordCell")
+        
+        let record = records[indexPath.row]
+        
+        cell?.textLabel?.text = "\(sinNames[record.sin.type.integerValue]): \(record.dateString), # passages = \(record.passages.count)"
+        return cell!
+        
     }
 
     

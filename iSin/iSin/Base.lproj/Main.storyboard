@@ -161,11 +161,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Wi-Vm-EOg">
+                                <rect key="frame" x="0.0" y="101" width="600" height="499"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bQG-pL-mSd" firstAttribute="top" secondItem="0t4-7M-jO5" secondAttribute="bottom" constant="8" symbolic="YES" id="Az6-rk-hFn"/>
+                            <constraint firstItem="2Wi-Vm-EOg" firstAttribute="centerX" secondItem="bQG-pL-mSd" secondAttribute="centerX" id="gjt-kT-fHE"/>
+                            <constraint firstItem="2Wi-Vm-EOg" firstAttribute="bottom" secondItem="fRW-HB-wQ3" secondAttribute="top" id="kDj-n1-CIB"/>
+                            <constraint firstItem="2Wi-Vm-EOg" firstAttribute="leading" secondItem="KMW-Mz-MVD" secondAttribute="leading" id="mH7-4J-7gv"/>
                             <constraint firstItem="bQG-pL-mSd" firstAttribute="centerX" secondItem="KMW-Mz-MVD" secondAttribute="centerX" id="oxd-qf-zbc"/>
+                            <constraint firstItem="2Wi-Vm-EOg" firstAttribute="top" secondItem="bQG-pL-mSd" secondAttribute="bottom" constant="8" symbolic="YES" id="syM-Yn-sHs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Sin Records" id="pfm-Zm-1Hb">
@@ -173,6 +181,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="Mpf-ok-WSN" id="c91-PM-BbV"/>
+                        <outlet property="tableView" destination="2Wi-Vm-EOg" id="0hq-5k-qDw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waD-yg-ztC" userLabel="First Responder" sceneMemberID="firstResponder"/>
