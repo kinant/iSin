@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
 class AddPassageViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var sinID:Int!
-    var passages = [ISINPassage]()
+    var passages = [Passage]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,15 +31,22 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
              navigationItem.setRightBarButtonItem(newRightButton, animated: false)
         }
         
+        self.passages = fetchAllPassages()
         
+        if(passages.count == 0) {
+            downloadData()
+        }
+    }
+    
+    func downloadData(){
         ISINClient.sharedInstance().getPassagesForSin(self.sinID) { (results, errorString) in
             
             if((errorString == nil)){
                 for i in 0 ..< results.count {
-                    let tempISINPassage = ISINPassage(dictionaryArray: results[i])
+                    let tempISINPassage = Passage(dictionary: nil, dataArray: results[i], sinID: self.sinID, context: self.scratchContext)
                     
                     ISINClient.sharedInstance().getPassage(tempISINPassage.title, completionHandlerForGetPassage: { (results, errorString) in
-                        let bibleorgPassage = ISINPassage(dictionaryArray: results)
+                        let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, context: self.sharedContext)
                         print(bibleorgPassage.text)
                         self.passages.append(bibleorgPassage)
                         
@@ -46,11 +54,43 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                             print("will update table... ", self.passages.count)
                             self.tableView.reloadData()
                         }
+                        
+                        self.saveContext()
                     })
                 }
             }
         }
     }
+    
+    func fetchAllPassages() -> [Passage] {
+        
+        let fetchRequest = NSFetchRequest(entityName: "Passage")
+        
+        fetchRequest.sortDescriptors = []
+        fetchRequest.predicate = NSPredicate(format: "sin_type == \(sinID)");
+        
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Passage]
+        } catch let error as NSError {
+            print("Error in fetchAllActors(): \(error)")
+            return [Passage]()
+        }
+    }
+
+    
+    func saveContext() {
+        CoreDataStackManager.sharedInstance().saveContext()
+    }
+    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+    
+    lazy var scratchContext: NSManagedObjectContext = {
+        var context = NSManagedObjectContext()
+        context.persistentStoreCoordinator =  CoreDataStackManager.sharedInstance().persistentStoreCoordinator
+        return context
+    }()
     
     func cancelButtonPressed(){
         print("cancel button pressed!!")
@@ -72,6 +112,30 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         cell?.textLabel?.text = passages[indexPath.row].title
         
         return cell!
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            
+            switch (editingStyle) {
+            case .Delete:
+                let passage = passages[indexPath.row]
+                
+                passages.removeAtIndex(indexPath.row)
+                // Remove the row from the table
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                
+                // Remove the movie from the context
+                sharedContext.deleteObject(passage)
+                CoreDataStackManager.sharedInstance().saveContext()
+            default:
+                break
+            }
+        }
     }
     
     func showPassageTextAlert(passageIndex: Int){
@@ -97,7 +161,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             
             print("THREE!")
             
-            let bibleorgPassage = ISINPassage(dictionaryArray: results)
+            let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, context: self.sharedContext)
             
             let message = "Is this your passage: " + bibleorgPassage.title + "?"
             
@@ -110,6 +174,8 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                     print("will update table... ", self.passages.count)
                     self.tableView.reloadData()
                 }
+                
+                self.saveContext()
             }))
             
             alert.addAction(UIAlertAction(title: "NO", style: .Default, handler: { (action) -> Void in

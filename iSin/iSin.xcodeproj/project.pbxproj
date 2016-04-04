@@ -18,7 +18,7 @@
 		C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540D1CA1E94E00939DBC /* ISINConstants.swift */; };
 		C96E54101CA1EAC900939DBC /* AddSinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */; };
 		C96E54121CA1F8FA00939DBC /* ISINConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */; };
-		C96E54141CA1F9BC00939DBC /* ISINPassage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E54131CA1F9BC00939DBC /* ISINPassage.swift */; };
+		C96E54141CA1F9BC00939DBC /* Passage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E54131CA1F9BC00939DBC /* Passage.swift */; };
 		C99243471CA09DD900E64D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99243461CA09DD900E64D26 /* AppDelegate.swift */; };
 		C99243491CA09DD900E64D26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99243481CA09DD900E64D26 /* ViewController.swift */; };
 		C992434C1CA09DD900E64D26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C992434A1CA09DD900E64D26 /* Main.storyboard */; };
@@ -43,7 +43,7 @@
 		C96E540D1CA1E94E00939DBC /* ISINConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISINConstants.swift; sourceTree = "<group>"; };
 		C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSinViewController.swift; sourceTree = "<group>"; };
 		C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISINConvenience.swift; sourceTree = "<group>"; };
-		C96E54131CA1F9BC00939DBC /* ISINPassage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISINPassage.swift; sourceTree = "<group>"; };
+		C96E54131CA1F9BC00939DBC /* Passage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Passage.swift; sourceTree = "<group>"; };
 		C99243431CA09DD900E64D26 /* iSin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99243461CA09DD900E64D26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C99243481CA09DD900E64D26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				C91A814B1CB237B20079B964 /* Sin.swift */,
+				C96E54131CA1F9BC00939DBC /* Passage.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -120,7 +121,6 @@
 				C99243551CA09DD900E64D26 /* Info.plist */,
 				C992435B1CA09E7900E64D26 /* PagerController.swift */,
 				C992435F1CA0A07E00E64D26 /* SinViewController.swift */,
-				C96E54131CA1F9BC00939DBC /* ISINPassage.swift */,
 				C91E67061CB0600900D6C443 /* AddPassageViewController.swift */,
 				C9171C251CB11352002051C4 /* SettingsViewController.swift */,
 				C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */,
@@ -217,7 +217,7 @@
 				C992435C1CA09E7900E64D26 /* PagerController.swift in Sources */,
 				C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */,
 				C91A814C1CB237B20079B964 /* Sin.swift in Sources */,
-				C96E54141CA1F9BC00939DBC /* ISINPassage.swift in Sources */,
+				C96E54141CA1F9BC00939DBC /* Passage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
