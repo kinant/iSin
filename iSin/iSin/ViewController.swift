@@ -25,13 +25,13 @@ class ViewController: PagerController, PagerDataSource {
     }
     
     var descriptions = [
-        "to have an intense desire or need",
-        "excess in eating and drinking",
-        "excessive or reprehensible acquisitiveness",
-        "disinclined to activity or exertion: not energetic or vigorous",
-        "strong vengeful anger or indignation",
-        "painful or resentful awareness of an advantage enjoyed by another joined with a desire to possess the same advantag",
-        "quality or state of being proud – inordinate self esteem"
+        "To have intense desire or need",
+        "Excess in eating and drinking",
+        "Excessive or reprehensible acquisitiveness",
+        "Disinclined to activity or exertion: not energetic or vigorous",
+        "Strong vengeful anger or indignation",
+        "Painful or resentful awareness of an advantage enjoyed by another joined with a desire to possess the same advantage",
+        "Quality or state of being proud – inordinate self esteem"
     ];
     
     override func viewDidLoad() {

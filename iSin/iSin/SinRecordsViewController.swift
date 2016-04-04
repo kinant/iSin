@@ -25,7 +25,10 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         }
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SinRecordCell")
+        self.tableView.registerNib(UINib(nibName: "CustomRecordCellView", bundle: nil), forCellReuseIdentifier: "RecordCell")
+        
+        //self.tableView.registerClass(CustomRecordCellView.self, forCellReuseIdentifier: "RecordCell")
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -63,12 +66,17 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("SinRecordCell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("RecordCell") as! CustomRecordCellView
         
         let record = records[indexPath.row]
         
-        cell?.textLabel?.text = "\(sinNames[record.sin.type.integerValue - 1]): \(record.dateString), # passages = \(record.passages!.count)"
-        return cell!
+        cell.typeLabel.text = "\(sinNames[record.sin.type.integerValue - 1])"
+        cell.dateLabel.text = record.dateString
+        cell.passageLabel.text = "#:\(record.passages!.count)"
+        
+        //cell?.textLabel?.text = "\(sinNames[record.sin.type.integerValue - 1]): \(record.dateString), # passages = \(record.passages!.count)"
+        
+        return cell
         
     }
     
