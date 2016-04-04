@@ -12,6 +12,7 @@ class Sin: NSManagedObject {
     
     @NSManaged var name: String
     @NSManaged var type: NSNumber
+    @NSManaged var record: SinRecord?
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)

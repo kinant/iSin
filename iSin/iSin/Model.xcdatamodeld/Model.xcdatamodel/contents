@@ -7,19 +7,21 @@
         <attribute name="sin_type" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="start" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="record" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SinRecord" inverseName="passages" inverseEntity="SinRecord" syncable="YES"/>
     </entity>
     <entity name="Sin" representedClassName=".Sin" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="type" attributeType="Integer 64" syncable="YES"/>
+        <relationship name="record" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SinRecord" inverseName="sin" inverseEntity="SinRecord" syncable="YES"/>
     </entity>
     <entity name="SinRecord" representedClassName=".SinRecord" syncable="YES">
         <attribute name="date_added" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="passages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Passage" syncable="YES"/>
-        <relationship name="sin" maxCount="1" deletionRule="Nullify" destinationEntity="Sin" syncable="YES"/>
+        <relationship name="passages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Passage" inverseName="record" inverseEntity="Passage" syncable="YES"/>
+        <relationship name="sin" maxCount="1" deletionRule="Nullify" destinationEntity="Sin" inverseName="record" inverseEntity="Sin" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Passage" positionX="0" positionY="63" width="128" height="135"/>
-        <element name="Sin" positionX="-36" positionY="9" width="128" height="75"/>
+        <element name="Passage" positionX="0" positionY="63" width="128" height="150"/>
+        <element name="Sin" positionX="-36" positionY="9" width="128" height="90"/>
         <element name="SinRecord" positionX="27" positionY="126" width="128" height="90"/>
     </elements>
 </model>

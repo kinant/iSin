@@ -182,11 +182,72 @@
                     <connections>
                         <outlet property="menuButton" destination="Mpf-ok-WSN" id="c91-PM-BbV"/>
                         <outlet property="tableView" destination="2Wi-Vm-EOg" id="0hq-5k-qDw"/>
+                        <segue destination="PB1-u3-E3V" kind="show" identifier="ShowRecordDetail" id="WgP-Up-t2q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waD-yg-ztC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2590" y="516"/>
+        </scene>
+        <!--Record Details-->
+        <scene sceneID="AyA-xr-ZQ2">
+            <objects>
+                <viewController storyboardIdentifier="RecordDetail" title="Record Details" id="PB1-u3-E3V" customClass="RecordDetailViewController" customModule="iSin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kMt-Om-pth"/>
+                        <viewControllerLayoutGuide type="bottom" id="izN-Ro-eyD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AHO-uK-ohq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ4-bf-TwS">
+                                <rect key="frame" x="285" y="72" width="27" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TYPE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfS-vQ-HSe">
+                                <rect key="frame" x="279" y="116" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QVI-ge-umH">
+                                <rect key="frame" x="0.0" y="208" width="600" height="392"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE ADDED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-xo-McY">
+                                <rect key="frame" x="249" y="165" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bfS-vQ-HSe" firstAttribute="centerX" secondItem="AHO-uK-ohq" secondAttribute="centerX" id="7Ij-2m-eks"/>
+                            <constraint firstItem="uZ4-bf-TwS" firstAttribute="top" secondItem="kMt-Om-pth" secondAttribute="bottom" constant="8" symbolic="YES" id="I8G-5d-71M"/>
+                            <constraint firstItem="QVI-ge-umH" firstAttribute="bottom" secondItem="izN-Ro-eyD" secondAttribute="top" id="Jx7-RO-Nbf"/>
+                            <constraint firstItem="bfS-vQ-HSe" firstAttribute="centerX" secondItem="QVI-ge-umH" secondAttribute="centerX" id="OwO-Kk-e3l"/>
+                            <constraint firstItem="QVI-ge-umH" firstAttribute="top" secondItem="VEi-xo-McY" secondAttribute="bottom" constant="22" id="S0i-KR-LrK"/>
+                            <constraint firstItem="bfS-vQ-HSe" firstAttribute="top" secondItem="uZ4-bf-TwS" secondAttribute="bottom" constant="23" id="WUg-dj-X5v"/>
+                            <constraint firstItem="uZ4-bf-TwS" firstAttribute="centerX" secondItem="AHO-uK-ohq" secondAttribute="centerX" id="bbl-d9-dIv"/>
+                            <constraint firstItem="QVI-ge-umH" firstAttribute="leading" secondItem="AHO-uK-ohq" secondAttribute="leading" id="fhs-Ta-Xdi"/>
+                            <constraint firstItem="VEi-xo-McY" firstAttribute="top" secondItem="bfS-vQ-HSe" secondAttribute="bottom" constant="28" id="iaf-Rp-Gob"/>
+                            <constraint firstItem="VEi-xo-McY" firstAttribute="centerX" secondItem="QVI-ge-umH" secondAttribute="centerX" id="pee-Wg-2eE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="VEi-xo-McY" id="pAR-XC-u4g"/>
+                        <outlet property="sinLabel" destination="uZ4-bf-TwS" id="7h4-WS-0X2"/>
+                        <outlet property="tableView" destination="QVI-ge-umH" id="ib6-Ls-m3q"/>
+                        <outlet property="typeLabel" destination="bfS-vQ-HSe" id="EJ1-cV-VLC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T3g-MN-adl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3257" y="516"/>
         </scene>
         <!--AddSinNavController-->
         <scene sceneID="lra-fK-ySi">
@@ -400,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd4-9v-GPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3257" y="516"/>
+            <point key="canvasLocation" x="3953" y="516"/>
         </scene>
         <!--Add Passage View Controller-->
         <scene sceneID="P0l-VD-tiE">

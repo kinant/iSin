@@ -225,24 +225,28 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     
     
     @IBAction func addRecordPressed(sender: UIButton) {
-        print("test0")
-        //print(selectedIndexes)
-        var selectedPassages = [Passage]()
+        
+        let newSin = Sin(name: self.sin.name, type: self.sin.type.integerValue, context: sharedContext)
+        
+        let newRecord = SinRecord(context: sharedContext)
         
         for i in 0 ..< selectedIndexes.count {
-            selectedPassages.append(passages[i])
+            let tempPassage = passages[i]
+            let dataArray : [String: AnyObject] = [
+                "book" : tempPassage.book,
+                "chapter" : tempPassage.chapter,
+                "verse_start" : tempPassage.start,
+                "verse_end" : tempPassage.end
+            ]
+            
+            let newPassage = Passage(dictionary: nil, dataArray: dataArray, sinID: self.sinID, context: sharedContext)
+            newPassage.text = tempPassage.text
+            newPassage.record = newRecord
         }
         
-        print("test1")
-        
-        // add record
-        SinRecord(sin: self.sin, passages: selectedPassages, context: sharedContext)
-
-        print("test2")
+        newSin.record = newRecord
         
         saveContext()
-        
-        print("test3")
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

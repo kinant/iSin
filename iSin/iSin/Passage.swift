@@ -17,6 +17,7 @@ class Passage : NSManagedObject {
     @NSManaged var end: NSNumber
     @NSManaged var text:String
     @NSManaged var sin_type: NSNumber
+    @NSManaged var record: SinRecord?
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)

@@ -17,6 +17,8 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
     var records = [SinRecord]()
     var sinNames = ["LUST", "GLUTTONY", "GREED", "SLOTH", "WRATH", "ENVY", "PRIDE"]
     
+    var selectedRecord: SinRecord!
+    
     override func viewDidLoad() {
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -65,10 +67,20 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let record = records[indexPath.row]
         
-        cell?.textLabel?.text = "\(sinNames[record.sin.type.integerValue]): \(record.dateString), # passages = \(record.passages.count)"
+        cell?.textLabel?.text = "\(sinNames[record.sin.type.integerValue - 1]): \(record.dateString), # passages = \(record.passages!.count)"
         return cell!
         
     }
-
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedRecord = records[indexPath.row]
+        performSegueWithIdentifier("ShowRecordDetail", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowRecordDetail" {
+            let recordDetailVC = segue.destinationViewController as! RecordDetailViewController
+            recordDetailVC.record = selectedRecord
+        }
+    }
 }
