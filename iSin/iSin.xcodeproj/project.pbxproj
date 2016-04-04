@@ -12,6 +12,7 @@
 		C91A814C1CB237B20079B964 /* Sin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A814B1CB237B20079B964 /* Sin.swift */; };
 		C91A814E1CB238690079B964 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A814D1CB238690079B964 /* CoreDataStackManager.swift */; };
 		C91A81511CB23B200079B964 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91A814F1CB23B200079B964 /* Model.xcdatamodeld */; };
+		C91A81531CB24A6E0079B964 /* SinRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A81521CB24A6E0079B964 /* SinRecord.swift */; };
 		C91E67071CB0600900D6C443 /* AddPassageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E67061CB0600900D6C443 /* AddPassageViewController.swift */; };
 		C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96E54091CA1ADE400939DBC /* SWRevealViewController.m */; };
 		C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540B1CA1E16500939DBC /* ISINClient.swift */; };
@@ -35,6 +36,7 @@
 		C91A814B1CB237B20079B964 /* Sin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sin.swift; sourceTree = "<group>"; };
 		C91A814D1CB238690079B964 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		C91A81501CB23B200079B964 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C91A81521CB24A6E0079B964 /* SinRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinRecord.swift; sourceTree = "<group>"; };
 		C91E67061CB0600900D6C443 /* AddPassageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPassageViewController.swift; sourceTree = "<group>"; };
 		C96E54071CA1ADE300939DBC /* iSin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iSin-Bridging-Header.h"; sourceTree = "<group>"; };
 		C96E54081CA1ADE400939DBC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				C91A814B1CB237B20079B964 /* Sin.swift */,
 				C96E54131CA1F9BC00939DBC /* Passage.swift */,
+				C91A81521CB24A6E0079B964 /* SinRecord.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				C96E54101CA1EAC900939DBC /* AddSinViewController.swift in Sources */,
 				C992435C1CA09E7900E64D26 /* PagerController.swift in Sources */,
 				C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */,
+				C91A81531CB24A6E0079B964 /* SinRecord.swift in Sources */,
 				C91A814C1CB237B20079B964 /* Sin.swift in Sources */,
 				C96E54141CA1F9BC00939DBC /* Passage.swift in Sources */,
 			);
