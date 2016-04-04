@@ -12,10 +12,13 @@ class SettingsViewController:UIViewController {
     
     
     @IBOutlet weak var prefSinButton: UIButton!
+    @IBOutlet weak var authSwitch: UISwitch!
     
     var sinNames = ["LUST", "GLUTTONY", "GREED", "SLOTH", "WRATH", "ENVY", "PRIDE"]
     
     override func viewDidLoad() {
+        
+        authSwitch.setOn(NSUserDefaults.standardUserDefaults().boolForKey("authAll"), animated: false)
         
     }
     
@@ -35,4 +38,8 @@ class SettingsViewController:UIViewController {
         
     }
     
+    @IBAction func switchPressed(sender: UISwitch) {
+        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "authAll")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
 }

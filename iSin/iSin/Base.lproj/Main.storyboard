@@ -306,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G7p-eS-Wag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-938" y="516"/>
+            <point key="canvasLocation" x="-1170" y="516"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="6d4-p2-wp9">
@@ -328,7 +328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BzM-9p-0ZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-269" y="516"/>
+            <point key="canvasLocation" x="-465" y="516"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IcC-xh-EQQ">
@@ -450,6 +450,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Cds-9Q-dOS" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="eof-MF-jX5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -462,7 +465,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8w-xP-NP4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1152" y="516"/>
+            <point key="canvasLocation" x="468" y="524"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="NOG-p7-Oxa">
@@ -489,22 +492,39 @@
                                     <action selector="prefSinButtonPressed:" destination="Cds-9Q-dOS" eventType="touchUpInside" id="E2G-bs-jJg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authenticate Every Time App is Active: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kx7-O7-uIa">
+                                <rect key="frame" x="20" y="130" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSy-fE-ami">
+                                <rect key="frame" x="537" y="130" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchPressed:" destination="Cds-9Q-dOS" eventType="valueChanged" id="MIi-2r-Zvm"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mSy-fE-ami" firstAttribute="centerX" secondItem="mPG-65-WvI" secondAttribute="centerX" id="3hK-YF-fWQ"/>
                             <constraint firstItem="gbk-ex-scg" firstAttribute="leading" secondItem="gDt-H6-4Zz" secondAttribute="leadingMargin" id="7Qd-38-Y5v"/>
                             <constraint firstItem="mPG-65-WvI" firstAttribute="centerY" secondItem="gbk-ex-scg" secondAttribute="centerY" constant="-0.5" id="9cr-1h-Yhw"/>
                             <constraint firstAttribute="trailing" secondItem="mPG-65-WvI" secondAttribute="trailing" constant="20" id="GoB-j5-xBg"/>
+                            <constraint firstItem="mSy-fE-ami" firstAttribute="top" secondItem="kx7-O7-uIa" secondAttribute="top" id="OzB-20-ryu"/>
+                            <constraint firstItem="kx7-O7-uIa" firstAttribute="top" secondItem="gbk-ex-scg" secondAttribute="bottom" constant="27" id="XRa-Q7-tuJ"/>
                             <constraint firstItem="gbk-ex-scg" firstAttribute="top" secondItem="EUZ-C5-jEI" secondAttribute="bottom" constant="62" id="hEh-G3-316"/>
+                            <constraint firstItem="kx7-O7-uIa" firstAttribute="leading" secondItem="gbk-ex-scg" secondAttribute="leading" id="mzY-zN-hrn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="authSwitch" destination="mSy-fE-ami" id="kh7-GJ-ngd"/>
                         <outlet property="prefSinButton" destination="mPG-65-WvI" id="mPr-7X-tCV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd4-9v-GPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3953" y="516"/>
+            <point key="canvasLocation" x="468" y="1252"/>
         </scene>
         <!--Add Passage View Controller-->
         <scene sceneID="P0l-VD-tiE">
@@ -572,6 +592,6 @@
         <image name="touchid" width="800" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aeE-PQ-Z1V"/>
+        <segue reference="idc-2m-t9d"/>
     </inferredMetricsTieBreakers>
 </document>
