@@ -262,10 +262,10 @@
             </objects>
             <point key="canvasLocation" x="2590" y="-182"/>
         </scene>
-        <!--Login-->
+        <!--Authenticate-->
         <scene sceneID="gm7-OT-dVc">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" title="Login" id="Ubv-ZF-gom" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthenticateVC" title="Authenticate" id="Ubv-ZF-gom" customClass="AuthenticateViewController" customModule="iSin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ggm-bV-EoZ"/>
                         <viewControllerLayoutGuide type="bottom" id="tWU-9B-7RZ"/>
@@ -281,14 +281,29 @@
                                     <constraint firstAttribute="height" constant="200" id="gcI-q1-IQv"/>
                                 </constraints>
                                 <state key="normal" image="touchid"/>
+                                <connections>
+                                    <action selector="authenticateButtonPressed:" destination="Ubv-ZF-gom" eventType="touchUpInside" id="DMa-fo-oli"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kL-hK-YOB">
+                                <rect key="frame" x="279" y="474" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jlH-Af-Pbb" firstAttribute="centerX" secondItem="2oO-5E-xd6" secondAttribute="centerX" id="Orv-Zs-ERc"/>
+                            <constraint firstItem="7kL-hK-YOB" firstAttribute="centerX" secondItem="jlH-Af-Pbb" secondAttribute="centerX" id="YIl-aw-Axv"/>
+                            <constraint firstItem="7kL-hK-YOB" firstAttribute="top" secondItem="jlH-Af-Pbb" secondAttribute="bottom" constant="74" id="dcy-8T-irq"/>
                             <constraint firstItem="jlH-Af-Pbb" firstAttribute="centerY" secondItem="2oO-5E-xd6" secondAttribute="centerY" id="uNq-gz-Jx0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="statusLabel" destination="7kL-hK-YOB" id="gWF-11-RYq"/>
+                        <segue destination="B9Y-Dw-VK1" kind="presentation" identifier="Login" id="rbz-tD-zFF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G7p-eS-Wag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,7 +312,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="6d4-p2-wp9">
             <objects>
-                <viewController id="B9Y-Dw-VK1" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainView" id="B9Y-Dw-VK1" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Al4-Is-2LK"/>
                         <viewControllerLayoutGuide type="bottom" id="iOC-7o-fdC"/>
@@ -558,6 +573,6 @@
         <image name="touchid" width="800" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="idc-2m-t9d"/>
+        <segue reference="aeE-PQ-Z1V"/>
     </inferredMetricsTieBreakers>
 </document>

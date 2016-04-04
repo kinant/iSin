@@ -11,6 +11,9 @@
 		C913DF2B1CB2738F003339E5 /* RecordPassage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913DF2A1CB2738F003339E5 /* RecordPassage.swift */; };
 		C9171C261CB11352002051C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171C251CB11352002051C4 /* SettingsViewController.swift */; };
 		C9171C281CB11AEE002051C4 /* AddSinNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */; };
+		C91A2CE51CB2D81800AD0358 /* PITouchIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A2CE21CB2D81800AD0358 /* PITouchIDManager.swift */; };
+		C91A2CE61CB2D81800AD0358 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C91A2CE41CB2D81800AD0358 /* KeychainWrapper.m */; };
+		C91A2CE81CB2D8C900AD0358 /* AuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A2CE71CB2D8C900AD0358 /* AuthenticateViewController.swift */; };
 		C91A814C1CB237B20079B964 /* Sin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A814B1CB237B20079B964 /* Sin.swift */; };
 		C91A814E1CB238690079B964 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A814D1CB238690079B964 /* CoreDataStackManager.swift */; };
 		C91A81511CB23B200079B964 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C91A814F1CB23B200079B964 /* Model.xcdatamodeld */; };
@@ -39,6 +42,10 @@
 		C913DF2A1CB2738F003339E5 /* RecordPassage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPassage.swift; sourceTree = "<group>"; };
 		C9171C251CB11352002051C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSinNavigationController.swift; sourceTree = "<group>"; };
+		C91A2CE21CB2D81800AD0358 /* PITouchIDManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PITouchIDManager.swift; sourceTree = "<group>"; };
+		C91A2CE31CB2D81800AD0358 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		C91A2CE41CB2D81800AD0358 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		C91A2CE71CB2D8C900AD0358 /* AuthenticateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateViewController.swift; sourceTree = "<group>"; };
 		C91A814B1CB237B20079B964 /* Sin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sin.swift; sourceTree = "<group>"; };
 		C91A814D1CB238690079B964 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		C91A81501CB23B200079B964 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -129,6 +136,9 @@
 				C992435D1CA09F0D00E64D26 /* Extensions.swift */,
 				C99243481CA09DD900E64D26 /* ViewController.swift */,
 				C992434A1CA09DD900E64D26 /* Main.storyboard */,
+				C91A2CE21CB2D81800AD0358 /* PITouchIDManager.swift */,
+				C91A2CE31CB2D81800AD0358 /* KeychainWrapper.h */,
+				C91A2CE41CB2D81800AD0358 /* KeychainWrapper.m */,
 				C99243501CA09DD900E64D26 /* Assets.xcassets */,
 				C99243521CA09DD900E64D26 /* LaunchScreen.storyboard */,
 				C99243551CA09DD900E64D26 /* Info.plist */,
@@ -140,6 +150,7 @@
 				C91A814F1CB23B200079B964 /* Model.xcdatamodeld */,
 				C91A81541CB24DF00079B964 /* SinRecordsViewController.swift */,
 				C91A81561CB25AC00079B964 /* RecordDetailViewController.swift */,
+				C91A2CE71CB2D8C900AD0358 /* AuthenticateViewController.swift */,
 			);
 			path = iSin;
 			sourceTree = "<group>";
@@ -217,13 +228,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */,
+				C91A2CE51CB2D81800AD0358 /* PITouchIDManager.swift in Sources */,
 				C96E54121CA1F8FA00939DBC /* ISINConvenience.swift in Sources */,
 				C992435E1CA09F0D00E64D26 /* Extensions.swift in Sources */,
+				C91A2CE81CB2D8C900AD0358 /* AuthenticateViewController.swift in Sources */,
 				C91A814E1CB238690079B964 /* CoreDataStackManager.swift in Sources */,
 				C91A81571CB25AC00079B964 /* RecordDetailViewController.swift in Sources */,
 				C99243491CA09DD900E64D26 /* ViewController.swift in Sources */,
 				C99243471CA09DD900E64D26 /* AppDelegate.swift in Sources */,
 				C9171C281CB11AEE002051C4 /* AddSinNavigationController.swift in Sources */,
+				C91A2CE61CB2D81800AD0358 /* KeychainWrapper.m in Sources */,
 				C91A81551CB24DF00079B964 /* SinRecordsViewController.swift in Sources */,
 				C913DF291CB2733D003339E5 /* RecordSin.swift in Sources */,
 				C99243601CA0A07E00E64D26 /* SinViewController.swift in Sources */,
