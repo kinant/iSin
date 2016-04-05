@@ -97,11 +97,8 @@
 		C91A814A1CB237A20079B964 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C91A814B1CB237B20079B964 /* Sin.swift */,
-				C96E54131CA1F9BC00939DBC /* Passage.swift */,
-				C91A81521CB24A6E0079B964 /* Record.swift */,
-				C913DF281CB2733D003339E5 /* RecordSin.swift */,
-				C913DF2A1CB2738F003339E5 /* RecordPassage.swift */,
+				C9D649E91CB465730081D7E2 /* Client */,
+				C9D649E81CB4654E0081D7E2 /* CoreData */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -122,7 +119,6 @@
 			children = (
 				C96E54081CA1ADE400939DBC /* SWRevealViewController.h */,
 				C96E54091CA1ADE400939DBC /* SWRevealViewController.m */,
-				C96E54071CA1ADE300939DBC /* iSin-Bridging-Header.h */,
 			);
 			name = SWRevealViewController;
 			sourceTree = "<group>";
@@ -146,36 +142,88 @@
 		C99243451CA09DD900E64D26 /* iSin */ = {
 			isa = PBXGroup;
 			children = (
-				C93FBE741CB32F55002C6A41 /* View */,
-				C91A814D1CB238690079B964 /* CoreDataStackManager.swift */,
 				C91A814A1CB237A20079B964 /* Model */,
-				C96E54061CA1ADC400939DBC /* SWRevealViewController */,
-				C99243461CA09DD900E64D26 /* AppDelegate.swift */,
+				C93FBE741CB32F55002C6A41 /* View */,
+				C9D649E41CB464310081D7E2 /* Controller */,
+				C9D649E61CB464F00081D7E2 /* Assets */,
+				C9D649E51CB464510081D7E2 /* Extras */,
+				C9D649E71CB465130081D7E2 /* Supporting Files */,
+			);
+			path = iSin;
+			sourceTree = "<group>";
+		};
+		C9D649E41CB464310081D7E2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */,
-				C96E540B1CA1E16500939DBC /* ISINClient.swift */,
-				C96E540D1CA1E94E00939DBC /* ISINConstants.swift */,
-				C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */,
-				C992435D1CA09F0D00E64D26 /* Extensions.swift */,
 				C99243481CA09DD900E64D26 /* ViewController.swift */,
-				C992434A1CA09DD900E64D26 /* Main.storyboard */,
-				C91A2CE21CB2D81800AD0358 /* PITouchIDManager.swift */,
-				C91A2CE31CB2D81800AD0358 /* KeychainWrapper.h */,
-				C91A2CE41CB2D81800AD0358 /* KeychainWrapper.m */,
-				C99243501CA09DD900E64D26 /* Assets.xcassets */,
-				C99243521CA09DD900E64D26 /* LaunchScreen.storyboard */,
-				C99243551CA09DD900E64D26 /* Info.plist */,
 				C992435B1CA09E7900E64D26 /* PagerController.swift */,
 				C992435F1CA0A07E00E64D26 /* SinViewController.swift */,
 				C91E67061CB0600900D6C443 /* AddPassageViewController.swift */,
 				C9171C251CB11352002051C4 /* SettingsViewController.swift */,
-				C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */,
-				C91A814F1CB23B200079B964 /* Model.xcdatamodeld */,
 				C91A81541CB24DF00079B964 /* SinRecordsViewController.swift */,
 				C91A81561CB25AC00079B964 /* RecordDetailViewController.swift */,
 				C91A2CE71CB2D8C900AD0358 /* AuthenticateViewController.swift */,
-				C97D56611CB42237008335CF /* SwiftSpinner.swift */,
+				C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */,
 			);
-			path = iSin;
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		C9D649E51CB464510081D7E2 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				C99243461CA09DD900E64D26 /* AppDelegate.swift */,
+				C96E54071CA1ADE300939DBC /* iSin-Bridging-Header.h */,
+				C992435D1CA09F0D00E64D26 /* Extensions.swift */,
+				C91A2CE21CB2D81800AD0358 /* PITouchIDManager.swift */,
+				C91A2CE31CB2D81800AD0358 /* KeychainWrapper.h */,
+				C91A2CE41CB2D81800AD0358 /* KeychainWrapper.m */,
+				C97D56611CB42237008335CF /* SwiftSpinner.swift */,
+				C96E54061CA1ADC400939DBC /* SWRevealViewController */,
+			);
+			name = Extras;
+			sourceTree = "<group>";
+		};
+		C9D649E61CB464F00081D7E2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C99243501CA09DD900E64D26 /* Assets.xcassets */,
+				C992434A1CA09DD900E64D26 /* Main.storyboard */,
+				C99243521CA09DD900E64D26 /* LaunchScreen.storyboard */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		C9D649E71CB465130081D7E2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C99243551CA09DD900E64D26 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C9D649E81CB4654E0081D7E2 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C91A814F1CB23B200079B964 /* Model.xcdatamodeld */,
+				C91A814D1CB238690079B964 /* CoreDataStackManager.swift */,
+				C91A814B1CB237B20079B964 /* Sin.swift */,
+				C96E54131CA1F9BC00939DBC /* Passage.swift */,
+				C91A81521CB24A6E0079B964 /* Record.swift */,
+				C913DF281CB2733D003339E5 /* RecordSin.swift */,
+				C913DF2A1CB2738F003339E5 /* RecordPassage.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		C9D649E91CB465730081D7E2 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				C96E540B1CA1E16500939DBC /* ISINClient.swift */,
+				C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */,
+				C96E540D1CA1E94E00939DBC /* ISINConstants.swift */,
+			);
+			name = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
