@@ -69,11 +69,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        print("DID BECOME ACTIVE!")
+        print("DID BECOME ACTIVE! ", self.window?.rootViewController?.presentedViewController)
+        
+        
         
         if(!ISINClient.sharedInstance().userLoggedIn && !ISINClient.Platform.isSimulator){
-            let authVC = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("AuthenticateVC") as! AuthenticateViewController
-            self.window?.rootViewController?.presentViewController(authVC, animated: false, completion: nil)
+            
+            let presentVC = self.window?.rootViewController?.presentedViewController
+            
+            if(presentVC != nil && (presentVC?.isKindOfClass(AuthenticateViewController))!){
+            } else {
+                let authVC = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("AuthenticateVC") as! AuthenticateViewController
+                self.window?.rootViewController?.presentViewController(authVC, animated: false, completion: nil)
+            }
         }
     }
     

@@ -18,23 +18,15 @@ class AuthenticateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupData()
-        // authenticateUser()
+        changeLabelMessage("User not authenticated")
         
-        let hasLoginKey = NSUserDefaults.standardUserDefaults().boolForKey("hasLoginKey")
+        let hasSetPassword = NSUserDefaults.standardUserDefaults().boolForKey("hasSetPassword")
         
-        print("has log in? ", hasLoginKey)
-        
-        if(!hasLoginKey) {
+        if(!hasSetPassword) {
             showPasswordCreateAlert()
         } else {
             authenticateUser()
         }
-    }
-    
-    
-    func setupData() {
-        self.statusLabel.text = "Unknown user"
     }
     
     func authenticateUser() {
@@ -42,7 +34,7 @@ class AuthenticateViewController: UIViewController {
         
         touchIDManager.authenticateUser(success: { () -> () in
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                self.loadDada()
+                self.changeLabelMessage("User authenticated!")
                 
                 SwiftSpinner.show("User authenticated!", description: "Starting app", animated: true)
                 
@@ -61,6 +53,7 @@ class AuthenticateViewController: UIViewController {
                     self.statusLabel.text = "User wants to use a password"
                     // We show the alert view in the main thread (always update the UI in the main thread)
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        print("user will use password!")
                         self.showPasswordAlert()
                     })
                 case LAError.TouchIDNotEnrolled.rawValue:
@@ -79,8 +72,8 @@ class AuthenticateViewController: UIViewController {
         })
     }
     
-    func loadDada() {
-        self.statusLabel.text = "User authenticated"
+    func changeLabelMessage(msg: String) {
+        self.statusLabel.text = msg
     }
     
     func showPasswordAlert() {
@@ -118,7 +111,7 @@ class AuthenticateViewController: UIViewController {
     
     func showPasswordCreateAlert() {
         // New way to present an alert view using UIAlertController
-        let alertController : UIAlertController = UIAlertController(title:"TouchID Demo" , message: "Please enter a new password", preferredStyle: .Alert)
+        let alertController : UIAlertController = UIAlertController(title:"Create Password" , message: "This is your first time running the app!. Please enter a new password to secure your data.", preferredStyle: .Alert)
         
         // We define the actions to add to the alert controller
         let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
@@ -155,7 +148,7 @@ class AuthenticateViewController: UIViewController {
     
     func showConfirmPasswordCreateAlert(password: String, message: String, shakeView: Bool) {
         // New way to present an alert view using UIAlertController
-        let alertController : UIAlertController = UIAlertController(title:"TouchID Demo" , message: message, preferredStyle: .Alert)
+        let alertController : UIAlertController = UIAlertController(title:"Confirm Password" , message: message, preferredStyle: .Alert)
         
         // We define the actions to add to the alert controller
         let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
@@ -171,8 +164,9 @@ class AuthenticateViewController: UIViewController {
                     // set the password...
                     self.MyKeychainWrapper.mySetObject(text, forKey:kSecValueData)
                     self.MyKeychainWrapper.writeToKeychain()
-                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLoginKey")
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSetPassword")
                     NSUserDefaults.standardUserDefaults().synchronize()
+                    
                     
                 } else {
                     dispatch_async(dispatch_get_main_queue()){
@@ -222,10 +216,10 @@ class AuthenticateViewController: UIViewController {
     }
     
     func login(password: String) {
-
         if password == MyKeychainWrapper.myObjectForKey("v_Data") as? String {
-            self.loadDada()
-            
+            self.changeLabelMessage("Authenticated! Press button to log in")
+            SwiftSpinner.show("Password correct!", description: "Logging in...", animated: true)
+            authenticateSuccess()
         } else {
             self.showPasswordAlert()
         }
