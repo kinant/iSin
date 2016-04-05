@@ -11,6 +11,7 @@ import CoreData
 
 class Passage : NSManagedObject {
     
+    // properties
     @NSManaged var book:String
     @NSManaged var chapter: NSNumber
     @NSManaged var start: NSNumber
@@ -25,9 +26,14 @@ class Passage : NSManagedObject {
     
     init(dictionary: [[String:AnyObject]]?, dataArray:[String: AnyObject]?, sinID: Int, entityName:String, context: NSManagedObjectContext){
         
+        /* The initializer can either take a dictionary array (from bible org) or a data
+            array, from iSIN API, to build a passage.
+         */
+        
         let entity =  NSEntityDescription.entityForName(entityName, inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
+        // build passage from iSIN API
         if dictionary != nil {
             if let temp_book = dictionary![0]["bookname"] as? String {
                 self.book = temp_book
@@ -58,6 +64,7 @@ class Passage : NSManagedObject {
             }
         } else if dataArray != nil {
         
+            // build passage from Bible Org API
             if let temp_book = dataArray!["book"] as? String {
                 self.book = temp_book
             }
@@ -77,14 +84,17 @@ class Passage : NSManagedObject {
             self.text = ""
         }
         
+        // set the sinID and the isCustom flag to false
         self.sin_type = sinID
         self.isCustom = false
     }
     
+    // this is for using the print() function
     override var description: String {
         return "\(title), \(text)"
     }
     
+    // returns the title of the Passage (Book Chapter:VerseStart-VerseEnd)
     var title : String {
         
         if self.end != 0 {
@@ -94,6 +104,7 @@ class Passage : NSManagedObject {
         }
     }
     
+    // returns the search term to search for this passage in bible org API
     var searchParameter : String {
         if self.end != 0 {
             return "\(book)\(chapter):\(start)-\(end)"

@@ -10,9 +10,10 @@ import CoreData
 
 class Sin: NSManagedObject {
     
-    @NSManaged var name: String
-    @NSManaged var type: NSNumber
-    @NSManaged var isCustom: Bool
+    // properties
+    @NSManaged var name: String // the sin name
+    @NSManaged var type: NSNumber // the sin's type (as int)
+    @NSManaged var isCustom: Bool // a flag to check if the sin is from API or user custom
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
