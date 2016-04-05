@@ -23,7 +23,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "PassageCell")
+        self.tableView.registerNib(UINib(nibName: "CustomPassageCellView", bundle: nil), forCellReuseIdentifier: "PassageCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsMultipleSelection = true
@@ -156,15 +156,15 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PassageCell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("PassageCell") as! CustomPassageCellView
         
         if indexPath.section == 0 {
-            cell?.textLabel?.text = apiPassages[indexPath.row].title
+            cell.titleLabel.text = apiPassages[indexPath.row].title
         } else {
-            cell?.textLabel?.text = customPassages[indexPath.row].title
+            cell.titleLabel.text = customPassages[indexPath.row].title
         }
         
-        return cell!
+        return cell
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

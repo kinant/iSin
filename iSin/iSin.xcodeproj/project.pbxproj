@@ -23,6 +23,8 @@
 		C91E67071CB0600900D6C443 /* AddPassageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E67061CB0600900D6C443 /* AddPassageViewController.swift */; };
 		C93FBE761CB32F91002C6A41 /* CustomRecordCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93FBE751CB32F91002C6A41 /* CustomRecordCellView.xib */; };
 		C93FBE781CB332A8002C6A41 /* CustomRecordCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FBE771CB332A8002C6A41 /* CustomRecordCellView.swift */; };
+		C93FBE7A1CB33827002C6A41 /* CustomPassageCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93FBE791CB33827002C6A41 /* CustomPassageCellView.xib */; };
+		C93FBE7C1CB33919002C6A41 /* CustomPassageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FBE7B1CB33919002C6A41 /* CustomPassageCellView.swift */; };
 		C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96E54091CA1ADE400939DBC /* SWRevealViewController.m */; };
 		C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540B1CA1E16500939DBC /* ISINClient.swift */; };
 		C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540D1CA1E94E00939DBC /* ISINConstants.swift */; };
@@ -57,6 +59,8 @@
 		C91E67061CB0600900D6C443 /* AddPassageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPassageViewController.swift; sourceTree = "<group>"; };
 		C93FBE751CB32F91002C6A41 /* CustomRecordCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomRecordCellView.xib; sourceTree = "<group>"; };
 		C93FBE771CB332A8002C6A41 /* CustomRecordCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRecordCellView.swift; sourceTree = "<group>"; };
+		C93FBE791CB33827002C6A41 /* CustomPassageCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPassageCellView.xib; sourceTree = "<group>"; };
+		C93FBE7B1CB33919002C6A41 /* CustomPassageCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPassageCellView.swift; sourceTree = "<group>"; };
 		C96E54071CA1ADE300939DBC /* iSin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iSin-Bridging-Header.h"; sourceTree = "<group>"; };
 		C96E54081CA1ADE400939DBC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		C96E54091CA1ADE400939DBC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 			children = (
 				C93FBE751CB32F91002C6A41 /* CustomRecordCellView.xib */,
 				C93FBE771CB332A8002C6A41 /* CustomRecordCellView.swift */,
+				C93FBE791CB33827002C6A41 /* CustomPassageCellView.xib */,
+				C93FBE7B1CB33919002C6A41 /* CustomPassageCellView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93FBE7A1CB33827002C6A41 /* CustomPassageCellView.xib in Resources */,
 				C99243541CA09DD900E64D26 /* LaunchScreen.storyboard in Resources */,
 				C99243511CA09DD900E64D26 /* Assets.xcassets in Resources */,
 				C93FBE761CB32F91002C6A41 /* CustomRecordCellView.xib in Resources */,
@@ -267,6 +274,7 @@
 				C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */,
 				C91A81531CB24A6E0079B964 /* Record.swift in Sources */,
 				C91A814C1CB237B20079B964 /* Sin.swift in Sources */,
+				C93FBE7C1CB33919002C6A41 /* CustomPassageCellView.swift in Sources */,
 				C96E54141CA1F9BC00939DBC /* Passage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

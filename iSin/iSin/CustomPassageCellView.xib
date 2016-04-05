@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PassageCell" rowHeight="98" id="hfP-8O-Gyk" customClass="CustomPassageCellView" customModule="iSin" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="98"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hfP-8O-Gyk" id="QER-sw-JrO">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="97.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFl-Y5-NSK">
+                        <rect key="frame" x="21" y="38" width="56" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cx3-7X-iIX">
+                        <rect key="frame" x="538" y="29" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="4w3-Wz-def"/>
+                            <constraint firstAttribute="height" constant="40" id="RJf-fF-uKU"/>
+                        </constraints>
+                        <state key="normal" image="envy"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tFl-Y5-NSK" firstAttribute="centerY" secondItem="QER-sw-JrO" secondAttribute="centerY" id="HoR-5d-EhC"/>
+                    <constraint firstItem="tFl-Y5-NSK" firstAttribute="leading" secondItem="QER-sw-JrO" secondAttribute="leadingMargin" constant="13" id="Il8-wq-7IF"/>
+                    <constraint firstItem="Cx3-7X-iIX" firstAttribute="centerY" secondItem="QER-sw-JrO" secondAttribute="centerY" id="Rgq-vO-175"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Cx3-7X-iIX" secondAttribute="trailing" constant="14" id="xBq-G0-p7b"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.65602836880000004" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="titleLabel" destination="tFl-Y5-NSK" id="4Hu-T3-XTw"/>
+            </connections>
+            <point key="canvasLocation" x="636" y="325"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="envy" width="256" height="256"/>
+    </resources>
+</document>
