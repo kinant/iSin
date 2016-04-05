@@ -73,6 +73,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                         dispatch_async(dispatch_get_main_queue()){
                             print("will update table... ", self.passages.count)
                             self.populatePassageArrays()
+                            self.selectedIndexes.removeAll()
                             self.tableView.reloadData()
                         }
                         
@@ -251,6 +252,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                     dispatch_async(dispatch_get_main_queue()){
                         print("will update table... ", self.passages.count)
                         self.populatePassageArrays()
+                        self.selectedIndexes.removeAll()
                         self.tableView.reloadData()
                     }
                 
@@ -335,8 +337,6 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         let newRecord = Record(context: sharedContext)
         
         for i in 0 ..< selectedIndexes.count {
-            
-            print("4444444")
             let tempPassage: Passage!
             
             if selectedIndexes[i].section == 0 {
@@ -355,6 +355,9 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             let newPassage = RecordPassage(dictionary: nil, dataArray: dataArray, sinID: self.sinID, entityName: ISINClient.EntityNames.RecordPassage, context: sharedContext)
             newPassage.text = tempPassage.text
             newPassage.record = newRecord
+            
+            print("ADDING PASSAGE: ", newPassage.title)
+            
         }
         
         newSin.record = newRecord

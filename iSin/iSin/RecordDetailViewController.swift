@@ -42,6 +42,7 @@ class RecordDetailViewController: UIViewController, UITableViewDelegate, UITable
         // let passage = record.passages.va
         
         cell?.textLabel?.text = passages[indexPath.row].title
+        cell?.textLabel?.textColor = UIColor.whiteColor()
         
         return cell!
     }

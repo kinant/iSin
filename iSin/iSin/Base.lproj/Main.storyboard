@@ -96,6 +96,9 @@
                                 <state key="normal" title="ADD CUSTOM SIN">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="showAddOtherSinAlert:" destination="2Ik-OR-RjI" eventType="touchUpInside" id="bdU-CL-enM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

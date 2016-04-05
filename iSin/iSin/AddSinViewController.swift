@@ -192,7 +192,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    @IBAction func cancelPressed(sender: UIButton) {
+    func cancelPressed() {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
