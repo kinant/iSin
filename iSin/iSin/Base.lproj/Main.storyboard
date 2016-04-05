@@ -516,24 +516,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Default Sin To Show: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbk-ex-scg">
-                                <rect key="frame" x="20" y="82" width="215" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPG-65-WvI">
-                                <rect key="frame" x="532" y="75" width="48" height="35"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
-                                <size key="titleShadowOffset" width="1" height="0.0"/>
-                                <state key="normal" title="LUST">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="prefSinButtonPressed:" destination="Cds-9Q-dOS" eventType="touchUpInside" id="E2G-bs-jJg"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authenticate Every Time App is Active: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kx7-O7-uIa">
                                 <rect key="frame" x="20" y="130" width="300" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -549,14 +531,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.41675646551724138" blue="0.47179418103448284" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="mPG-65-WvI" secondAttribute="trailing" id="9ft-PU-PGC"/>
+                            <constraint firstItem="kx7-O7-uIa" firstAttribute="leading" secondItem="gDt-H6-4Zz" secondAttribute="leadingMargin" id="5ef-jt-mRj"/>
                             <constraint firstItem="kx7-O7-uIa" firstAttribute="centerY" secondItem="mSy-fE-ami" secondAttribute="centerY" id="bbM-ZG-Y57"/>
-                            <constraint firstItem="mPG-65-WvI" firstAttribute="top" secondItem="EUZ-C5-jEI" secondAttribute="bottom" constant="11" id="gFd-lx-akM"/>
-                            <constraint firstItem="gbk-ex-scg" firstAttribute="centerY" secondItem="mPG-65-WvI" secondAttribute="centerY" id="glt-15-QrI"/>
                             <constraint firstItem="mSy-fE-ami" firstAttribute="top" secondItem="EUZ-C5-jEI" secondAttribute="bottom" constant="61" id="ja8-PO-JuK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mSy-fE-ami" secondAttribute="trailing" constant="-1" id="qUS-VD-uPS"/>
-                            <constraint firstItem="kx7-O7-uIa" firstAttribute="leading" secondItem="gbk-ex-scg" secondAttribute="leading" id="tIT-V8-0ct"/>
-                            <constraint firstItem="gbk-ex-scg" firstAttribute="leading" secondItem="gDt-H6-4Zz" secondAttribute="leadingMargin" id="yY9-QX-ceQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="CBN-yx-x4K">
@@ -565,7 +543,6 @@
                     <connections>
                         <outlet property="authSwitch" destination="mSy-fE-ami" id="kh7-GJ-ngd"/>
                         <outlet property="menuButton" destination="A2U-jB-5Nv" id="pVJ-m9-ceF"/>
-                        <outlet property="prefSinButton" destination="mPG-65-WvI" id="mPr-7X-tCV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd4-9v-GPz" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,8 +10,6 @@ import Foundation
 
 class SettingsViewController:UIViewController {
     
-    
-    @IBOutlet weak var prefSinButton: UIButton!
     @IBOutlet weak var authSwitch: UISwitch!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -25,22 +23,6 @@ class SettingsViewController:UIViewController {
         }
         
         authSwitch.setOn(NSUserDefaults.standardUserDefaults().boolForKey("authAll"), animated: false)
-        
-    }
-    
-    @IBAction func prefSinButtonPressed(sender: UIButton) {
-    
-        let actionSheet = UIAlertController(title: "Sins", message: "Select A Sin", preferredStyle: UIAlertControllerStyle.ActionSheet)
-    
-        
-        for i in 0 ..< sinNames.count {
-            
-            actionSheet.addAction(UIAlertAction(title: sinNames[i], style: .Default, handler: { (action) -> Void in
-                self.prefSinButton.setTitle(self.sinNames[i], forState: .Normal)
-            }))
-        }
-        
-        self.presentViewController(actionSheet, animated: true, completion: nil)
         
     }
     

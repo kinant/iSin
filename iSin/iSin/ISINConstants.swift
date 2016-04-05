@@ -34,4 +34,14 @@ extension ISINClient {
         static let RecordSin = "RecordSin"
         static let RecordPassage = "RecordPassage"
     }
+    
+    struct SinIndexes {
+        static let Lust = 0 //None will go to the bottom
+        static let Gluttony = 1
+        static let Greed = 2
+        static let Sloth = 3
+        static let Wrath = 4
+        static let Envy = 5
+        static let Pride = 6
+    }
 }

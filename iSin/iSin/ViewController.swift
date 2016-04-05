@@ -14,16 +14,6 @@ class ViewController: PagerController, PagerDataSource {
     
     var titles: [String] = []
     
-    internal enum Sin: Int {
-        case Lust = 0 //None will go to the bottom
-        case Gluttony = 1
-        case Greed = 2
-        case Sloth = 3
-        case Wrath = 4
-        case Envy = 5
-        case Pride = 6
-    }
-    
     var descriptions = [
         "To have intense desire or need",
         "Excess in eating and drinking",
@@ -52,43 +42,43 @@ class ViewController: PagerController, PagerDataSource {
         controller1.sinTitle = "LUST"
         controller1.bckColor = "#F08080".hexColor
         controller1.sinDescription = descriptions[0]
-        controller1.sinID = 1
+        controller1.sinID = ISINClient.SinIndexes.Lust
         
         let controller2 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller2.sinTitle = "GLUTTONY"
         controller2.bckColor = "#FF69B4".hexColor
         controller2.sinDescription = descriptions[1]
-        controller2.sinID = 2
+        controller2.sinID = ISINClient.SinIndexes.Gluttony
         
         let controller3 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller3.sinTitle = "GREED"
         controller3.bckColor = "#FFFF00".hexColor
         controller3.sinDescription = descriptions[2]
-        controller3.sinID = 3
+        controller3.sinID = ISINClient.SinIndexes.Greed
         
         let controller4 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller4.sinTitle = "SLOTH"
         controller4.bckColor = "#87CEFA".hexColor
         controller4.sinDescription = descriptions[3]
-        controller4.sinID = 4
+        controller4.sinID = ISINClient.SinIndexes.Sloth
         
         let controller5 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller5.sinTitle = "WRATH"
         controller5.bckColor = "#FFA500".hexColor
         controller5.sinDescription = descriptions[4]
-        controller5.sinID = 5
+        controller5.sinID = ISINClient.SinIndexes.Wrath
         
         let controller6 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller6.sinTitle = "ENVY"
         controller6.bckColor = "#32CD32".hexColor
         controller6.sinDescription = descriptions[5]
-        controller6.sinID = 6
+        controller6.sinID = ISINClient.SinIndexes.Envy
         
         let controller7 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller7.sinTitle = "PRIDE"
         controller7.bckColor = "#EE82EE".hexColor
         controller7.sinDescription = descriptions[6]
-        controller7.sinID = 7
+        controller7.sinID = ISINClient.SinIndexes.Pride
         
         // Setting up the PagerController with Name of the Tabs and their respective ViewControllers
         self.setupPager(
@@ -119,14 +109,6 @@ class ViewController: PagerController, PagerDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    // Programatically selecting a tab. This function is getting called on AppDelegate
-    func changeTab() {
-        //self.selectTabAtIndex(4)
-        
-        
-        
     }
 }
 
