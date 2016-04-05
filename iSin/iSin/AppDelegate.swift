@@ -16,22 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        //self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        //let viewController = ViewController()
-        
-        //NavigationController with title and button
-        //let navController = UINavigationController(rootViewController: viewController)
-        //navController.navigationBar.topItem?.title = "iSin"
-        //navController.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "...", style: UIBarButtonItemStyle.Plain, target: viewController, action: Selector("changeTab"))
-        //navController.navigationBar.hideBottomHairline()
-        
-        //self.window!.rootViewController = navController
-        //self.window?.makeKeyAndVisible()
-        
         //NavigationBar customization
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()] // Title's text color
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().barTintColor = UIColor(rgb: 0xFF0000)
+        UINavigationBar.appearance().barTintColor = "#FF0000".hexColor
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         //TableView customization

@@ -142,6 +142,8 @@
 		C99243451CA09DD900E64D26 /* iSin */ = {
 			isa = PBXGroup;
 			children = (
+				C99243461CA09DD900E64D26 /* AppDelegate.swift */,
+				C992435D1CA09F0D00E64D26 /* Extensions.swift */,
 				C91A814A1CB237A20079B964 /* Model */,
 				C93FBE741CB32F55002C6A41 /* View */,
 				C9D649E41CB464310081D7E2 /* Controller */,
@@ -155,16 +157,16 @@
 		C9D649E41CB464310081D7E2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */,
 				C99243481CA09DD900E64D26 /* ViewController.swift */,
 				C992435B1CA09E7900E64D26 /* PagerController.swift */,
 				C992435F1CA0A07E00E64D26 /* SinViewController.swift */,
+				C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */,
+				C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */,
 				C91E67061CB0600900D6C443 /* AddPassageViewController.swift */,
-				C9171C251CB11352002051C4 /* SettingsViewController.swift */,
 				C91A81541CB24DF00079B964 /* SinRecordsViewController.swift */,
 				C91A81561CB25AC00079B964 /* RecordDetailViewController.swift */,
 				C91A2CE71CB2D8C900AD0358 /* AuthenticateViewController.swift */,
-				C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */,
+				C9171C251CB11352002051C4 /* SettingsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -172,9 +174,7 @@
 		C9D649E51CB464510081D7E2 /* Extras */ = {
 			isa = PBXGroup;
 			children = (
-				C99243461CA09DD900E64D26 /* AppDelegate.swift */,
 				C96E54071CA1ADE300939DBC /* iSin-Bridging-Header.h */,
-				C992435D1CA09F0D00E64D26 /* Extensions.swift */,
 				C91A2CE21CB2D81800AD0358 /* PITouchIDManager.swift */,
 				C91A2CE31CB2D81800AD0358 /* KeychainWrapper.h */,
 				C91A2CE41CB2D81800AD0358 /* KeychainWrapper.m */,
