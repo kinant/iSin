@@ -14,21 +14,21 @@ extension ISINClient {
     
     // MARK: Constants
     struct ISINConstants {
-        // MARK: URLs
+        // MARK: iSin API URLs
         static let ApiScheme = "http"
         static let ApiHost = "kturman.com"
         static let ApiPath = "/api/"
     }
     
-    // MARK: Constants
     struct BIBLEORGConstants {
-        // MARK: URLs
+        // MARK: Bible Org API URLs
         static let ApiScheme = "http"
         static let ApiHost = "labs.bible.org"
         static let ApiPath = "/api/"
     }
     
     struct EntityNames {
+        // MARK: CoreData Entity names
         static let ListSin = "Sin"
         static let ListPassage = "Passage"
         static let RecordSin = "RecordSin"
@@ -36,7 +36,8 @@ extension ISINClient {
     }
     
     struct SinIndexes {
-        static let Lust = 0 //None will go to the bottom
+        // MARK: Internal indexes for the sins
+        static let Lust = 0
         static let Gluttony = 1
         static let Greed = 2
         static let Sloth = 3

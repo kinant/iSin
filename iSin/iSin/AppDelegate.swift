@@ -16,18 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        //NavigationBar customization
+        // NavigationBar customization
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()] // Title's text color
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().barTintColor = "#FF0000".hexColor
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
-        //TableView customization
+        // TableView customization
         UITableView.appearance().backgroundColor = "#CC6666".hexColor
         UITableViewCell.appearance().backgroundColor = "#FF3333".hexColor
         UITableViewCell.appearance().alpha = 0.75
         
-        //Setting Status Bar to be white instead of black
+        // Setting Status Bar
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         return true
@@ -36,15 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    
-        print("WILL RESIGN ACTIVE")
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        print("DID ENTER BACKGROUND")
         
+        /*  if the user has chosen the option to authorize everytime the app is active, then we should log the user off the app everytime
+            it enters the background */
         if(NSUserDefaults.standardUserDefaults().boolForKey("authAll")){
             ISINClient.sharedInstance().userLoggedIn = false
         }
@@ -52,21 +49,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        print("WILL ENTER FOREGROUND")
     }
     
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        print("DID BECOME ACTIVE! ", self.window?.rootViewController?.presentedViewController)
+
+        // the following is done so that the user authorization (with TouchID) screen is called
         
-        
-        
+        // first we check that the user is not logged in and that the platform is not the iOS simulator
         if(!ISINClient.sharedInstance().userLoggedIn && !ISINClient.Platform.isSimulator){
             
+            // get the presented view controller by the root view controller
             let presentVC = self.window?.rootViewController?.presentedViewController
             
+            // we have to check that the presented view controller is NOT nil and that it is NOT the
+            // view controller for the authentication screen
             if(presentVC != nil && (presentVC?.isKindOfClass(AuthenticateViewController))!){
+                // do nothing in this case (we do not show the authorization screen)
             } else {
+                
+                // all criteria is not met, we present the authorization screen
                 let authVC = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("AuthenticateVC") as! AuthenticateViewController
                 self.window?.rootViewController?.presentViewController(authVC, animated: false, completion: nil)
             }

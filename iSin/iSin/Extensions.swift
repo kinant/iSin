@@ -3,6 +3,7 @@
 import UIKit
 
 // get a hex color from string
+// from: http://stackoverflow.com/questions/24263007/how-to-use-hex-colour-values-in-swift-ios
 extension String {
     var hexColor: UIColor {
         let hex = self.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)

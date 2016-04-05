@@ -158,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				C99243481CA09DD900E64D26 /* ViewController.swift */,
-				C992435B1CA09E7900E64D26 /* PagerController.swift */,
 				C992435F1CA0A07E00E64D26 /* SinViewController.swift */,
 				C9171C271CB11AEE002051C4 /* AddSinNavigationController.swift */,
 				C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */,
@@ -175,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				C96E54071CA1ADE300939DBC /* iSin-Bridging-Header.h */,
+				C992435B1CA09E7900E64D26 /* PagerController.swift */,
 				C91A2CE21CB2D81800AD0358 /* PITouchIDManager.swift */,
 				C91A2CE31CB2D81800AD0358 /* KeychainWrapper.h */,
 				C91A2CE41CB2D81800AD0358 /* KeychainWrapper.m */,
