@@ -33,10 +33,9 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             self.title = "Select Passages"
             
             let newRightButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.cancelButtonPressed))
-            
-            let newRefreshButton = UIBarButtonItem(title: "R", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.refreshPressed))
-            
-            navigationItem.setRightBarButtonItem(newRightButton, animated: false)
+            let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: #selector(AddPassageViewController.refreshPressed))
+
+            navigationItem.setRightBarButtonItems([newRightButton, refreshButton], animated: false)
         }
         
         self.passages = fetchAllPassages()

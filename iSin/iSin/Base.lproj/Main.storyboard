@@ -114,16 +114,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Sin" id="jby-nP-uL4">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Qyl-aM-VG4"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="xUt-Rt-PUo">
-                            <connections>
-                                <action selector="refreshPressed:" destination="2Ik-OR-RjI" id="MKd-WF-s7f"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="iIB-kB-DKb">
-                            <connections>
-                                <action selector="cancelButtonPressed:" destination="2Ik-OR-RjI" id="GHE-sd-fpS"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="oG0-Oy-i6g" id="Fne-9U-uuc"/>

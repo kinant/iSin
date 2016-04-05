@@ -85,6 +85,27 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
         performSegueWithIdentifier("ShowRecordDetail", sender: self)
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            
+            switch (editingStyle) {
+            case .Delete:
+                let record = records[indexPath.row]
+                
+                records.removeAtIndex(indexPath.row)
+                
+                // Remove the row from the table
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                
+                // Remove the movie from the context
+                sharedContext.deleteObject(record)
+                CoreDataStackManager.sharedInstance().saveContext()
+            default:
+                break
+            }
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowRecordDetail" {
             let recordDetailVC = segue.destinationViewController as! RecordDetailViewController

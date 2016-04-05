@@ -22,6 +22,11 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         
+        let newRightButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.cancelButtonPressed))
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: #selector(AddPassageViewController.refreshPressed))
+        
+        navigationItem.setRightBarButtonItems([newRightButton, refreshButton], animated: false)
+        
         self.tableView.setNeedsLayout()
         self.tableView.layoutIfNeeded()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SinCell")
@@ -137,6 +142,8 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SinCell")
         
+        cell?.textLabel?.textColor = UIColor.whiteColor()
+        
         if indexPath.section == 0 {
             cell?.textLabel?.text = apiSins[indexPath.row].name
         } else {
@@ -232,8 +239,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    
-    @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
+    func cancelButtonPressed() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -246,8 +252,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         return nil
     }
     
-    
-    @IBAction func refreshPressed(sender: UIBarButtonItem) {
+    func refreshPressed() {
         // refresh pressed...
         apiSins.removeAll()
         

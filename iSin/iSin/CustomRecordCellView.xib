@@ -36,15 +36,15 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="nMl-o4-oUX">
                         <rect key="frame" x="231" y="27" width="40" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="dPc-a3-6fb"/>
-                            <constraint firstAttribute="height" constant="40" id="mYw-EB-jlS"/>
+                            <constraint firstAttribute="width" constant="30" id="dPc-a3-6fb"/>
+                            <constraint firstAttribute="height" constant="30" id="mYw-EB-jlS"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page" translatesAutoresizingMaskIntoConstraints="NO" id="gK7-oI-xC1">
-                        <rect key="frame" x="492" y="29" width="40" height="40"/>
+                        <rect key="frame" x="502" y="34" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="Fv3-4W-BYi"/>
-                            <constraint firstAttribute="height" constant="40" id="Iku-eg-HKA"/>
+                            <constraint firstAttribute="width" constant="30" id="Fv3-4W-BYi"/>
+                            <constraint firstAttribute="height" constant="30" id="Iku-eg-HKA"/>
                         </constraints>
                     </imageView>
                 </subviews>
