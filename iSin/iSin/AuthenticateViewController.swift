@@ -43,28 +43,24 @@ class AuthenticateViewController: UIViewController {
             }, failure: { (evaluationError: NSError) -> () in
                 switch evaluationError.code {
                 case LAError.SystemCancel.rawValue:
-                    print("Authentication cancelled by the system")
-                    self.statusLabel.text = "Authentication cancelled by the system"
+                    self.changeLabelMessage("Authentication cancelled by the system")
                 case LAError.UserCancel.rawValue:
-                    print("Authentication cancelled by the user")
-                    self.statusLabel.text = "Authentication cancelled by the user"
+                    self.changeLabelMessage("Authentication cancelled by the user")
                 case LAError.UserFallback.rawValue:
-                    print("User wants to use a password")
-                    self.statusLabel.text = "User wants to use a password"
+                    self.changeLabelMessage("User will use password")
+                    
                     // We show the alert view in the main thread (always update the UI in the main thread)
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                        print("user will use password!")
                         self.showPasswordAlert()
                     })
                 case LAError.TouchIDNotEnrolled.rawValue:
-                    print("TouchID not enrolled")
-                    self.statusLabel.text = "TouchID not enrolled"
+                    self.changeLabelMessage("TouchID not enrolled")
                 case LAError.PasscodeNotSet.rawValue:
                     print("Passcode not set")
-                    self.statusLabel.text = "Passcode not set"
+                    self.changeLabelMessage("User has not set a password")
                 default:
                     print("Authentication failed")
-                    self.statusLabel.text = "Authentication failed"
+                    self.changeLabelMessage("Authentication failed")
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                         self.showPasswordAlert()
                     })
@@ -83,6 +79,7 @@ class AuthenticateViewController: UIViewController {
         // We define the actions to add to the alert controller
         let cancelAction : UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
             print(action)
+            self.changeLabelMessage("User cancelled password authentication")
         }
         let doneAction : UIAlertAction = UIAlertAction(title: "Done", style: .Default) { (action) -> Void in
             let passwordTextField = alertController.textFields![0] as UITextField
@@ -217,7 +214,6 @@ class AuthenticateViewController: UIViewController {
     
     func login(password: String) {
         if password == MyKeychainWrapper.myObjectForKey("v_Data") as? String {
-            self.changeLabelMessage("Authenticated! Press button to log in")
             SwiftSpinner.show("Password correct!", description: "Logging in...", animated: true)
             authenticateSuccess()
         } else {
@@ -230,7 +226,7 @@ class AuthenticateViewController: UIViewController {
     }
     
     func authenticateSuccess(){
-        
+        self.changeLabelMessage("User is authenticated")
         ISINClient.sharedInstance().userLoggedIn = true
         
         let delay = 1.5 * Double(NSEC_PER_SEC)

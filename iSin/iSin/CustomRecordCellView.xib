@@ -33,14 +33,14 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="gluttony" translatesAutoresizingMaskIntoConstraints="NO" id="nMl-o4-oUX">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="nMl-o4-oUX">
                         <rect key="frame" x="231" y="27" width="40" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="dPc-a3-6fb"/>
                             <constraint firstAttribute="height" constant="40" id="mYw-EB-jlS"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envy" translatesAutoresizingMaskIntoConstraints="NO" id="gK7-oI-xC1">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page" translatesAutoresizingMaskIntoConstraints="NO" id="gK7-oI-xC1">
                         <rect key="frame" x="492" y="29" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="Fv3-4W-BYi"/>
@@ -71,7 +71,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="envy" width="256" height="256"/>
-        <image name="gluttony" width="512" height="512"/>
+        <image name="calendar" width="272" height="272"/>
+        <image name="page" width="265" height="265"/>
     </resources>
 </document>

@@ -184,7 +184,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Sin Records" id="pfm-Zm-1Hb">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Mpf-ok-WSN"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="Mpf-ok-WSN"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="Mpf-ok-WSN" id="c91-PM-BbV"/>
@@ -290,6 +290,7 @@
                                     <constraint firstAttribute="width" constant="200" id="B6J-OM-4Ga"/>
                                     <constraint firstAttribute="height" constant="200" id="gcI-q1-IQv"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="touchid"/>
                                 <connections>
                                     <action selector="authenticateButtonPressed:" destination="Ubv-ZF-gom" eventType="touchUpInside" id="DMa-fo-oli"/>
@@ -298,15 +299,31 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kL-hK-YOB">
                                 <rect key="frame" x="279" y="474" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press TuchID button to authenticate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVT-RO-20r">
+                                <rect key="frame" x="164.5" y="143" width="272.5" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iSin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w97-BH-tdK">
+                                <rect key="frame" x="280.5" y="28" width="39" height="26.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="bVT-RO-20r" firstAttribute="centerX" secondItem="2oO-5E-xd6" secondAttribute="centerX" id="3WE-oi-zkT"/>
+                            <constraint firstItem="w97-BH-tdK" firstAttribute="centerX" secondItem="2oO-5E-xd6" secondAttribute="centerX" id="9Bg-M6-CIz"/>
                             <constraint firstItem="jlH-Af-Pbb" firstAttribute="centerX" secondItem="2oO-5E-xd6" secondAttribute="centerX" id="Orv-Zs-ERc"/>
                             <constraint firstItem="7kL-hK-YOB" firstAttribute="centerX" secondItem="jlH-Af-Pbb" secondAttribute="centerX" id="YIl-aw-Axv"/>
+                            <constraint firstItem="jlH-Af-Pbb" firstAttribute="top" secondItem="bVT-RO-20r" secondAttribute="bottom" constant="37" id="aiD-y1-yoR"/>
                             <constraint firstItem="7kL-hK-YOB" firstAttribute="top" secondItem="jlH-Af-Pbb" secondAttribute="bottom" constant="74" id="dcy-8T-irq"/>
+                            <constraint firstItem="w97-BH-tdK" firstAttribute="top" secondItem="ggm-bV-EoZ" secondAttribute="bottom" constant="8" id="eDA-39-AWt"/>
                             <constraint firstItem="jlH-Af-Pbb" firstAttribute="centerY" secondItem="2oO-5E-xd6" secondAttribute="centerY" id="uNq-gz-Jx0"/>
                         </constraints>
                     </view>
@@ -370,7 +387,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="iSin" id="4uY-GH-Whn">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="C2l-d4-VQb"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="C2l-d4-VQb"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="C2l-d4-VQb" id="ggB-Rp-3D8"/>
@@ -631,8 +648,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="menu" width="30" height="20"/>
         <image name="plus" width="400" height="400"/>
-        <image name="touchid" width="800" height="600"/>
+        <image name="touchid" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="idc-2m-t9d"/>

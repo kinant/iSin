@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //TableView customization
         UITableView.appearance().backgroundColor = "#CC6666".hexColor
-        UITableViewCell.appearance().backgroundColor = "#CC6666".hexColor
+        UITableViewCell.appearance().backgroundColor = "#FF3333".hexColor
         UITableViewCell.appearance().alpha = 0.75
         
         //Setting Status Bar to be white instead of black

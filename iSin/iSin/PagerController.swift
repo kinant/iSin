@@ -378,7 +378,7 @@ public class PagerController: UIViewController, UIPageViewControllerDataSource, 
                 
                 let image = UIImage(named: title) as UIImage?
                 let labelBttn   = UIButton(type: UIButtonType.Custom) as UIButton
-                labelBttn.frame = CGRectMake(0, 0, self.tabHeight - 10, self.tabHeight - 10)
+                labelBttn.frame = CGRectMake(0, 0, self.tabHeight - 20, self.tabHeight - 20)
                 //let labelBttn = UIButton();
                 labelBttn.setImage(image, forState: .Normal)
                 labelBttn.imageView?.contentMode = UIViewContentMode.ScaleAspectFit;
