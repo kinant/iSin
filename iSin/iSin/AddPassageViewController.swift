@@ -56,25 +56,31 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         
         ISINClient.sharedInstance().getPassagesForSin(self.sinID) { (results, errorString) in
             
-            dispatch_async(dispatch_get_main_queue()){
-                SwiftSpinner.hide()
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            }
-            
             if((errorString == nil)){
+                
+                let totalCount = results!.count - 1
+                var currentCount = 0
+                
                 for i in 0 ..< results!.count {
+                    
                     let tempISINPassage = Passage(dictionary: nil, dataArray: results![i], sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.scratchContext)
                     
                     ISINClient.sharedInstance().getPassage(tempISINPassage.title, completionHandlerForGetPassage: { (results, errorString) in
+                        
+                        currentCount += 1
+                        
                         let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
                         print(bibleorgPassage.text)
                         self.passages.append(bibleorgPassage)
                         
-                        dispatch_async(dispatch_get_main_queue()){
-                            print("will update table... ", self.passages.count)
-                            self.populatePassageArrays()
-                            self.selectedIndexes.removeAll()
-                            self.tableView.reloadData()
+                        if(currentCount == totalCount){
+                            dispatch_async(dispatch_get_main_queue()){
+                                self.populatePassageArrays()
+                                self.selectedIndexes.removeAll()
+                                self.tableView.reloadData()
+                                SwiftSpinner.hide()
+                                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                            }
                         }
                         
                         self.saveContext()
