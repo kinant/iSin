@@ -10,40 +10,41 @@ import Foundation
 
 extension ISINClient {
 
-    func getSinsCommitedForSinType(type:Int, completionHandlerForSinsCommited: (results: [String], errorString: String?) -> Void){
+    func getSinsCommitedForSinType(type:Int, completionHandlerForSinsCommited: (results: [String]?, errorString: String?) -> Void){
         
         let parameters = [
             "sin_id": type,
         ]
         
         taskForGETMethod(API.ISIN, method: "get_sins", params: parameters) { (result, error) in
-            //print(result)
-            
             if(error == nil){
                 if let sinsCommitted = result["results"] as? [String] {
-                    //print(sinsCommited)
-                    completionHandlerForSinsCommited(results: sinsCommitted, errorString: nil);
+                    completionHandlerForSinsCommited(results: sinsCommitted, errorString: nil)
                 }
+            } else {
+                completionHandlerForSinsCommited(results: nil, errorString: error?.userInfo[NSLocalizedDescriptionKey] as? String)
             }
         }
     }
     
-    func getPassagesForSin(sinID: Int, completionHandlerForGetPassages: (results:[[String:AnyObject]], errorString: String?)-> Void){
+    func getPassagesForSin(sinID: Int, completionHandlerForGetPassages: (results:[[String:AnyObject]]?, errorString: String?)-> Void){
         
         let parameters = [
             "sin_id": sinID,
         ]
         
         taskForGETMethod(ISINClient.API.ISIN, method: "get_passages", params: parameters) { (result, error) in
-            
-            //print(result["results"])
-            if let resultsArray = result["results"] as? [[String:AnyObject]]{
-                completionHandlerForGetPassages(results: resultsArray, errorString: nil)
+            if(error == nil){
+                if let resultsArray = result["results"] as? [[String:AnyObject]]{
+                    completionHandlerForGetPassages(results: resultsArray, errorString: nil)
+                }
+            } else {
+                completionHandlerForGetPassages(results: nil, errorString: error?.userInfo[NSLocalizedDescriptionKey] as? String)
             }
         }
     }
     
-    func getPassage(searchTerm: String, completionHandlerForGetPassage: (results:[[String:AnyObject]], errorString: String?)-> Void){
+    func getPassage(searchTerm: String, completionHandlerForGetPassage: (results:[[String:AnyObject]]?, errorString: String?)-> Void){
         let parameters = [
             "passage": searchTerm,
             "type": "json"
@@ -54,6 +55,8 @@ extension ISINClient {
                 if let resultsArray = result as? [[String:AnyObject]]{
                     completionHandlerForGetPassage(results: resultsArray, errorString: nil)
                 }
+            } else {
+                completionHandlerForGetPassage(results: nil, errorString: error?.userInfo[NSLocalizedDescriptionKey] as? String)
             }
         }
     }

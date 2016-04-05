@@ -54,8 +54,8 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         ISINClient.sharedInstance().getPassagesForSin(self.sinID) { (results, errorString) in
             
             if((errorString == nil)){
-                for i in 0 ..< results.count {
-                    let tempISINPassage = Passage(dictionary: nil, dataArray: results[i], sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.scratchContext)
+                for i in 0 ..< results!.count {
+                    let tempISINPassage = Passage(dictionary: nil, dataArray: results![i], sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.scratchContext)
                     
                     ISINClient.sharedInstance().getPassage(tempISINPassage.title, completionHandlerForGetPassage: { (results, errorString) in
                         let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
@@ -71,6 +71,8 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                         self.saveContext()
                     })
                 }
+            } else {
+                ISINClient.sharedInstance().showAlert(self, title: "ERROR", message: errorString!, actions: ["OK"], completionHandler: nil)
             }
         }
     }
@@ -218,32 +220,36 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         
         ISINClient.sharedInstance().getPassage(searchTerm, completionHandlerForGetPassage: { (results, errorString) in
             
-            let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
+            if(errorString == nil){
+                let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
             
-            let message = "Is this your passage: " + bibleorgPassage.title + "?"
+                let message = "Is this your passage: " + bibleorgPassage.title + "?"
             
-            let alert = UIAlertController(title: "Confirm Passage", message: message , preferredStyle: .Alert)
+                let alert = UIAlertController(title: "Confirm Passage", message: message , preferredStyle: .Alert)
             
-            alert.addAction(UIAlertAction(title: "YES", style: .Default, handler: { (action) -> Void in
-                bibleorgPassage.isCustom = true
-                self.passages.append(bibleorgPassage)
+                alert.addAction(UIAlertAction(title: "YES", style: .Default, handler: { (action) -> Void in
+                    bibleorgPassage.isCustom = true
+                    self.passages.append(bibleorgPassage)
                 
-                dispatch_async(dispatch_get_main_queue()){
-                    print("will update table... ", self.passages.count)
-                    self.populatePassageArrays()
-                    self.tableView.reloadData()
-                }
+                    dispatch_async(dispatch_get_main_queue()){
+                        print("will update table... ", self.passages.count)
+                        self.populatePassageArrays()
+                        self.tableView.reloadData()
+                    }
                 
-                self.saveContext()
-            }))
+                    self.saveContext()
+                }))
             
-            alert.addAction(UIAlertAction(title: "NO", style: .Default, handler: { (action) -> Void in
+                alert.addAction(UIAlertAction(title: "NO", style: .Default, handler: { (action) -> Void in
                 
-            }))
+                }))
             
-            dispatch_async(dispatch_get_main_queue(), {
-                self.presentViewController(alert, animated: true, completion: nil)
-            })
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.presentViewController(alert, animated: true, completion: nil)
+                })
+            } else {
+                ISINClient.sharedInstance().showAlert(self, title: "ERROR", message: errorString!, actions: ["OK"], completionHandler: nil)
+            }
         })
     }
     

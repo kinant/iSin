@@ -53,18 +53,22 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     
     func downloadData(){
         ISINClient.sharedInstance().getSinsCommitedForSinType(self.sinID) { (results, errorString) in
-            // do smething...
             
-            for i in 0 ..< results.count {
-                let newSin = Sin(name: results[i], type: self.sinID, entityName: ISINClient.EntityNames.ListSin, context: self.sharedContext)
-                self.sins.append(newSin)
+            if(errorString == nil){
+            
+                for i in 0 ..< results!.count {
+                    let newSin = Sin(name: results![i], type: self.sinID, entityName: ISINClient.EntityNames.ListSin, context: self.sharedContext)
+                    self.sins.append(newSin)
                 
-                self.saveContext()
-            }
+                    self.saveContext()
+                }
             
-            dispatch_async(dispatch_get_main_queue()){
-                self.populateSinArrays()
-                self.tableView.reloadData()
+                dispatch_async(dispatch_get_main_queue()){
+                    self.populateSinArrays()
+                    self.tableView.reloadData()
+                }
+            } else {
+                ISINClient.sharedInstance().showAlert(self, title: "ERROR", message: errorString!, actions: ["OK"], completionHandler: nil)
             }
         }
     }
