@@ -24,7 +24,6 @@
 		C93FBE761CB32F91002C6A41 /* CustomRecordCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93FBE751CB32F91002C6A41 /* CustomRecordCellView.xib */; };
 		C93FBE781CB332A8002C6A41 /* CustomRecordCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FBE771CB332A8002C6A41 /* CustomRecordCellView.swift */; };
 		C93FBE7A1CB33827002C6A41 /* CustomPassageCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93FBE791CB33827002C6A41 /* CustomPassageCellView.xib */; };
-		C93FBE7C1CB33919002C6A41 /* CustomPassageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FBE7B1CB33919002C6A41 /* CustomPassageCellView.swift */; };
 		C96E540A1CA1ADE400939DBC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96E54091CA1ADE400939DBC /* SWRevealViewController.m */; };
 		C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540B1CA1E16500939DBC /* ISINClient.swift */; };
 		C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540D1CA1E94E00939DBC /* ISINConstants.swift */; };
@@ -40,6 +39,7 @@
 		C992435C1CA09E7900E64D26 /* PagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992435B1CA09E7900E64D26 /* PagerController.swift */; };
 		C992435E1CA09F0D00E64D26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992435D1CA09F0D00E64D26 /* Extensions.swift */; };
 		C99243601CA0A07E00E64D26 /* SinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C992435F1CA0A07E00E64D26 /* SinViewController.swift */; };
+		C9D649E31CB4619C0081D7E2 /* CustomPassageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FBE7B1CB33919002C6A41 /* CustomPassageCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -260,6 +260,7 @@
 				C91A814E1CB238690079B964 /* CoreDataStackManager.swift in Sources */,
 				C91A81571CB25AC00079B964 /* RecordDetailViewController.swift in Sources */,
 				C99243491CA09DD900E64D26 /* ViewController.swift in Sources */,
+				C9D649E31CB4619C0081D7E2 /* CustomPassageCellView.swift in Sources */,
 				C99243471CA09DD900E64D26 /* AppDelegate.swift in Sources */,
 				C9171C281CB11AEE002051C4 /* AddSinNavigationController.swift in Sources */,
 				C91A2CE61CB2D81800AD0358 /* KeychainWrapper.m in Sources */,
@@ -278,7 +279,6 @@
 				C96E540E1CA1E94E00939DBC /* ISINConstants.swift in Sources */,
 				C91A81531CB24A6E0079B964 /* Record.swift in Sources */,
 				C91A814C1CB237B20079B964 /* Sin.swift in Sources */,
-				C93FBE7C1CB33919002C6A41 /* CustomPassageCellView.swift in Sources */,
 				C96E54141CA1F9BC00939DBC /* Passage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

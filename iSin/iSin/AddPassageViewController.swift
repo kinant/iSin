@@ -171,8 +171,12 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         
         if indexPath.section == 0 {
             cell.titleLabel.text = apiPassages[indexPath.row].title
+            cell.passageTitle = apiPassages[indexPath.row].title
+            cell.passageText = apiPassages[indexPath.row].text
         } else {
             cell.titleLabel.text = customPassages[indexPath.row].title
+            cell.passageTitle = customPassages[indexPath.row].title
+            cell.passageText = customPassages[indexPath.row].text
         }
         
         return cell
