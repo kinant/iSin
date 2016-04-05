@@ -22,6 +22,8 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         
+        self.tableView.setNeedsLayout()
+        self.tableView.layoutIfNeeded()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SinCell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -91,10 +93,14 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2;
+        //return 1
+        return 2
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        //return nil
+        
         if section == 0 {
             return "API Sins"
         } else {
@@ -129,6 +135,14 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 40
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -223,7 +237,6 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func refreshPressed(sender: UIBarButtonItem) {
         // refresh pressed...
         apiSins.removeAll()
-        //customSins.removeAll()
         
         for i in 0 ..< sins.count {
             if !sins[i].isCustom {

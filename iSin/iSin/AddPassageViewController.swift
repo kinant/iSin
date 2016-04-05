@@ -308,17 +308,8 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     
     @IBAction func addRecordPressed(sender: UIButton) {
         
-        print("1111111")
-        
         let newSin = RecordSin(name: self.sin.name, type: self.sin.type.integerValue, entityName: ISINClient.EntityNames.RecordSin, context: sharedContext)
-        
-        print("222222222")
-
-        
         let newRecord = Record(context: sharedContext)
-        
-        
-        print("333333333")
         
         for i in 0 ..< selectedIndexes.count {
             
@@ -331,8 +322,6 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                 tempPassage = customPassages[selectedIndexes[i].row]
             }
             
-            print("55555555")
-            
             let dataArray : [String: AnyObject] = [
                 "book" : tempPassage.book,
                 "chapter" : tempPassage.chapter,
@@ -340,23 +329,16 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                 "verse_end" : tempPassage.end
             ]
             
-            print("AAAAAAA")
-            
             let newPassage = RecordPassage(dictionary: nil, dataArray: dataArray, sinID: self.sinID, entityName: ISINClient.EntityNames.RecordPassage, context: sharedContext)
             newPassage.text = tempPassage.text
             newPassage.record = newRecord
         }
         
-        print("BBBBBBB")
-        
         newSin.record = newRecord
-        
-        print("CCCCCCC")
-        
         saveContext()
         
-        print("DDDDDDD")
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+        ISINClient.sharedInstance().showAlert(self, title: "Add Record Success!", message: "Sin record has been added!", actions: ["OK"]) { (choice) in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 }

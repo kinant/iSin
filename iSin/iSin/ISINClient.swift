@@ -123,6 +123,35 @@ class ISINClient: NSObject {
         return components.URL!
     }
     
+    /* Helper function: Display an alert. The entire app can use this same function for alerts, which is why it has
+     a completion handler as a closure */
+    func showAlert(view: UIViewController, title: String, message: String, actions: [String] , completionHandler: ((choice: String?) -> Void )?){
+        
+        // make sure no alert is already being presented
+        if !(view.presentedViewController is UIAlertController) {
+            
+            // create the alert
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            
+            // iterate over every action to create its option in the alert
+            for action in actions {
+                alert.addAction(UIAlertAction(title: action, style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
+                    
+                    // call completion handler if it exists
+                    if let handler = completionHandler {
+                        handler(choice: action)
+                    }
+                }))
+            }
+            
+            // present the alert
+            dispatch_async(dispatch_get_main_queue()){
+                view.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+
+    
     struct Platform {
         static let isSimulator: Bool = {
             var isSim = false

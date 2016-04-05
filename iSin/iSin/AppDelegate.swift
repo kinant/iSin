@@ -34,6 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor(rgb: 0xFF0000)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
+        //TableView customization
+        UITableView.appearance().backgroundColor = "#CC6666".hexColor
+        UITableViewCell.appearance().backgroundColor = "#CC6666".hexColor
+        UITableViewCell.appearance().alpha = 0.75
+        
         //Setting Status Bar to be white instead of black
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
