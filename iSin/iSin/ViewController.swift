@@ -8,12 +8,19 @@
 
 import UIKit
 
+/* This view controller is used in conjuction with PageController.swift of UIPageViewController
+ to manage the custom tab bar at the top of the SinViewController Screen.
+    Tutorial for using this feature: http://www.appcoda.com/uipageviewcontroller-storyboard-tutorial/
+    Please note that PageController.swift was customized so that the tabbar would
+    show images instead of labels. Refer to commented sections in the file.
+ */
 class ViewController: PagerController, PagerDataSource {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var titles: [String] = []
     
+    // the descriptions for each sin
     var descriptions = [
         "To have intense desire or need",
         "Excess in eating and drinking",
@@ -27,17 +34,20 @@ class ViewController: PagerController, PagerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set the menu button
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        // set data source
         self.dataSource = self
         
         // Instantiating Storyboard ViewControllers
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        
+        // we instantiate the same view controller for each sin, but we change certain variables/properties
         let controller1 = storyboard.instantiateViewControllerWithIdentifier("SinView") as! SinViewController
         controller1.sinTitle = "LUST"
         controller1.bckColor = "#F08080".hexColor
@@ -104,11 +114,6 @@ class ViewController: PagerController, PagerDataSource {
         fixFormerTabsPositions = false
         fixLaterTabsPosition = false
         animation = PagerAnimation.During
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 

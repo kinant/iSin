@@ -24,9 +24,8 @@ class CustomPassageCellView: UITableViewCell {
     }
     
     @IBAction func readPassageButtonPressed(){
-        
-        print("read passage pressed!")
-        
+        // call the alert and show the passage title and text
+        // the alert target is the presented view controller (from the root)
         ISINClient.sharedInstance().showAlert((self.window?.rootViewController?.presentedViewController)!, title: passageTitle, message: passageText, actions: ["OK"], completionHandler: nil)
     }
 }

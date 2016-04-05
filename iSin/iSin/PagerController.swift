@@ -276,13 +276,9 @@ public class PagerController: UIViewController, UIPageViewControllerDataSource, 
         frame = self.contentView.frame
         frame.origin.x = 0.0
         
-        // change origin.y of content view...
-        
-        //frame.origin.y = (self.tabLocation == .Top) ? topLayoutGuide + CGRectGetHeight(self.tabsView!.frame): topLayoutGuide
+        // change origin.y of content view...this part was customized
         frame.origin.y = topLayoutGuide
         frame.size.width = CGRectGetWidth(self.view.frame)
-        
-        //frame.size.height = CGRectGetHeight(self.view.frame) - (topLayoutGuide + CGRectGetHeight(self.tabsView!.frame))
         frame.size.height = CGRectGetHeight(self.view.frame) - (topLayoutGuide)
 
         if (self.tabBarController != nil) {
@@ -366,16 +362,8 @@ public class PagerController: UIViewController, UIPageViewControllerDataSource, 
             {
                 let title = self.tabNames[index]
                 
-                //let label: UILabel = UILabel()
-                //label.text = title;
-                //label.textColor = UIColor.whiteColor()
-                //label.font = UIFont.boldSystemFontOfSize(16.0)
-                //label.backgroundColor = UIColor.clearColor()
-                //label.sizeToFit()
-                //tabViewContent = label
                 
-                print("image to load is: " + title)
-                
+                // show images in tab bar. this part was customized
                 let image = UIImage(named: title) as UIImage?
                 let labelBttn   = UIButton(type: UIButtonType.Custom) as UIButton
                 labelBttn.frame = CGRectMake(0, 0, self.tabHeight - 20, self.tabHeight - 20)
@@ -384,14 +372,6 @@ public class PagerController: UIViewController, UIPageViewControllerDataSource, 
                 labelBttn.imageView?.contentMode = UIViewContentMode.ScaleAspectFit;
                 labelBttn.addTarget(self, action: "btnTouched:", forControlEvents:.TouchUpInside)
                 labelBttn.tag = index;
-                //labelBttn.
-                
-                //let labelBttn = UIButton();
-                //labelBttn.setTitle(title, forState: UIControlState.Normal);
-                //labelBttn.setTitleColor(UIColor.whiteColor(), forState: .Normal);
-                //labelBttn.imageView?.image = UIImage(named: "thumb");
-                //labelBttn.backgroundColor = UIColor.blackColor();
-                //labelBttn.sizeToFit();
                 tabViewContent = labelBttn;
                 
             }

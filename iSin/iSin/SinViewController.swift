@@ -9,18 +9,22 @@
 import Foundation
 import UIKit
 
+/* This view controller handles the view of the sin screen */
 class SinViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var descLabel: UILabel!
+    // properties
+    @IBOutlet weak var titleLabel: UILabel! // the title of the screen is the sin
+    @IBOutlet weak var addButton: UIButton! // button to add a sin
+    @IBOutlet weak var descLabel: UILabel! // description of the sin
     
-    var bckColor: UIColor!
-    var sinTitle: String!
-    var sinDescription: String!
-    var sinID:Int!
+    var bckColor: UIColor! // background color
+    var sinTitle: String! // the title
+    var sinDescription: String! // the description
+    var sinID:Int! // the sin id index
     
     override func viewWillAppear(animated: Bool) {
+        
+        // set background and labels
         self.view.backgroundColor = bckColor
         self.titleLabel.text = sinTitle
         self.titleLabel.textColor = UIColor.whiteColor()
@@ -33,11 +37,14 @@ class SinViewController: UIViewController {
         descLabel.text = sinDescription
     }
     
+    // handle the press of the add button to add a sin
     @IBAction func addSinPressed(sender: UIButton) {
-        let addSinNavC = storyboard?.instantiateViewControllerWithIdentifier("AddSinNavController") as! AddSinNavigationController
         
+        // show the add sin screen
+        let addSinNavC = storyboard?.instantiateViewControllerWithIdentifier("AddSinNavController") as! AddSinNavigationController
         addSinNavC.sinID = self.sinID
         
+        // since this view is managed by the SWRevealViewController, we must call presentViewController from the rootViewController
         self.view.window!.rootViewController!.presentViewController(addSinNavC, animated: true, completion: nil)
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/* This class is necessary so that the sinid can be transferred to the Add Sin View Controller */
 class AddSinNavigationController: UINavigationController {
     
     var sinID:Int!
