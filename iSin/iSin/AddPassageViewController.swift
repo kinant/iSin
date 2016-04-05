@@ -51,7 +51,16 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     }
     
     func downloadData(){
+        
+        SwiftSpinner.show("Downloading...", description: "Downloading data from API", animated: true)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         ISINClient.sharedInstance().getPassagesForSin(self.sinID) { (results, errorString) in
+            
+            dispatch_async(dispatch_get_main_queue()){
+                SwiftSpinner.hide()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            }
             
             if((errorString == nil)){
                 for i in 0 ..< results!.count {
@@ -218,7 +227,16 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         sendingAlert.removeFromParentViewController()
         sendingAlert.dismissViewControllerAnimated(false, completion: nil)
         
+        SwiftSpinner.show("Downloading...", description: "Downloading data from API", animated: true)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         ISINClient.sharedInstance().getPassage(searchTerm, completionHandlerForGetPassage: { (results, errorString) in
+            
+            dispatch_async(dispatch_get_main_queue()){
+                SwiftSpinner.hide()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+
+            }
             
             if(errorString == nil){
                 let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)

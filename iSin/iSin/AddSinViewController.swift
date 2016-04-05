@@ -52,10 +52,19 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func downloadData(){
+        
+        SwiftSpinner.show("Downloading...", description: "Downloading data from API", animated: true)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         ISINClient.sharedInstance().getSinsCommitedForSinType(self.sinID) { (results, errorString) in
             
-            if(errorString == nil){
+            dispatch_async(dispatch_get_main_queue()){
+                SwiftSpinner.hide()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            }
             
+            if(errorString == nil){
+        
                 for i in 0 ..< results!.count {
                     let newSin = Sin(name: results![i], type: self.sinID, entityName: ISINClient.EntityNames.ListSin, context: self.sharedContext)
                     self.sins.append(newSin)

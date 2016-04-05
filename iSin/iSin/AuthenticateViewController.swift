@@ -13,6 +13,7 @@ class AuthenticateViewController: UIViewController {
     
     @IBOutlet weak var statusLabel: UILabel!
     let MyKeychainWrapper = KeychainWrapper()
+    var spinner: SwiftSpinner!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,9 @@ class AuthenticateViewController: UIViewController {
         touchIDManager.authenticateUser(success: { () -> () in
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 self.loadDada()
+                
+                SwiftSpinner.show("User authenticated!", description: "Starting app", animated: true)
+                
                 self.authenticateSuccess()
             })
             }, failure: { (evaluationError: NSError) -> () in
@@ -240,8 +244,7 @@ class AuthenticateViewController: UIViewController {
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         dispatch_after(time, dispatch_get_main_queue()) {
-            //let revealController = self.revealViewController()
-            //self.presentViewController(revealController, animated: true, completion: nil)
+            SwiftSpinner.hide()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }

@@ -31,6 +31,7 @@
 		C96E54101CA1EAC900939DBC /* AddSinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */; };
 		C96E54121CA1F8FA00939DBC /* ISINConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */; };
 		C96E54141CA1F9BC00939DBC /* Passage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96E54131CA1F9BC00939DBC /* Passage.swift */; };
+		C97D56621CB42237008335CF /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97D56611CB42237008335CF /* SwiftSpinner.swift */; };
 		C99243471CA09DD900E64D26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99243461CA09DD900E64D26 /* AppDelegate.swift */; };
 		C99243491CA09DD900E64D26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99243481CA09DD900E64D26 /* ViewController.swift */; };
 		C992434C1CA09DD900E64D26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C992434A1CA09DD900E64D26 /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		C96E540F1CA1EAC900939DBC /* AddSinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSinViewController.swift; sourceTree = "<group>"; };
 		C96E54111CA1F8FA00939DBC /* ISINConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISINConvenience.swift; sourceTree = "<group>"; };
 		C96E54131CA1F9BC00939DBC /* Passage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Passage.swift; sourceTree = "<group>"; };
+		C97D56611CB42237008335CF /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		C99243431CA09DD900E64D26 /* iSin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99243461CA09DD900E64D26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C99243481CA09DD900E64D26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				C91A81541CB24DF00079B964 /* SinRecordsViewController.swift */,
 				C91A81561CB25AC00079B964 /* RecordDetailViewController.swift */,
 				C91A2CE71CB2D8C900AD0358 /* AuthenticateViewController.swift */,
+				C97D56611CB42237008335CF /* SwiftSpinner.swift */,
 			);
 			path = iSin;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				C91A81511CB23B200079B964 /* Model.xcdatamodeld in Sources */,
 				C91E67071CB0600900D6C443 /* AddPassageViewController.swift in Sources */,
 				C93FBE781CB332A8002C6A41 /* CustomRecordCellView.swift in Sources */,
+				C97D56621CB42237008335CF /* SwiftSpinner.swift in Sources */,
 				C913DF2B1CB2738F003339E5 /* RecordPassage.swift in Sources */,
 				C96E540C1CA1E16500939DBC /* ISINClient.swift in Sources */,
 				C9171C261CB11352002051C4 /* SettingsViewController.swift in Sources */,
