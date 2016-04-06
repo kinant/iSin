@@ -20,14 +20,13 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
     var selectedRecord: Record!
     
     override func viewDidLoad() {
+        
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         }
         
         self.tableView.registerNib(UINib(nibName: "CustomRecordCellView", bundle: nil), forCellReuseIdentifier: "RecordCell")
-        
-        //self.tableView.registerClass(CustomRecordCellView.self, forCellReuseIdentifier: "RecordCell")
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -41,22 +40,10 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func saveContext() {
-        CoreDataStackManager.sharedInstance().saveContext()
-    }
-    
-    var sharedContext: NSManagedObjectContext {
-        return CoreDataStackManager.sharedInstance().managedObjectContext
-    }
-    
-    func fetchAllRecords() -> [Record] {
-        
-        let fetchRequest = NSFetchRequest(entityName: "Record")
-        
-        do {
-            return try sharedContext.executeFetchRequest(fetchRequest) as! [Record]
-        } catch let error as NSError {
-            return [Record]()
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowRecordDetail" {
+            let recordDetailVC = segue.destinationViewController as! RecordDetailViewController
+            recordDetailVC.record = selectedRecord
         }
     }
     
@@ -105,11 +92,23 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
+
+    func saveContext() {
+        CoreDataStackManager.sharedInstance().saveContext()
+    }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowRecordDetail" {
-            let recordDetailVC = segue.destinationViewController as! RecordDetailViewController
-            recordDetailVC.record = selectedRecord
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+    
+    func fetchAllRecords() -> [Record] {
+        
+        let fetchRequest = NSFetchRequest(entityName: "Record")
+        
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Record]
+        } catch let error as NSError {
+            return [Record]()
         }
     }
 }

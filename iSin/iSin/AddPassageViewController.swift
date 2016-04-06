@@ -49,96 +49,6 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         
     }
     
-    func downloadData(){
-        
-        SwiftSpinner.show("Downloading...", description: "Downloading data from API", animated: true)
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
-        ISINClient.sharedInstance().getPassagesForSin(self.sinID) { (results, errorString) in
-            
-            if((errorString == nil)){
-                
-                let totalCount = results!.count - 1
-                var currentCount = 0
-                
-                for i in 0 ..< results!.count {
-                    
-                    let tempISINPassage = Passage(dictionary: nil, dataArray: results![i], sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.scratchContext)
-                    
-                    ISINClient.sharedInstance().getPassage(tempISINPassage.title, completionHandlerForGetPassage: { (results, errorString) in
-                        
-                        currentCount += 1
-                        
-                        let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
-                        print(bibleorgPassage.text)
-                        self.passages.append(bibleorgPassage)
-                        
-                        if(currentCount == totalCount){
-                            dispatch_async(dispatch_get_main_queue()){
-                                self.populatePassageArrays()
-                                self.selectedIndexes.removeAll()
-                                self.tableView.reloadData()
-                                SwiftSpinner.hide()
-                                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                            }
-                        }
-                        
-                        self.saveContext()
-                    })
-                }
-            } else {
-                ISINClient.sharedInstance().showAlert(self, title: "ERROR", message: errorString!, actions: ["OK"], completionHandler: nil)
-            }
-        }
-    }
-    
-    func populatePassageArrays(){
-        apiPassages.removeAll()
-        customPassages.removeAll()
-
-        for i in 0 ..< passages.count {
-            if passages[i].isCustom {
-                self.customPassages.append(passages[i])
-            } else {
-                self.apiPassages.append(passages[i])
-            }
-        }
-    }
-    
-    func fetchAllPassages() -> [Passage] {
-        
-        let fetchRequest = NSFetchRequest(entityName: "Passage")
-        
-        fetchRequest.sortDescriptors = []
-        fetchRequest.predicate = NSPredicate(format: "sin_type == \(sinID)");
-        
-        do {
-            return try sharedContext.executeFetchRequest(fetchRequest) as! [Passage]
-        } catch let error as NSError {
-            print("Error in fetchAllActors(): \(error)")
-            return [Passage]()
-        }
-    }
-
-    
-    func saveContext() {
-        CoreDataStackManager.sharedInstance().saveContext()
-    }
-    
-    var sharedContext: NSManagedObjectContext {
-        return CoreDataStackManager.sharedInstance().managedObjectContext
-    }
-    
-    lazy var scratchContext: NSManagedObjectContext = {
-        var context = NSManagedObjectContext()
-        context.persistentStoreCoordinator =  CoreDataStackManager.sharedInstance().persistentStoreCoordinator
-        return context
-    }()
-    
-    func cancelButtonPressed(){
-        print("cancel button pressed!!")
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // find if the index is in selected indexes array
@@ -213,22 +123,97 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                 // Remove the movie from the context
                 sharedContext.deleteObject(passage)
                 CoreDataStackManager.sharedInstance().saveContext()
-            
+                
             default:
                 break
             }
-
+            
         }
     }
     
-    func showPassageTextAlert(passageIndex: Int){
-        let refreshAlert = UIAlertController(title: passages[passageIndex].title, message: passages[passageIndex].text, preferredStyle: UIAlertControllerStyle.Alert)
+    func downloadData(){
         
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            //refreshAlert.dismissViewControllerAnimated(true, completion: nil)
-        }))
+        SwiftSpinner.show("Downloading...", description: "Downloading data from API", animated: true)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
-        presentViewController(refreshAlert, animated: true, completion: nil)
+        ISINClient.sharedInstance().getPassagesForSin(self.sinID) { (results, errorString) in
+            
+            if((errorString == nil)){
+                
+                let totalCount = results!.count - 1
+                var currentCount = 0
+                
+                for i in 0 ..< results!.count {
+                    
+                    let tempISINPassage = Passage(dictionary: nil, dataArray: results![i], sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.scratchContext)
+                    
+                    ISINClient.sharedInstance().getPassage(tempISINPassage.title, completionHandlerForGetPassage: { (results, errorString) in
+                        
+                        currentCount += 1
+                        
+                        let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
+                        print(bibleorgPassage.text)
+                        self.passages.append(bibleorgPassage)
+                        
+                        if(currentCount == totalCount){
+                            dispatch_async(dispatch_get_main_queue()){
+                                self.populatePassageArrays()
+                                self.selectedIndexes.removeAll()
+                                self.tableView.reloadData()
+                                SwiftSpinner.hide()
+                                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                            }
+                        }
+                        
+                        self.saveContext()
+                    })
+                }
+            } else {
+                ISINClient.sharedInstance().showAlert(self, title: "ERROR", message: errorString!, actions: ["OK"], completionHandler: nil)
+            }
+        }
+    }
+    
+    func populatePassageArrays(){
+        apiPassages.removeAll()
+        customPassages.removeAll()
+
+        for i in 0 ..< passages.count {
+            if passages[i].isCustom {
+                self.customPassages.append(passages[i])
+            } else {
+                self.apiPassages.append(passages[i])
+            }
+        }
+    }
+    
+    func saveContext() {
+        CoreDataStackManager.sharedInstance().saveContext()
+    }
+    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+    
+    lazy var scratchContext: NSManagedObjectContext = {
+        var context = NSManagedObjectContext()
+        context.persistentStoreCoordinator =  CoreDataStackManager.sharedInstance().persistentStoreCoordinator
+        return context
+    }()
+    
+    func fetchAllPassages() -> [Passage] {
+        
+        let fetchRequest = NSFetchRequest(entityName: "Passage")
+        
+        fetchRequest.sortDescriptors = []
+        fetchRequest.predicate = NSPredicate(format: "sin_type == \(sinID)");
+        
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Passage]
+        } catch let error as NSError {
+            print("Error in fetchAllActors(): \(error)")
+            return [Passage]()
+        }
     }
     
     func addCustomPassageConfirmAlert(searchTerm: String, sendingAlert: UIAlertController){
@@ -282,6 +267,35 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         })
     }
     
+    func cancelButtonPressed(){
+        print("cancel button pressed!!")
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func refreshPressed() {
+        // refresh pressed...
+        apiPassages.removeAll()
+        //customSins.removeAll()
+        
+        for i in 0 ..< passages.count {
+            if !passages[i].isCustom {
+                
+                if let delIndex = getIndexOfAPISin(passages[i]){
+                    let indexPath = NSIndexPath(forRow: delIndex, inSection: 0)
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                }
+                
+                sharedContext.deleteObject(passages[i])
+            }
+        }
+        
+        tableView.reloadData()
+        
+        passages = fetchAllPassages()
+        
+        downloadData()
+    }
+    
     @IBAction func addCustomPassageButtonPressed(sender: UIButton) {
     
         let alert = UIAlertController(title: "Add Custom Passage", message: "Enter passage with format Book Chapter:Verse Start-VerseEnd", preferredStyle: .Alert)
@@ -314,32 +328,6 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         }
         return nil
     }
-    
-    
-    func refreshPressed() {
-        // refresh pressed...
-        apiPassages.removeAll()
-        //customSins.removeAll()
-        
-        for i in 0 ..< passages.count {
-            if !passages[i].isCustom {
-                
-                if let delIndex = getIndexOfAPISin(passages[i]){
-                    let indexPath = NSIndexPath(forRow: delIndex, inSection: 0)
-                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                }
-                
-                sharedContext.deleteObject(passages[i])
-            }
-        }
-        
-        tableView.reloadData()
-        
-        passages = fetchAllPassages()
-        
-        downloadData()
-    }
-    
     
     @IBAction func addRecordPressed(sender: UIButton) {
         
