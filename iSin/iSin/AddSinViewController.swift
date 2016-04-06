@@ -9,39 +9,47 @@
 import Foundation
 import CoreData
 
+/* Class for the add sin view controller */
 class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // MARK: Outlet variables
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: Properties and variables
     var sinID:Int!
     var sins = [Sin]()
     var selectedSin: Sin!
     
+    // arrays to divide sins by their origin
     var apiSins = [Sin]()
     var customSins = [Sin]()
-    
-    // MARK: Outlet variables
-    @IBOutlet weak var tableView: UITableView!
     
     // MARK: View functions
     override func viewDidLoad() {
         
-        let newRightButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.cancelButtonPressed))
+        // set the nav bar buttons
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.cancelButtonPressed))
+        
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: #selector(AddPassageViewController.refreshPressed))
         
-        navigationItem.setRightBarButtonItems([newRightButton, refreshButton], animated: false)
+        navigationItem.setRightBarButtonItems([cancelButton, refreshButton], animated: false)
         
-        self.tableView.setNeedsLayout()
-        self.tableView.layoutIfNeeded()
+        // register the class so we can use custom cell view
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SinCell")
+        
+        // set tableview delegate and data source
         tableView.delegate = self
         tableView.dataSource = self
         
+        // fetch all sins
         sins = fetchAllSins()
         
+        // if no sin fetched, download data
         if(sins.count == 0) {
             downloadData()
         }
         
+        // populate relevant arrays and reload data
         populateSinArrays()
         tableView.reloadData()
     }
@@ -67,23 +75,6 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         return 2
     }
     
-    /* function for the section headers */
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "API Sins"
-        } else {
-            return "Custom Sins"
-        }
-    }
-    
-    /* function to handle the selection of a tableview row */
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        // set the selected sin, perform segue so that the add passage screen is shown
-        selectedSin = sins[indexPath.row]
-        performSegueWithIdentifier("AddPassage", sender: self)
-    }
-    
     /* function for the number of rows in each section */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -93,9 +84,29 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    /* function for the section headers */
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "API Sins"
+        } else {
+            return "Custom Sins"
+        }
+    }
+    
+    /* function for the header height */
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    /* function for the row height */
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 40
+    }
+    
     /* function for the creation of each cell in the tableview */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        // deque and get the cell
         let cell = tableView.dequeueReusableCellWithIdentifier("SinCell")
         
         // set cell text color
@@ -111,23 +122,17 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         return cell!
     }
     
-    /* function to allow the editing of rows (so that we can delete the row by swipping) */
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    /* function for the header height */
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-    
-    /* function for the row height */
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 40
+    /* function to handle the selection of a tableview row */
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // set the selected sin, perform segue so that the add passage screen is shown
+        selectedSin = sins[indexPath.row]
+        performSegueWithIdentifier("AddPassage", sender: self)
     }
     
     /* function for adding the ability to delete a row when swipping it and pressing delete */
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             
             // define a sin that we will initialize later
@@ -187,6 +192,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     // MARK: Other Functions
+    
     // this function populates the custom and api sin arrays based on their origin
     func populateSinArrays(){
         
