@@ -28,7 +28,7 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         
         // set the nav bar buttons
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.cancelButtonPressed))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddSinViewController.cancelPressed))
         
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: #selector(AddPassageViewController.refreshPressed))
         

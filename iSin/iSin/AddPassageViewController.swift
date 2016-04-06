@@ -42,7 +42,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             self.title = "Select Passages"
             
             // set nav bar buttons
-            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.cancelButtonPressed))
+            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddPassageViewController.cancelPressed))
             
             let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: #selector(AddPassageViewController.refreshPressed))
 
@@ -286,7 +286,7 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     }
     
     /* handle the press of the cancel button */
-    func cancelButtonPressed(){
+    func cancelPressed(){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

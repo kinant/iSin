@@ -37,12 +37,12 @@ extension ISINClient {
     
     struct SinIndexes {
         // MARK: Internal indexes for the sins
-        static let Lust = 0
-        static let Gluttony = 1
-        static let Greed = 2
-        static let Sloth = 3
-        static let Wrath = 4
-        static let Envy = 5
-        static let Pride = 6
+        static let Lust = 1
+        static let Gluttony = 2
+        static let Greed = 3
+        static let Sloth = 4
+        static let Wrath = 5
+        static let Envy = 6
+        static let Pride = 7
     }
 }
