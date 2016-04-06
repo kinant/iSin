@@ -55,6 +55,6 @@ it will show up in the list under "Custom Passages".
 of any passages saved. Click on any passage to view it's text. 
 5. On the "My Sin Records" screen, you can swipe a sin record row at any time to delete. 
 
-
-
-
+# Settings:
+1. The settings screen allows you to set the authentication method. If you want the app to ask to authenticate everytime that it
+becomes active, please turn the option ON, otherwise, leave it off (App will only authenticate once, when it starts).
