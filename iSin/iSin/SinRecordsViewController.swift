@@ -118,7 +118,9 @@ class SinRecordsViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: CoreData functions and variables
     
     func saveContext() {
-        CoreDataStackManager.sharedInstance().saveContext()
+        dispatch_async(dispatch_get_main_queue()){
+            CoreDataStackManager.sharedInstance().saveContext()
+        }
     }
     
     var sharedContext: NSManagedObjectContext {

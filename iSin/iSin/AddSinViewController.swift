@@ -111,6 +111,9 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         
         // set cell text color
         cell?.textLabel?.textColor = UIColor.whiteColor()
+        cell?.textLabel?.lineBreakMode = .ByWordWrapping
+        cell?.textLabel?.numberOfLines = 2
+        cell?.textLabel?.sizeToFit()
         
         // check the section and assing the text
         if indexPath.section == 0 {
@@ -168,7 +171,9 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: CoreData functions and variables
     func saveContext() {
-        CoreDataStackManager.sharedInstance().saveContext()
+        dispatch_async(dispatch_get_main_queue()){
+            CoreDataStackManager.sharedInstance().saveContext()
+        }
     }
     
     var sharedContext: NSManagedObjectContext {
@@ -186,7 +191,6 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         do {
             return try sharedContext.executeFetchRequest(fetchRequest) as! [Sin]
         } catch let error as NSError {
-            print("Error in fetchAllActors(): \(error)")
             return [Sin]()
         }
     }
@@ -220,12 +224,6 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
         // get the data for the sins commited (a list of sins)
         ISINClient.sharedInstance().getSinsCommitedForSinType(self.sinID) { (results, errorString) in
             
-            // once done, hide the indicator and the spinner
-            dispatch_async(dispatch_get_main_queue()){
-                SwiftSpinner.hide()
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            }
-            
             // check for errors
             if(errorString == nil){
         
@@ -250,6 +248,14 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
             } else {
                 // there was an error, show the alert
                 ISINClient.sharedInstance().showAlert(self, title: "ERROR", message: errorString!, actions: ["OK"], completionHandler: nil)
+                
+                
+            }
+            
+            // once done, hide the indicator and the spinner
+            dispatch_async(dispatch_get_main_queue()){
+                SwiftSpinner.hide()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
         }
     }

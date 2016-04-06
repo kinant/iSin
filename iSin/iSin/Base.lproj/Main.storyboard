@@ -155,8 +155,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SinRecordsViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQG-pL-mSd">
-                                <rect key="frame" x="201" y="72" width="199" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select a record to view details:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQG-pL-mSd">
+                                <rect key="frame" x="166" y="72" width="234" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -201,14 +201,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ4-bf-TwS">
-                                <rect key="frame" x="285" y="72" width="27" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TYPE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfS-vQ-HSe">
-                                <rect key="frame" x="279" y="116" width="42" height="21"/>
+                                <rect key="frame" x="279" y="136" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -223,18 +217,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="abcdefg hijklmno pqrstuv " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZ4-bf-TwS">
+                                <rect key="frame" x="20" y="72" width="560" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="fTd-id-S2R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="uZ4-bf-TwS" firstAttribute="centerX" secondItem="bfS-vQ-HSe" secondAttribute="centerX" id="3rc-Js-8mQ"/>
                             <constraint firstItem="bfS-vQ-HSe" firstAttribute="centerX" secondItem="AHO-uK-ohq" secondAttribute="centerX" id="7Ij-2m-eks"/>
-                            <constraint firstItem="uZ4-bf-TwS" firstAttribute="top" secondItem="kMt-Om-pth" secondAttribute="bottom" constant="8" symbolic="YES" id="I8G-5d-71M"/>
                             <constraint firstItem="QVI-ge-umH" firstAttribute="bottom" secondItem="izN-Ro-eyD" secondAttribute="top" id="Jx7-RO-Nbf"/>
                             <constraint firstItem="bfS-vQ-HSe" firstAttribute="centerX" secondItem="QVI-ge-umH" secondAttribute="centerX" id="OwO-Kk-e3l"/>
                             <constraint firstItem="QVI-ge-umH" firstAttribute="top" secondItem="VEi-xo-McY" secondAttribute="bottom" constant="22" id="S0i-KR-LrK"/>
-                            <constraint firstItem="bfS-vQ-HSe" firstAttribute="top" secondItem="uZ4-bf-TwS" secondAttribute="bottom" constant="23" id="WUg-dj-X5v"/>
-                            <constraint firstItem="uZ4-bf-TwS" firstAttribute="centerX" secondItem="AHO-uK-ohq" secondAttribute="centerX" id="bbl-d9-dIv"/>
+                            <constraint firstItem="uZ4-bf-TwS" firstAttribute="leading" secondItem="AHO-uK-ohq" secondAttribute="leadingMargin" id="SLX-2T-p8P"/>
+                            <constraint firstItem="bfS-vQ-HSe" firstAttribute="top" secondItem="uZ4-bf-TwS" secondAttribute="bottom" constant="8" symbolic="YES" id="Tgj-FB-RLJ"/>
                             <constraint firstItem="QVI-ge-umH" firstAttribute="leading" secondItem="AHO-uK-ohq" secondAttribute="leading" id="fhs-Ta-Xdi"/>
-                            <constraint firstItem="VEi-xo-McY" firstAttribute="top" secondItem="bfS-vQ-HSe" secondAttribute="bottom" constant="28" id="iaf-Rp-Gob"/>
+                            <constraint firstItem="uZ4-bf-TwS" firstAttribute="top" secondItem="kMt-Om-pth" secondAttribute="bottom" constant="8" symbolic="YES" id="gUl-kA-BmF"/>
+                            <constraint firstItem="VEi-xo-McY" firstAttribute="top" secondItem="bfS-vQ-HSe" secondAttribute="bottom" constant="8" id="iaf-Rp-Gob"/>
                             <constraint firstItem="VEi-xo-McY" firstAttribute="centerX" secondItem="QVI-ge-umH" secondAttribute="centerX" id="pee-Wg-2eE"/>
                         </constraints>
                     </view>
@@ -516,8 +520,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authenticate Every Time App is Active: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kx7-O7-uIa">
-                                <rect key="frame" x="20" y="130" width="300" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authenticate Every Time App is Active: " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kx7-O7-uIa">
+                                <rect key="frame" x="20" y="130.5" width="200" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="whe-PG-zBx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -538,7 +545,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="CBN-yx-x4K">
-                        <barButtonItem key="leftBarButtonItem" title="MENU" id="A2U-jB-5Nv"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="A2U-jB-5Nv"/>
                     </navigationItem>
                     <connections>
                         <outlet property="authSwitch" destination="mSy-fE-ami" id="kh7-GJ-ngd"/>
@@ -578,7 +585,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxD-XN-Arv">
                                 <rect key="frame" x="20" y="562" width="170" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="ADD CUSTOM PASSAGE">
+                                <state key="normal" title="ADD CUSTOM">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>

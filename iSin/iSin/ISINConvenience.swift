@@ -66,7 +66,6 @@ extension ISINClient {
                     completionHandlerForGetPassages(results: resultsArray, errorString: nil)
                 }
             } else {
-                
                 // there was an error
                 completionHandlerForGetPassages(results: nil, errorString: error?.userInfo[NSLocalizedDescriptionKey] as? String)
             }

@@ -159,7 +159,9 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
     // MARK: CoreData functions and variables
     
     func saveContext() {
-        CoreDataStackManager.sharedInstance().saveContext()
+        dispatch_async(dispatch_get_main_queue()){
+            CoreDataStackManager.sharedInstance().saveContext()
+        }
     }
     
     var sharedContext: NSManagedObjectContext {
@@ -240,10 +242,6 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
 
                                 // reload table
                                 self.tableView.reloadData()
-                                
-                                // hide spinner and network indicator
-                                SwiftSpinner.hide()
-                                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                             }
                         }
                         
@@ -254,6 +252,12 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
             } else {
                 // there was an error, show alert
                 ISINClient.sharedInstance().showAlert(self, title: "ERROR", message: errorString!, actions: ["OK"], completionHandler: nil)
+            }
+            
+            // hide spinner and network indicator
+            dispatch_async(dispatch_get_main_queue()){
+                SwiftSpinner.hide()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
         }
     }
@@ -346,13 +350,6 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
         // download passage from bible org
         ISINClient.sharedInstance().getPassage(searchTerm, completionHandlerForGetPassage: { (results, errorString) in
             
-            // hide indicator and spinner
-            dispatch_async(dispatch_get_main_queue()){
-                SwiftSpinner.hide()
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                
-            }
-            
             // check that there were no errors
             if(errorString == nil){
                 
@@ -404,6 +401,13 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                 // there was an error downloading, show alert
                 ISINClient.sharedInstance().showAlert(self, title: "ERROR", message: errorString!, actions: ["OK"], completionHandler: nil)
             }
+            
+            // hide spinner and network indicator
+            dispatch_async(dispatch_get_main_queue()){
+                SwiftSpinner.hide()
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            }
+            
         })
     }
     
