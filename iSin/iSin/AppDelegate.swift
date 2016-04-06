@@ -68,6 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else {
                 
                 // all criteria is not met, we present the authorization screen
+                // remove these lines to disable authentication
                 let authVC = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("AuthenticateVC") as! AuthenticateViewController
                 self.window?.rootViewController?.presentViewController(authVC, animated: false, completion: nil)
             }
