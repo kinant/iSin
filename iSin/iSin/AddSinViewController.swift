@@ -129,7 +129,12 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         // set the selected sin, perform segue so that the add passage screen is shown
-        selectedSin = sins[indexPath.row]
+        if(indexPath.section == 0){
+            selectedSin = apiSins[indexPath.row]
+        } else {
+            selectedSin = customSins[indexPath.row]
+        }
+        
         performSegueWithIdentifier("AddPassage", sender: self)
     }
     
