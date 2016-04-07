@@ -235,14 +235,14 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
                 // iterate over each sin in the results
                 for i in 0 ..< results!.count {
                     
-                    // create the sin
-                    let newSin = Sin(name: results![i], type: self.sinID, entityName: ISINClient.EntityNames.ListSin, context: self.sharedContext)
-                    
-                    // append it to the array
-                    self.sins.append(newSin)
-                
-                    // save the context
-                    self.saveContext()
+                    dispatch_async(dispatch_get_main_queue()){
+                        // create the sin
+                        let newSin = Sin(name: results![i], type: self.sinID, entityName: ISINClient.EntityNames.ListSin, context: self.sharedContext)
+                        // save the context
+                        self.saveContext()
+                        // append it to the array
+                        self.sins.append(newSin)
+                    }
                 }
             
                 // populate the separate arrays and reload the table
@@ -253,8 +253,6 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
             } else {
                 // there was an error, show the alert
                 ISINClient.sharedInstance().showAlert(self, title: "ERROR", message: errorString!, actions: ["OK"], completionHandler: nil)
-                
-                
             }
             
             // once done, hide the indicator and the spinner
@@ -273,7 +271,6 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
             
             // check if it is the sin we are looking for
             if sin.name == apiSins[i].name {
-                
                 // if so, return the index
                 return i
             }
@@ -302,21 +299,20 @@ class AddSinViewController:UIViewController, UITableViewDelegate, UITableViewDat
             let textField = alert.textFields![0] as UITextField
             
             if(textField.text! != ""){
-                
-                // create a new sin from custom sin
-                let newSin = Sin(name: textField.text!, type: self.sinID, entityName: ISINClient.EntityNames.ListSin, context: self.sharedContext)
-                
-                // set the flag
-                newSin.isCustom = true
-                
-                // append to array
-                self.sins.append(newSin)
-                
-                // save the context
-                self.saveContext()
-                
-                // populate the relevant arrays and reload the table
                 dispatch_async(dispatch_get_main_queue()){
+                    // create a new sin from custom sin
+                    let newSin = Sin(name: textField.text!, type: self.sinID, entityName: ISINClient.EntityNames.ListSin, context: self.sharedContext)
+                    
+                    // set the flag
+                    newSin.isCustom = true
+                    
+                    // append to array
+                    self.sins.append(newSin)
+                    
+                    // save the context
+                    self.saveContext()
+                    
+                    // populate the relevant arrays and reload the table
                     self.populateSinArrays()
                     self.tableView.reloadData()
                 }

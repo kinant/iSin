@@ -224,11 +224,13 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                         // increment the count
                         currentCount += 1
                         
-                        // create the FULL passage (with text)
-                        let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
+                        dispatch_async(dispatch_get_main_queue()){
+                            // create the FULL passage (with text)
+                            let bibleorgPassage = Passage(dictionary: results, dataArray: nil, sinID: self.sinID, entityName: ISINClient.EntityNames.ListPassage, context: self.sharedContext)
                         
-                        // added to the passages array
-                        self.passages.append(bibleorgPassage)
+                            // added to the passages array
+                            self.passages.append(bibleorgPassage)
+                        }
                         
                         // check if all the passages have been downloaded (by the counter)
                         if(currentCount == totalCount){
@@ -242,6 +244,11 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
 
                                 // reload table
                                 self.tableView.reloadData()
+                                
+                                // hide spinner and network indicator
+                                SwiftSpinner.hide()
+                                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                                
                             }
                         }
                         
@@ -250,14 +257,13 @@ class AddPassageViewController:UIViewController, UITableViewDelegate, UITableVie
                     })
                 }
             } else {
+                // hide spinner and network indicator
+                dispatch_async(dispatch_get_main_queue()){
+                    SwiftSpinner.hide()
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                }
                 // there was an error, show alert
                 ISINClient.sharedInstance().showAlert(self, title: "ERROR", message: errorString!, actions: ["OK"], completionHandler: nil)
-            }
-            
-            // hide spinner and network indicator
-            dispatch_async(dispatch_get_main_queue()){
-                SwiftSpinner.hide()
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
         }
     }
