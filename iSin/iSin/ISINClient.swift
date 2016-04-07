@@ -20,7 +20,7 @@ class ISINClient: NSObject {
     var userLoggedIn = false
     
     // MARK: init
-    override init() {
+    private override init() {
         session = NSURLSession.sharedSession()
         super.init()
     }
@@ -155,7 +155,7 @@ class ISINClient: NSObject {
     class func sharedInstance() -> ISINClient {
         
         struct Singleton {
-            static var sharedInstance = ISINClient()
+            static let sharedInstance = ISINClient()
         }
         
         return Singleton.sharedInstance
